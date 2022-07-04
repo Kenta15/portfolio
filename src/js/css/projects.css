@@ -1,0 +1,32 @@
+body{
+    cursor:default;
+}
+.descriptions{
+    color:white;
+    text-align:center;
+    margin-top:60vh;
+    margin-left:20vw;
+    opacity:0.8;
+}
+.title{
+    margin-bottom:1vh;
+}
+.description{
+    font-size: 18px;
+}
+#ecommerce,#movie,#portfolio, #none{
+    position:absolute;
+    opacity:0;
+}
+#ecommerce{
+    margin-left:8.7vw;
+}
+#movie{
+    margin-left:20vw;
+}
+#portfolio{
+    margin-left:20vw;
+}
+#none{
+    margin-left:20vw;
+}

@@ -1,0 +1,59 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+body{
+    background-color: black;
+    opacity:0;
+}
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+.message{
+    display:inline-block;
+    margin-left: 30vw;
+    margin-top:10vh;
+}
+.text{
+    font-size:9.8vw;
+    color:white;
+    text-align: center;
+    opacity:0;
+}
+#main-page{
+    position:absolute;
+}
+.header{
+    margin-top:5vh;
+    margin-left: 25vw;
+}
+.header a,p{
+    color:white;
+    text-align:center;
+    text-decoration: none;
+}
+.header a{
+    font-size:18px;
+    margin-right:8vw;
+    opacity:0;
+    cursor:pointer;
+}
+.header p{
+    font-size:16px;
+    margin:0 0 0 -8vw;
+    opacity:0;
+}
+.index,.about,.projects,.skills,.education,.contact{
+    display:inline-block;
+}

@@ -1,0 +1,82 @@
+body{
+    cursor:default;
+}
+.descriptions{
+    color:white;
+    text-align:center;
+    margin-top:60vh;
+    margin-left:20vw;
+    opacity:0.8;
+}
+.title{
+    margin-bottom:1vh;
+}
+.description{
+    font-size: 18px;
+}
+#ecommerce,#movie,#portfolio, #none{
+    position:absolute;
+    opacity:0;
+}
+#ecommerce{
+    margin-left:8.7vw;
+}
+#movie{
+    margin-left:20vw;
+}
+#portfolio{
+    margin-left:20vw;
+}
+#none{
+    margin-left:20vw;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+body{
+    background-color: black;
+}
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+#main-page{
+    position:absolute;
+}
+.header{
+    margin-top:5vh;
+    margin-left: 25vw;
+}
+.header a,p{
+    color:white;
+    text-align:center;
+    text-decoration: none;
+}
+.header a{
+    font-size:18px;
+    margin-right:8vw;
+    opacity:0;
+    cursor:pointer;
+}
+.header p{
+    font-size:16px;
+    margin:0 0 0 -8vw;
+    opacity:0;
+}
+.index,.about,.projects,.skills,.education,.contact{
+    display:inline-block;
+}
+
+/*# sourceMappingURL=projects.css.map*/
