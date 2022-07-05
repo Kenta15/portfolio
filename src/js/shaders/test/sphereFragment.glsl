@@ -46,13 +46,19 @@ float cnoise(vec2 P)
     return 2.3 * n_xy;
 }
 
+// void main(){
+
+//     float strength = step(0.9, sin(cnoise(vuv * 20.0) * 50.0));
+
+//     vec3 blackColor = vec3(0.0);
+//     vec3 uvColor = vec3(vuv, 1.0);
+//     vec3 mixedColor = mix(blackColor, uvColor, strength);
+
+//     gl_FragColor = vec4(mixedColor, alpha);
+// }
 void main(){
 
-    float strength = step(0.9, sin(cnoise(vuv * 20.0) * 50.0));
+    float strength = sin(cnoise(vuv * 20.0) * 50.0);
 
-    vec3 blackColor = vec3(0.0);
-    vec3 uvColor = vec3(vuv, 1.0);
-    vec3 mixedColor = mix(blackColor, uvColor, strength);
-
-    gl_FragColor = vec4(mixedColor, alpha);
+    gl_FragColor = vec4(strength,strength,strength,alpha);
 }

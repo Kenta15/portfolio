@@ -21,7 +21,7 @@ import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js'
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -191,9 +191,9 @@ const directionalLight = new THREE.DirectionalLight(0xffffff,1.5)
 directionalLight.position.set( 5, 5, 3.5 )
 scene.add(directionalLight)
 
-gui.add(directionalLight.position, 'x').min(- 20).max(20).step(0.001)
-gui.add(directionalLight.position, 'y').min(- 20).max(20).step(0.001)
-gui.add(directionalLight.position, 'z').min(- 20).max(20).step(0.001)
+// gui.add(directionalLight.position, 'x').min(- 20).max(20).step(0.001)
+// gui.add(directionalLight.position, 'y').min(- 20).max(20).step(0.001)
+// gui.add(directionalLight.position, 'z').min(- 20).max(20).step(0.001)
 
 /**
  * Camera
@@ -205,9 +205,9 @@ camera.position.y = 1
 camera.position.z = 8
 scene.add(camera)
 
-gui.add(camera.position, 'x').min(- 20).max(20).step(0.001)
-gui.add(camera.position, 'y').min(- 20).max(20).step(0.001)
-gui.add(camera.position, 'z').min(- 20).max(20).step(0.001)
+// gui.add(camera.position, 'x').min(- 20).max(20).step(0.001)
+// gui.add(camera.position, 'y').min(- 20).max(20).step(0.001)
+// gui.add(camera.position, 'z').min(- 20).max(20).step(0.001)
 
 // Transition
 const clickClock = new THREE.Clock()

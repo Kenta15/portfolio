@@ -15,7 +15,7 @@ import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js'
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -105,10 +105,10 @@ weird.position.set(2,7,0)
 weird.scale.set(10,10,0)
 // scene.add(weird)
 
-gui.add(weird.position, 'x').min(- 10).max(10).step(0.001)
-gui.add(weird.position, 'y').min(- 10).max(10).step(0.001)
-gui.add(weird.position, 'z').min(- 10).max(10).step(0.001)
-gui.add(weird.material.uniforms.random, 'value').min(0).max(100).step(0.1)
+// gui.add(weird.position, 'x').min(- 10).max(10).step(0.001)
+// gui.add(weird.position, 'y').min(- 10).max(10).step(0.001)
+// gui.add(weird.position, 'z').min(- 10).max(10).step(0.001)
+// gui.add(weird.material.uniforms.random, 'value').min(0).max(100).step(0.1)
 
 /**
  * Sizes
@@ -143,9 +143,9 @@ camera.position.y = 3
 camera.position.z = 10
 scene.add(camera)
 
-gui.add(camera.position, 'x').min(- 10).max(10).step(0.001)
-gui.add(camera.position, 'y').min(- 10).max(10).step(0.001)
-gui.add(camera.position, 'z').min(- 10).max(10).step(0.001)
+// gui.add(camera.position, 'x').min(- 10).max(10).step(0.001)
+// gui.add(camera.position, 'y').min(- 10).max(10).step(0.001)
+// gui.add(camera.position, 'z').min(- 10).max(10).step(0.001)
 
 // Transition
 const clickClock = new THREE.Clock()

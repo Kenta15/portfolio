@@ -1,4 +1,81 @@
-.webgl{
+body{
     cursor: grab;
+}
+.webgl{
     opacity:0;
+    z-index:-3;
+}
+::selection {
+    color: none;
+    background: none;
+}
+/* For Mozilla Firefox */
+::-moz-selection {
+    color: none;
+    background: none;
+}
+.container{
+    width:10%;
+    background: #272727;
+    border-radius: 3px;
+}
+#explanations{
+    position:relative;
+    background: linear-gradient(0deg, #000, #272727);
+    width:40vw;
+    height:60vh;
+    margin-left:30vw;
+    opacity:0;
+    z-index:5;
+}
+
+
+#explanations h1, p{
+    text-align:center;
+}
+#explanations h1{
+    padding-top:2vh;
+    padding-bottom:1vh;
+}
+#explanations p{
+    font-size:25px;
+    opacity:0.8;
+}
+
+.block {
+	position: relative;
+	width:40vw;
+    height:60vh;
+    margin-top:-60vh;
+    margin-left:30vw;
+    opacity:0;
+}
+
+.block:before, .block:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(235deg, #8360c3, #2ebf91);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: steam 50s linear infinite;
+    z-index:-2;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 250% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(30px);
 }

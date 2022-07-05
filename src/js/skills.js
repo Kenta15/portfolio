@@ -9,21 +9,13 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 import * as CANNON from 'cannon-es'
 import CannonDegugger from 'cannon-es-debugger'
+import explain from './skillsExplanations.js'
 
 /**
  * Base
  */
 // Debug
-const gui = new dat.GUI()
-
-const debugObject = {}
-
-debugObject.createSphere = () =>{
-    createSphere(Math.random() * 2, 
-    {x:Math.random() * 5,y: Math.random() * 5, z: Math.random() * 5}
-    )
-}
-gui.add(debugObject, 'createSphere')
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -105,6 +97,7 @@ world.addBody(floorBody2)
 const fontLoader = new FontLoader()
 const text_array = ['JavaScript','Python','HTML','CSS','Django','JQuery','Three.js','Cannon.js', 
                     'Vue.js','Node.js','React','AWS','Heroku','Git','GitHub','Webpack','VS Code',
+                    'Kenta',
                     ]
 
 // Text Group
@@ -215,32 +208,6 @@ const material = new THREE.MeshStandardMaterial({
                     envMap:environmentMapTexture,
                 })
 
-const createSphere = (radius, position) => {
-    // THREE js mesh
-    const mesh = new THREE.Mesh(geometry, material)
-    mesh.scale.set(radius,radius,radius)
-    mesh.castShadow = true
-    mesh.position.copy(position)
-    scene.add(mesh)
-
-    // CANNON js body
-    const shape = new CANNON.Sphere(radius)
-    const body = new CANNON.Body({
-        mass:1,
-        position: new CANNON.Vec3(0,3,0),
-        shape,
-        material: defaultMaterial,
-    })
-    body.position.copy(position)
-    world.addBody(body)
-
-    // save in objects to update
-    objectsUpdate.push({
-        mesh,
-        body,
-    })
-}
-
 /**
  * Sizes
  */
@@ -273,10 +240,6 @@ camera.position.x = 0
 camera.position.y = 0
 camera.position.z = 30
 scene.add(camera)
-
-gui.add(camera.rotation, 'x').min(-10).max(100).step(0.1).name('cameraX')
-gui.add(camera.position, 'y').min(-10).max(100).step(0.1).name('cameraY')
-gui.add(camera.rotation, 'z').min(-10).max(100).step(0.1).name('cameraZ')
 
 // Transition
 const clickClock = new THREE.Clock()
@@ -330,12 +293,6 @@ icons.forEach(icon =>{
     })
 })
 
-// image Loading
-var img = document.createElement('img')
-img.src = './imgs/mouse.png'
-var element = document.getElementById('mouse')
-element.appendChild(img)
-
 // Controls
 // const controls = new OrbitControls(camera, canvas)
 // controls.enableDamping = true
@@ -371,7 +328,13 @@ window.addEventListener('mousedown', (event) => {
     if(intersects.length){
         currIntersect = intersects[0].object
         
-        $('.webgl').css('cursor', 'grabbing')
+        $('body').css('cursor', 'grabbing')
+
+        // Pop up the explanation
+        console.log(currIntersect.id)
+        explain(currIntersect.id)
+        $('#explanations').animate({'opacity':0.9},500)
+        $('.block').animate({'opacity':0.5},800)
     }
 
     requestAnimationFrame(() => {
@@ -391,7 +354,11 @@ window.addEventListener('mouseup', () => {
     isDragging = false
     currIntersect = null
 
-    $('.webgl').css('cursor', 'grab')
+    $('body').css('cursor', 'grab')
+
+    // Remove the explanation
+    $('#explanations').animate({'opacity':0},1000)
+    $('.block').animate({'opacity':0},500)
 })
 
 
@@ -443,7 +410,6 @@ const tick = () =>
 
     for(const object of objectsToUpdate)
     {
-        /// console.log(objectsToUpdate[0].mesh)
         object.text.position.copy(object.body.position)
         object.text.quaternion.copy(object.body.quaternion)
     }
