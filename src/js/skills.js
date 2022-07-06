@@ -32,15 +32,6 @@ const cubeTextureLoader = new THREE.CubeTextureLoader()
 const matcapTexture = textureLoader.load('/textures/matcaps/4.png')
 const flagTexture = textureLoader.load('/textures/JapaneseFlag.png')
 
-const environmentMapTexture = cubeTextureLoader.load([
-    '/textures/environmentMaps/0/px.png',
-    '/textures/environmentMaps/0/nx.png',
-    '/textures/environmentMaps/0/py.png',
-    '/textures/environmentMaps/0/ny.png',
-    '/textures/environmentMaps/0/pz.png',
-    '/textures/environmentMaps/0/nz.png'
-])
-
 // Light
 // const ambientLight = new THREE.AmbientLight(0xffffff, 0.4)
 // scene.add(ambientLight)
@@ -51,7 +42,7 @@ const environmentMapTexture = cubeTextureLoader.load([
 
 // Cannon instanciation
 const world = new CANNON.World()
-world.gravity.set(0, -0.005, 0)
+world.gravity.set(0, 0, 0)
 
 const defaultMaterial = new CANNON.Material('default')
 const defaultContactMaterial = new CANNON.ContactMaterial(
@@ -97,7 +88,7 @@ world.addBody(floorBody2)
 const fontLoader = new FontLoader()
 const text_array = ['JavaScript','Python','HTML','CSS','Django','JQuery','Three.js','Cannon.js', 
                     'Vue.js','Node.js','React','AWS','Heroku','Git','GitHub','Webpack','VS Code',
-                    'Kenta',
+                    'Kenta', 'amends', 'amends', 'amends', 'amends', 'amends', 'amends', 'amends',
                     ]
 
 // Text Group
@@ -153,24 +144,12 @@ const createTexts = (width, height, depth, position, index) => {
                textGeometry.center()
                const material = new THREE.MeshMatcapMaterial({
                                     matcap: matcapTexture,
-                                    // transparent: true,
-                                    // opacity: 0,
                                 })
 
                const text = new THREE.Mesh(textGeometry,material)
+               text.name = text_array[index]
+
                texts.add(text)
-
-               const textFloatClock = new THREE.Clock()
-
-                // const rotateText = () => {
-
-                //     const textFloatTime = textFloatClock.getElapsedTime()
-                //     text.position.y = text.position.y - Math.sin(textFloatTime) * 0.01
-                //     text.rotation.z = text.rotation.z - Math.cos(textFloatTime) * 0.002
-
-                //     window.requestAnimationFrame(rotateText)
-                // }
-                // rotateText()
 
                 // CANNON js body
                 const shape = new CANNON.Box(new CANNON.Vec3(width/2,height/2,depth/2))
@@ -193,20 +172,15 @@ const createTexts = (width, height, depth, position, index) => {
 }
 
 // Create texts
+var count = -1
 for(let i=0;i<text_array.length;i++){
-    createTexts(5,2,1,{x: (Math.random() - 0.5) * 70, y: Math.random() * 20 - 10, z:0 }, i)
+
+    if(i%5 == 0){
+        count++
+    }
+
+    createTexts(6,2,1,{x: ((i%5) - 2) * 15, y: 12 - (count * 6), z:0 }, i) // ((i%6)- 2.5) * 7.6
 }
-
-// Create Sphere
-const objectsUpdate = []
-
-const geometry = new THREE.SphereBufferGeometry(1,20,20)
-
-const material = new THREE.MeshStandardMaterial({
-                    metalness: 0.3,
-                    roughness: 0.4,
-                    envMap:environmentMapTexture,
-                })
 
 /**
  * Sizes
@@ -331,10 +305,9 @@ window.addEventListener('mousedown', (event) => {
         $('body').css('cursor', 'grabbing')
 
         // Pop up the explanation
-        console.log(currIntersect.id)
         explain(currIntersect.id)
-        $('#explanations').animate({'opacity':0.9},500)
-        $('.block').animate({'opacity':0.5},800)
+        $('#explanations').stop().animate({'opacity':0.9},500)
+        $('.block').stop().animate({'opacity':0.5},800)
     }
 
     requestAnimationFrame(() => {
@@ -348,6 +321,10 @@ window.addEventListener('mousemove', event =>{
     }
     mousemove.x = event.clientX / sizes.width * 2 - 1
     mousemove.y = - (event.clientY / sizes.height) * 2 + 1
+
+    // if(currIntersect){
+    //     $('body').css('cursor', 'pointer')
+    // }
 })
 
 window.addEventListener('mouseup', () => {
@@ -357,9 +334,16 @@ window.addEventListener('mouseup', () => {
     $('body').css('cursor', 'grab')
 
     // Remove the explanation
-    $('#explanations').animate({'opacity':0},1000)
-    $('.block').animate({'opacity':0},500)
+    $('#explanations').stop().animate({'opacity':0},1000)
+    $('.block').stop().animate({'opacity':0},500)
 })
+
+// window.addEventListener('mouseout', () => {   
+
+//     if(!currIntersect){
+//         $('body').css('cursor', 'default')
+//     }
+// })
 
 
 function dragObject(){
@@ -412,10 +396,6 @@ const tick = () =>
     {
         object.text.position.copy(object.body.position)
         object.text.quaternion.copy(object.body.quaternion)
-    }
-    for(const object of objectsUpdate){
-        object.mesh.position.copy(object.body.position)
-        object.mesh.quaternion.copy(object.body.quaternion)
     }
     
     // Call tick again on the next frame

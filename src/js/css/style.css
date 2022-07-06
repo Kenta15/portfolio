@@ -20,6 +20,15 @@ body{
     left: 0;
     outline: none;
 }
+::selection {
+    color: none;
+    background: none;
+}
+/* For Mozilla Firefox */
+::-moz-selection {
+    color: none;
+    background: none;
+}
 .message{
     display:inline-block;
     margin-left: 30vw;

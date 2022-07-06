@@ -336,53 +336,45 @@ const cursor = {
 window.addEventListener('mousemove', event =>{
     cursor.x = event.clientX / sizes.width * 2 - 1
     cursor.y = - (event.clientY / sizes.height) * 2 + 1
+
+    if(currIntersect){
+        $('body').css('cursor', 'pointer')
+    }
 })
-
-// window.addEventListener('mouseover', () => {
-//     raycaster.setFromCamera(cursor, camera)
-//     const intersects = raycaster.intersectObjects(screens.children)
-//     currIntersect = intersects[0].object
-    
-//     if(currIntersect.id > 30){
-//         $('body').css('cursor', 'pointer')
-//     }
-// })
-
-// window.addEventListener('mouseout', () => {   
-//     raycaster.setFromCamera(cursor, camera)
-//     const intersects = raycaster.intersectObjects(screens.children)
-
-//     if(!intersects){
-//         $('body').css('cursor', 'default')
-//     }
-// })
 
 window.addEventListener('click', () => {
     if(currIntersect){
-        if(currIntersect.id == 36){
-            $('#ecommerce').animate({'opacity': 0.8},1000)
-            $('#movie').animate({'opacity': 0},1000)
-            $('#portfolio').animate({'opacity': 0},1000)
-            $('#none').animate({'opacity': 0},1000)
+        if(currIntersect.object.id == 36){
+            $('#ecommerce').stop().animate({'opacity': 0.8},1000)
+            $('#movie').stop().animate({'opacity': 0},1000)
+            $('#portfolio').stop().animate({'opacity': 0},1000)
+            $('#none').stop().animate({'opacity': 0},1000)
         }
-        else if(currIntersect.id == 33){
-            $('#ecommerce').animate({'opacity': 0},1000)
-            $('#movie').animate({'opacity': 0.8},1000)
-            $('#portfolio').animate({'opacity': 0},1000)
-            $('#none').animate({'opacity': 0},1000)
+        else if(currIntersect.object.id == 33){
+            $('#ecommerce').stop().animate({'opacity': 0},1000)
+            $('#movie').stop().animate({'opacity': 0.8},1000)
+            $('#portfolio').stop().animate({'opacity': 0},1000)
+            $('#none').stop().animate({'opacity': 0},1000)
         }
-        else if(currIntersect.id == 30){
-            $('#ecommerce').animate({'opacity': 0},1000)
-            $('#movie').animate({'opacity': 0},1000)
-            $('#portfolio').animate({'opacity': 0.8},1000)
-            $('#none').animate({'opacity': 0},1000)
+        else if(currIntersect.object.id == 30){
+            $('#ecommerce').stop().animate({'opacity': 0},1000)
+            $('#movie').stop().animate({'opacity': 0},1000)
+            $('#portfolio').stop().animate({'opacity': 0.8},1000)
+            $('#none').stop().animate({'opacity': 0},1000)
         }
-        else if(currIntersect.id == 27){
-            $('#ecommerce').animate({'opacity': 0},1000)
-            $('#movie').animate({'opacity': 0},1000)
-            $('#portfolio').animate({'opacity': 0},1000)
-            $('#none').animate({'opacity': 0.8},1000)
+        else if(currIntersect.object.id == 27){
+            $('#ecommerce').stop().animate({'opacity': 0},1000)
+            $('#movie').stop().animate({'opacity': 0},1000)
+            $('#portfolio').stop().animate({'opacity': 0},1000)
+            $('#none').stop().animate({'opacity': 0.8},1000)
         }
+    }
+})
+
+window.addEventListener('mouseout', () => {   
+
+    if(!currIntersect){
+        $('body').css('cursor', 'default')
     }
 })
 
@@ -447,7 +439,7 @@ const tick = () =>
         
         if(intersects.length)
         {
-            currIntersect = intersects[0].object
+            currIntersect = intersects[0]
         }
         else
         {

@@ -12,7 +12,7 @@ Object.entries(dict).forEach(([key,value]) =>{
 
         setTimeout(function(){
             $("#II").stop().animate({'opacity': 1}, 3000);
-            $('#' + key).animate({'opacity': 0.5}, 3000);
+            $('#' + key).stop().animate({'opacity': 0.5}, 3000);
 
             if(key == "II"){
                 $("#" + key).hover(function(){

@@ -5,15 +5,6 @@ body{
     opacity:0;
     z-index:-3;
 }
-::selection {
-    color: none;
-    background: none;
-}
-/* For Mozilla Firefox */
-::-moz-selection {
-    color: none;
-    background: none;
-}
 .container{
     width:10%;
     background: #272727;
@@ -28,8 +19,6 @@ body{
     opacity:0;
     z-index:5;
 }
-
-
 #explanations h1, p{
     text-align:center;
 }
