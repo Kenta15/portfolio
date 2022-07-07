@@ -6,15 +6,30 @@ body{
     z-index:-3;
 }
 .container{
-    width:10%;
-    background: #272727;
-    border-radius: 3px;
+    margin-top:-8vh;
+    margin-left:15vh;
+    opacity:0;
+}
+#grab{
+    height:60px;
+    margin-bottom:0.8vh;
+}
+#grabbing{
+    margin-left: -1vw;
+}
+.texts{
+    margin-top:-2vh;
+    margin-left:0.8vw;
+}
+.texts p{
+    display: inline;
 }
 #explanations{
     position:relative;
     background: linear-gradient(0deg, #000, #272727);
     width:40vw;
     height:60vh;
+    margin-top:10vh;
     margin-left:30vw;
     opacity:0;
     z-index:5;

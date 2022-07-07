@@ -1,5 +1,5 @@
-import './css/contact.css'
-import './css/header.css'
+import '../css/contact.css'
+import '../css/header.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import flagVertexShader from './shaders/test/flagVertex.glsl'

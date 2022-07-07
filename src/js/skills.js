@@ -1,5 +1,5 @@
-import './css/skills.css'
-import './css/header.css'
+import '../css/skills.css'
+import '../css/header.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import flagVertexShader from './shaders/test/flagVertex.glsl'
@@ -10,6 +10,7 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 import * as CANNON from 'cannon-es'
 import CannonDegugger from 'cannon-es-debugger'
 import explain from './skillsExplanations.js'
+import Animations from './animationExport.js'
 
 /**
  * Base
@@ -88,7 +89,8 @@ world.addBody(floorBody2)
 const fontLoader = new FontLoader()
 const text_array = ['JavaScript','Python','HTML','CSS','Django','JQuery','Three.js','Cannon.js', 
                     'Vue.js','Node.js','React','AWS','Heroku','Git','GitHub','Webpack','VS Code',
-                    'Kenta', 'amends', 'amends', 'amends', 'amends', 'amends', 'amends', 'amends',
+                    'Kenta', 'Vercel', 'Express.js', 'Next.js', 'MongoDB', 'Mongoose', 'SQL', 'SQLite', 
+                    'Angular.js', 'Rest', 'Atom', 'Anaconda', 'More'
                     ]
 
 // Text Group
@@ -179,7 +181,7 @@ for(let i=0;i<text_array.length;i++){
         count++
     }
 
-    createTexts(6,2,1,{x: ((i%5) - 2) * 15, y: 12 - (count * 6), z:0 }, i) // ((i%6)- 2.5) * 7.6
+    createTexts(6,2,1,{x: ((i%5) - 2) * 15, y: 12 - (count * 6), z:0 }, i)
 }
 
 /**
@@ -215,57 +217,45 @@ camera.position.y = 0
 camera.position.z = 30
 scene.add(camera)
 
-// Transition
-const clickClock = new THREE.Clock()
+// HTML Animations
 
-const icons = document.querySelectorAll('a')
+class SkillsAnimations extends Animations{
+    
+    constructor(index){
+        
+        super(index)
+        this.introAnimation()
+    }
 
-const dict = {
-    "0": "index",
-    "I": "about",
-    "II": "projects",
-    "III": "skills",
-    "IV": "education",
-    "V": "contact",
+    introAnimation(){
+        setTimeout(function(){
+            $('.container').animate({'opacity':1}, 3000);
+            $('.webgl').animate({'opacity':1}, 3000);
+        }, 1);
+    }
+
+    customAnimation(index, key){
+
+        setTimeout(function(){
+            $('#' + key).animate({'opacity': 0.5}, 3000);
+            $("#" + index).stop().animate({'opacity': 1}, 3000);
+        }, 1);
+
+    }
+
+    customClickAnimation(){
+        setTimeout(function(){
+            $('body').animate({'opacity': 0},1000)
+        }, 1);
+    }
+
+    threeTransition(clickTime){
+        camera.position.y = 0 - clickTime * 150
+    }
 }
 
-icons.forEach(icon =>{ 
-    icon.addEventListener('click', (event) => {
+const animations = new SkillsAnimations("III")
 
-        if(event.target.id != 'III'){
-            $('.webgl').animate({'opacity': 0},200)
-
-            const clickFunction = () => {
-                const clickTime = clickClock.getElapsedTime()
-
-                camera.position.y = 0 - clickTime * 150
-            
-                window.requestAnimationFrame(clickFunction)
-            }
-            clickFunction()
-
-            Object.entries(dict).forEach(([key,value]) =>{
-
-                $('#' + key).animate({'opacity': 0},1000)
-                $('#' + value).animate({'opacity': 0},1000)
-
-                setTimeout(function(){
-                    $('#' + key).css({"display": "none"})
-                    $('#' + value).css({"display": "none"})
-                },1000)
-                
-                $('#' + event.target.id).animate({'opacity': 0},1000)
-
-                if(event.target.id == key){
-                    setTimeout(myURL, 3000)
-                    function myURL(){
-                        window.location.href = value + '.html'
-                    }
-                }
-            })
-        }
-    })
-})
 
 // Controls
 // const controls = new OrbitControls(camera, canvas)

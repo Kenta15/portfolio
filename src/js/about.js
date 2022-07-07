@@ -1,5 +1,5 @@
-import './css/about.css'
-import './css/header.css'
+import '../css/about.css'
+import '../css/header.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -9,6 +9,7 @@ import waveVertexShader from './shaders/test/waveVertex.glsl'
 import waveFragmentShader from './shaders/test/waveFragment.glsl'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js'
+import Animations from './animationExport.js'
 
 /**
  * Base
@@ -95,56 +96,29 @@ camera.position.y = 3
 camera.position.z = 9
 scene.add(camera)
 
-// Transition
-const clickClock = new THREE.Clock()
+// HTML Animations
 
-const icons = document.querySelectorAll('a')
+class AboutAnimations extends Animations{
+    
+    constructor(index){
 
-const dict = {
-    "0": "index",
-    "I": "about",
-    "II": "projects",
-    "III": "skills",
-    "IV": "education",
-    "V": "contact",
+        super(index)
+    }
+
+    customAnimation(index,key){
+        setTimeout(function(){
+            $("#" + index).stop().animate({'opacity': 1}, 3000);
+            $('#' + key).animate({'opacity': 0.5}, 3000);
+        }, 1);
+    }
+
+    threeTransition(clickTime){
+        camera.position.z = 10 - Math.pow(10,clickTime)
+    }
 }
 
-icons.forEach(icon =>{ 
-    icon.addEventListener('click', (event) => {
+const animations = new AboutAnimations("I")
 
-        if(event.target.id != 'I'){
-            // $('#I').animate({'opacity': 0.5},1000)
-
-            const clickFunction = () => {
-                const clickTime = clickClock.getElapsedTime()
-                camera.position.z = 10 - Math.pow(10,clickTime)
-            
-                window.requestAnimationFrame(clickFunction)
-            }
-            clickFunction()
-
-            Object.entries(dict).forEach(([key,value]) =>{
-
-                $('#' + key).animate({'opacity': 0},1000)
-                $('#' + value).animate({'opacity': 0},1000)
-
-                setTimeout(function(){
-                    $('#' + key).css({"display": "none"})
-                    $('#' + value).css({"display": "none"})
-                },1000)
-
-                $('#' + event.target.id).animate({'opacity': 0},1000)
-
-                if(event.target.id == key){
-                    setTimeout(myURL, 3000)
-                    function myURL(){
-                        window.location.href = value + '.html'
-                    }
-                }
-            })
-        }
-    })
-})
 
 // Controls
 const controls = new OrbitControls(camera, canvas)

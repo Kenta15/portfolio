@@ -27,33 +27,33 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './src/html/index.html',
             filename: 'index.html',
             minify: true,
             chunks: ['index'],
         }),
         new HtmlWebpackPlugin({
-            template: './src/about.html',
+            template: './src/html/about.html',
             filename: 'about.html',
             chunks: ['about'],
         }),
         new HtmlWebpackPlugin({
-            template: './src/skills.html',
+            template: './src/html/skills.html',
             filename: 'skills.html',
             chunks: ['skills'],
         }),
         new HtmlWebpackPlugin({
-            template: './src/projects.html',
+            template: './src/html/projects.html',
             filename: 'projects.html',
             chunks: ['projects'],
         }),
         new HtmlWebpackPlugin({
-            template: './src/education.html',
+            template: './src/html/education.html',
             filename: 'education.html',
             chunks: ['education'],
         }),
         new HtmlWebpackPlugin({
-            template: './src/contact.html',
+            template: './src/html/contact.html',
             filename: 'contact.html',
             chunks: ['contact'],
         }),

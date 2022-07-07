@@ -1,7 +1,6 @@
-import './css/style.css'
+import '../css/style.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 import backgroundVertexShader from './shaders/test/backgroundVertex.glsl'
@@ -10,6 +9,7 @@ import weirdVertexShader from './shaders/test/weirdVertex.glsl'
 import weirdFragmentShader from './shaders/test/weirdFragment.glsl'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js'
+import Animations from './animationExport.js'
 
 /**
  * Base
@@ -28,7 +28,7 @@ const scene = new THREE.Scene()
  */
 const textureLoader = new THREE.TextureLoader()
 
-const particleTexture = textureLoader.load('/textures/particles/window.png')
+// const particleTexture = textureLoader.load('/textures/particles/window.png')
 
 
 // Light
@@ -39,37 +39,6 @@ const particleTexture = textureLoader.load('/textures/particles/window.png')
 // directionalLight.position.set( 5, 5, 3.5 )
 // scene.add(directionalLight)
 
-// Particles Geometry
-const particlesGeometry = new THREE.BufferGeometry()
-const count = 1000
-
-const positions = new Float32Array(count * 3)
-
-for(let i=0;i<count;i++){
-    positions[i] = Math.random() * 4.5
-}
-
-particlesGeometry.setAttribute(
-    'position',
-    new THREE.BufferAttribute(positions,3)
-)
-
-// Particles Material
-const particlesMaterial = new THREE.PointsMaterial({
-    size:0.05,
-    map:particleTexture,
-    transparent:true,
-    alphaMap:particleTexture,
-    alphaTest:0.001,
-    blending:THREE.AdditiveBlending,
-    vertexColors:false,
-})
-
-// Particles
-const particles = new THREE.Points(particlesGeometry,particlesMaterial)
-// scene.add(particles)
-
-// background
 const background = new THREE.Mesh(
     new THREE.PlaneGeometry(1,1,32,32),
     new THREE.ShaderMaterial({
@@ -105,11 +74,6 @@ weird.position.set(2,7,0)
 weird.scale.set(10,10,0)
 // scene.add(weird)
 
-// gui.add(weird.position, 'x').min(- 10).max(10).step(0.001)
-// gui.add(weird.position, 'y').min(- 10).max(10).step(0.001)
-// gui.add(weird.position, 'z').min(- 10).max(10).step(0.001)
-// gui.add(weird.material.uniforms.random, 'value').min(0).max(100).step(0.1)
-
 /**
  * Sizes
  */
@@ -143,61 +107,64 @@ camera.position.y = 3
 camera.position.z = 10
 scene.add(camera)
 
-// gui.add(camera.position, 'x').min(- 10).max(10).step(0.001)
-// gui.add(camera.position, 'y').min(- 10).max(10).step(0.001)
-// gui.add(camera.position, 'z').min(- 10).max(10).step(0.001)
 
-// Transition
-const clickClock = new THREE.Clock()
+// HTML Animations
 
-const icons = document.querySelectorAll('a')
+class IndexAnimations extends Animations{
+    
+    constructor(index){
+        
+        super(index)
+        this.introAnimation()
+    }
 
-const dict = {
-    "0": "index",
-    "I": "about",
-    "II": "projects",
-    "III": "skills",
-    "IV": "education",
-    "V": "contact",
+    introAnimation(){
+        $(function(){
+            $("#0").stop().animate({'opacity': 1}, 1000);
+        })
+        
+        // Page Transition
+        $(function(){
+            $('body').animate({'opacity': 1}, 2500);
+        });
+        
+        setTimeout(function(){
+            $('.text').animate({'opacity': 1 , 'font-size': '10vw'}, 2000);
+        }, 4000);
+        
+        setTimeout(function(){
+            $('#0').animate({'opacity': 0.5}, 1000);
+        }, 1000);
+        setTimeout(function(){
+            $('#I').animate({'opacity': 0.5}, 1000);
+        }, 1500);
+        setTimeout(function(){
+            $('#II').animate({'opacity': 0.5}, 1000);
+        }, 2000);
+        setTimeout(function(){
+            $('#III').animate({'opacity': 0.5}, 1000);
+        }, 2500);
+        setTimeout(function(){
+            $('#IV').animate({'opacity': 0.5}, 1000);
+        }, 3000);
+        setTimeout(function(){
+            $('#V').animate({'opacity': 0.5},1000);
+        }, 3500);
+        setTimeout(function(){
+            $('#0').animate({'opacity': 1},1000);
+        }, 4500);
+    }
+
+    customClickAnimation(){
+        $(".text").stop().animate({'opacity': 0}, 1000)
+    }
+
+    threeTransition(clickTime){
+        camera.position.z = 10 - clickTime * 5
+    }
 }
 
-icons.forEach(icon =>{ 
-    icon.addEventListener('click', (event) => {
-
-        if(event.target.id != '0'){
-            $(".text").stop().animate({'opacity': 0}, 1500)
-            // $('#0').animate({'opacity': 0.5},1000)
-
-            const clickFunction = () => {
-                const clickTime = clickClock.getElapsedTime()
-                camera.position.z = 10 - clickTime * 5
-            
-                window.requestAnimationFrame(clickFunction)
-            }
-            clickFunction()
-
-            Object.entries(dict).forEach(([key,value]) =>{
-
-                $('#' + key).animate({'opacity': 0},1000)
-                $('#' + value).animate({'opacity': 0},1000)
-
-                setTimeout(function(){
-                    $('#' + key).css({"display": "none"})
-                    $('#' + value).css({"display": "none"})
-                },1000)
-                
-                $('#' + event.target.id).animate({'opacity': 0},1000)
-
-                if(event.target.id == key){
-                    setTimeout(myURL, 3000)
-                    function myURL(){
-                        window.location.href = value + '.html'
-                    }
-                }
-            })
-        }
-    })
-})
+const animations = new IndexAnimations("0")
 
 
 // Controls

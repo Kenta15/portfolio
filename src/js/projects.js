@@ -1,5 +1,5 @@
-import './css/projects.css'
-import './css/header.css'
+import '../css/projects.css'
+import '../css/header.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -16,6 +16,7 @@ import sphereFragmentShader from './shaders/test/sphereFragment.glsl'
 import { mergeWithCustomize } from 'webpack-merge'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js'
+import Animations from './animationExport.js'
 
 /**
  * Base
@@ -205,65 +206,69 @@ camera.position.y = 1
 camera.position.z = 8
 scene.add(camera)
 
-// gui.add(camera.position, 'x').min(- 20).max(20).step(0.001)
-// gui.add(camera.position, 'y').min(- 20).max(20).step(0.001)
-// gui.add(camera.position, 'z').min(- 20).max(20).step(0.001)
 
-// Transition
-const clickClock = new THREE.Clock()
+// HTML Animations
 
-const icons = document.querySelectorAll('a')
+class ProjectsAnimations extends Animations{
+    
+    constructor(index){
+        
+        super(index)
+        
+    }
 
-const dict = {
-    "0": "index",
-    "I": "about",
-    "II": "projects",
-    "III": "skills",
-    "IV": "education",
-    "V": "contact",
+    customAnimation(index,key){
+
+        setTimeout(function(){
+
+            $("#" + index).stop().animate({'opacity': 1}, 3000);
+            $('#' + key).animate({'opacity': 0.5}, 3000);
+            $('.container').animate({'opacity': 1},3000);
+
+        }, 6000);
+    }
+
+    customClickAnimation(){
+        $('#ecommerce').css('display','none')
+        $('#movie').css('display','none')
+        $('#portfolio').css('display','none')
+        $('#none').css('display','none')
+
+        $('body').animate({'opacity':0}, 1000)
+    }
 }
 
-icons.forEach(icon =>{ 
-    icon.addEventListener('click', (event) => {
+const animations = new ProjectsAnimations("II")
 
-        if(event.target.id != 'II'){
+// icons.forEach(icon =>{ 
+//     icon.addEventListener('click', (event) => {
 
-            $('#ecommerce').css('display','none')
-            $('#movie').css('display','none')
-            $('#portfolio').css('display','none')
-            $('#none').css('display','none')
+//         if(event.target.id != 'II'){
 
-            const clickFunction = () => {
-                const clickTime = clickClock.getElapsedTime()
-                
-                $('.webgl').animate({'opacity':0}, 1000)
+//             $('#ecommerce').css('display','none')
+//             $('#movie').css('display','none')
+//             $('#portfolio').css('display','none')
+//             $('#none').css('display','none')
 
-                window.requestAnimationFrame(clickFunction)
-            }
-            clickFunction()
+//             $('body').animate({'opacity':0}, 1000)
 
-            Object.entries(dict).forEach(([key,value]) =>{
+//             Object.entries(dict).forEach(([key,value]) =>{
 
-                $('#' + key).animate({'opacity': 0},1000)
-                $('#' + value).animate({'opacity': 0},1000)
+//                 setTimeout(function(){
+//                     $('#' + key).css({"display": "none"})
+//                     $('#' + value).css({"display": "none"})
+//                 },1000)
 
-                setTimeout(function(){
-                    $('#' + key).css({"display": "none"})
-                    $('#' + value).css({"display": "none"})
-                },1000)
-                
-                $('#' + event.target.id).animate({'opacity': 0},1000)
-
-                if(event.target.id == key){
-                    setTimeout(myURL, 3000)
-                    function myURL(){
-                        window.location.href = value + '.html'
-                    }
-                }
-            })
-        }
-    })
-})
+//                 if(event.target.id == key){
+//                     setTimeout(myURL, 3000)
+//                     function myURL(){
+//                         window.location.href = value + '.html'
+//                     }
+//                 }
+//             })
+//         }
+//     })
+// })
 
 
 // Controls
@@ -399,15 +404,16 @@ const tick = () =>
     glitchPass.enabled = false
 
     if(elapsedTime > 2.0 && elapsedTime < 4.8){
-        glitchPass.enabled = true
+        // glitchPass.enabled = true
     }
-    else if(elapsedTime > 4.8 && elapsedTime < 6.0){
-        glitchPass.enabled = true
-        glitchPass.goWild = true
+    else if(elapsedTime > 5.0 && elapsedTime < 6.0){
+        // glitchPass.enabled = true
+        // glitchPass.goWild = true
         sphere.material.uniforms.alpha.value = elapsedTime / 10
     }
 
     if(elapsedTime > 6.0 && elapsedTime < 6.01){
+        glitchPass.enabled = true
         for(let i = 0; i < projectsList.length; i++){
             screens.children[i].visible = true
         }
