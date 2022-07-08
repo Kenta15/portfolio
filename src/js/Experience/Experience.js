@@ -42,8 +42,6 @@ export default class Experience{
         if(window.location.href == 'http://10.10.43.59:8080/skills.html'){
             this.skillsWorld = new SkillsWorld()
         }
-
-        console.log(this.skillsWorld)
         
         // Resize Event
         this.sizes.on('resize', () => {

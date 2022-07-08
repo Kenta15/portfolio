@@ -122,6 +122,10 @@ module.exports = {
             // Shaders
             {
                 test: /\.(glsl|vs|fs|vert|frag)$/,
+                // use: [
+                //     require.resolve('raw-loader'),
+                //     require.resolve('glslify-loader'),
+                // ],
                 type: 'asset/source',
                 generator:
                 {

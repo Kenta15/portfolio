@@ -2,6 +2,8 @@ import Particles from './Particles.js'
 import Sphere from './Sphere.js'
 import Screens from './Screens.js'
 import Effects from './Effects.js'
+import Floating from './Floating.js'
+import Smoke from './Smoke.js'
 
 export default class ProjectWorld{
 
@@ -11,6 +13,8 @@ export default class ProjectWorld{
         this.sphere = new Sphere()
         this.screens = new Screens()
         this.effects = new Effects()
+        this.floating = new Floating()
+        this.smoke = new Smoke()
     }
 
     update(){
@@ -22,6 +26,10 @@ export default class ProjectWorld{
             this.screens.update()
         if(this.effects)
             this.effects.update()
+        if(this.floating)
+            this.floating.update() 
+        if(this.smoke)
+            this.smoke.update()
         
     }
 }

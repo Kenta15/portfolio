@@ -96,28 +96,29 @@ export default class Effects{
             // console.log(this.currIntersect.object.id)
             
             if(this.currIntersect){
+                console.log(this.currIntersect.object)
                 console.log(this.currIntersect.object.id)
                 console.log(this.currIntersect.object.name)
 
-                if(this.currIntersect.object.id == 36){
+                if(this.currIntersect.object.id == 188){
                     $('#ecommerce').stop().animate({'opacity': 0.8},1000)
                     $('#movie').stop().animate({'opacity': 0},1000)
                     $('#portfolio').stop().animate({'opacity': 0},1000)
                     $('#none').stop().animate({'opacity': 0},1000)
                 }
-                else if(this.currIntersect.object.id == 33){
+                else if(this.currIntersect.object.id == 185){
                     $('#ecommerce').stop().animate({'opacity': 0},1000)
                     $('#movie').stop().animate({'opacity': 0.8},1000)
                     $('#portfolio').stop().animate({'opacity': 0},1000)
                     $('#none').stop().animate({'opacity': 0},1000)
                 }
-                else if(this.currIntersect.object.id == 30){
+                else if(this.currIntersect.object.id == 182){
                     $('#ecommerce').stop().animate({'opacity': 0},1000)
                     $('#movie').stop().animate({'opacity': 0},1000)
                     $('#portfolio').stop().animate({'opacity': 0.8},1000)
                     $('#none').stop().animate({'opacity': 0},1000)
                 }
-                else if(this.currIntersect.object.id == 27){
+                else if(this.currIntersect.object.id == 179){
                     $('#ecommerce').stop().animate({'opacity': 0},1000)
                     $('#movie').stop().animate({'opacity': 0},1000)
                     $('#portfolio').stop().animate({'opacity': 0},1000)
@@ -152,15 +153,11 @@ export default class Effects{
         }
 
         // Update controls
-        this.controls.enabled = true
+        this.controls.enabled = false
         this.controls.update()
 
         // effectComposer render
         this.effectComposer.render()
-
-        if((this.time.elapsed * 0.001) < 6.0){
-            this.controls.enabled = false
-        }
 
         if((this.time.elapsed * 0.001) > 6.0){
             this.raycaster.setFromCamera(this.cursor, this.camera.instance)

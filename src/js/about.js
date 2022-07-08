@@ -1,6 +1,5 @@
 import '../css/about.css'
 import '../css/header.css'
-import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Animations from './animationExport.js'

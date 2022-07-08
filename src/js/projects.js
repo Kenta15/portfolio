@@ -2,13 +2,6 @@ import '../css/projects.css'
 import '../css/header.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
-import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass.js'
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
-import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader.js'
-import { SMAAPass } from 'three/examples/jsm/postprocessing/SMAAPass.js'
 import Animations from './animationExport.js'
 import Experience from './Experience/Experience.js'
 
@@ -66,12 +59,13 @@ class ProjectsAnimations extends Animations{
     }
 
     customClickAnimation(){
-        $('#ecommerce').css('display','none')
-        $('#movie').css('display','none')
-        $('#portfolio').css('display','none')
-        $('#none').css('display','none')
 
         $('body').animate({'opacity':0}, 1000)
+
+        // $('#ecommerce').css('display','none')
+        // $('#movie').css('display','none')
+        // $('#portfolio').css('display','none')
+        // $('#none').css('display','none')
     }
 }
 
