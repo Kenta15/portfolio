@@ -1,14 +1,6 @@
 import '../css/style.css'
-import * as THREE from 'three'
 import * as dat from 'lil-gui'
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
-import backgroundVertexShader from './shaders/test/backgroundVertex.glsl'
-import backgroundFragmentShader from './shaders/test/backgroundFragment.glsl'
-import weirdVertexShader from './shaders/test/weirdVertex.glsl'
-import weirdFragmentShader from './shaders/test/weirdFragment.glsl'
-import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
-import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js'
+import Experience from './Experience/Experience.js'
 import Animations from './animationExport.js'
 
 /**
@@ -17,96 +9,39 @@ import Animations from './animationExport.js'
 // Debug
 // const gui = new dat.GUI()
 
-// Canvas
-const canvas = document.querySelector('canvas.webgl')
+class Script{
 
-// Scene
-const scene = new THREE.Scene()
+    constructor(){
+        this.experience = new Experience(document.querySelector('canvas.webgl'))
+    }
+}
+const script = new Script()
+
 
 /**
  * Textures
  */
-const textureLoader = new THREE.TextureLoader()
+// const textureLoader = new THREE.TextureLoader()
 
 // const particleTexture = textureLoader.load('/textures/particles/window.png')
 
-
-// Light
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0.4)
-// scene.add(ambientLight)
-
-// const directionalLight = new THREE.DirectionalLight(0xffffff,1.5)
-// directionalLight.position.set( 5, 5, 3.5 )
-// scene.add(directionalLight)
-
-const background = new THREE.Mesh(
-    new THREE.PlaneGeometry(1,1,32,32),
-    new THREE.ShaderMaterial({
-        vertexShader: backgroundVertexShader,
-        fragmentShader : backgroundFragmentShader,
-        blending:THREE.AdditiveBlending,
-        side:THREE.DoubleSide,
-        uniforms:{
-            uTime:{value:0},
-            random:{value: 0.2},
-        },
-    })
-)
-background.position.set(2,2,0)
-background.scale.set(30,25,0)
-scene.add(background)
-
 // weird
-const weird = new THREE.Mesh(
-    new THREE.PlaneGeometry(1,1,32,32),
-    new THREE.ShaderMaterial({
-        vertexShader: weirdVertexShader,
-        fragmentShader: weirdFragmentShader,
-        blending:THREE.AdditiveBlending,
-        side:THREE.DoubleSide,
-        uniforms:{
-            uTime:{value:0},
-            random:{value: 0.2},
-        },
-    })
-)
-weird.position.set(2,7,0)
-weird.scale.set(10,10,0)
+// const weird = new THREE.Mesh(
+//     new THREE.PlaneGeometry(1,1,32,32),
+//     new THREE.ShaderMaterial({
+//         vertexShader: weirdVertexShader,
+//         fragmentShader: weirdFragmentShader,
+//         blending:THREE.AdditiveBlending,
+//         side:THREE.DoubleSide,
+//         uniforms:{
+//             uTime:{value:0},
+//             random:{value: 0.2},
+//         },
+//     })
+// )
+// weird.position.set(2,7,0)
+// weird.scale.set(10,10,0)
 // scene.add(weird)
-
-/**
- * Sizes
- */
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
-
-/**
- * Camera
- */
-// Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 2
-camera.position.y = 3
-camera.position.z = 10
-scene.add(camera)
-
 
 // HTML Animations
 
@@ -116,6 +51,8 @@ class IndexAnimations extends Animations{
         
         super(index)
         this.introAnimation()
+        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.camera = this.experience.camera
     }
 
     introAnimation(){
@@ -160,10 +97,9 @@ class IndexAnimations extends Animations{
     }
 
     threeTransition(clickTime){
-        camera.position.z = 10 - clickTime * 5
+        this.camera.instance.position.z = 10 - clickTime * 5
     }
 }
-
 const animations = new IndexAnimations("0")
 
 
@@ -171,39 +107,6 @@ const animations = new IndexAnimations("0")
 // const controls = new OrbitControls(camera, canvas)
 // controls.enableDamping = true
 
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
-})
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
-/**
- * Animate
- */
-const clock = new THREE.Clock()
-
-const tick = () =>
-{
-    const elapsedTime = clock.getElapsedTime()
-
-    background.material.uniforms.uTime.value = elapsedTime
-
-    weird.material.uniforms.uTime.value = elapsedTime
-
-    // Update controls
-    // controls.update()
-
-    // Render
-    renderer.render(scene, camera)
-
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
-}
-
-tick()
 
 
 // import * as THREE from 'three'
