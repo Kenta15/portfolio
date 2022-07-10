@@ -3,8 +3,8 @@ import Sizes from './Utils/Sizes.js'
 import Time from './Utils/Time.js'
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
-import Background from './IndexWorld/Background.js'
-import Wave from './AboutWorld/Wave.js'
+import IndexWorld from './IndexWorld/IndexWorld'
+import AboutWorld from './AboutWorld/AboutWorld'
 import ProjectWorld from './ProjectWorld/ProjectWorld.js'
 import SkillsWorld from './SkillsWorld/SkillsWorld.js'
 
@@ -31,10 +31,10 @@ export default class Experience{
         this.renderer = new Renderer()
 
         if(window.location.href == 'http://10.10.43.59:8080/' || window.location.href == 'http://10.10.43.59:8080/index.html'){
-            this.background = new Background()
+            this.indexWorld = new IndexWorld()
         }
         if(window.location.href == 'http://10.10.43.59:8080/about.html'){
-            this.wave = new Wave()
+            this.aboutWorld = new AboutWorld()
         }
         if(window.location.href == 'http://10.10.43.59:8080/projects.html'){
             this.projectWorld = new ProjectWorld()
@@ -55,16 +55,22 @@ export default class Experience{
     }
 
     resize(){
+
+        if(this.indexWorld)
+            this.indexWorld.resize()
+
        this.camera.resize()
        this.renderer.resize()
+
     }
 
     update(){
-        if(this.background)
-            this.background.update()
+
+        if(this.indexWorld)
+            this.indexWorld.update()
         
-        if(this.wave)
-            this.wave.update()
+        if(this.aboutWorld)
+            this.aboutWorld.update()
         
         if(this.skillsWorld)
             this.skillsWorld.update()

@@ -1,11 +1,3 @@
-uniform float uTime;
-uniform float uSize;
-
-attribute float aProgress;
-attribute float aSize;
-
-// #pragma glslify: perlin3d = require('../partials/perlin3d.glsl')
-
 vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
 vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
 vec3 fade(vec3 t) {return t*t*t*(t*(t*6.0-15.0)+10.0);}
@@ -78,17 +70,4 @@ float perlin3d(vec3 P){
   return 2.2 * n_xyz;
 }
 
-void main(){
-
-    float progress = mod(aProgress + uTime * 0.00003, 1.0);
-    
-    vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-    modelPosition.y += progress * 30.0;
-    modelPosition.x += perlin3d(modelPosition.xyz * 0.1) * 30.0;
-
-    vec4 viewPosition = viewMatrix * modelPosition;
-    gl_Position = projectionMatrix * viewPosition;
-
-    gl_PointSize = uSize * aSize;
-    gl_PointSize *= (1.0 / - viewPosition.z );
-}
+#pragma glslify: export(perlin3d);

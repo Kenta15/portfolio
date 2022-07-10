@@ -5,15 +5,11 @@ import * as dat from 'lil-gui'
 import Animations from './animationExport.js'
 import Experience from './Experience/Experience.js'
 
-/**
- * Base
- */
-// Debug
-// const gui = new dat.GUI()
+class Projects extends Animations{
 
-class Projects{
+    constructor(index){
 
-    constructor(){
+        super(index)
 
         this.experience = new Experience(document.querySelector('canvas.webgl'))
         this.scene = this.experience.scene
@@ -31,20 +27,6 @@ class Projects{
         const directionalLight = new THREE.DirectionalLight(0xffffff,1.5)
         directionalLight.position.set( 5, 5, 3.5 )
         this.scene.add(directionalLight)
-    }
-
-}
-const projs = new Projects()
-
-
-// // HTML Animations
-
-class ProjectsAnimations extends Animations{
-    
-    constructor(index){
-        
-        super(index)
-        
     }
 
     customAnimation(index,key){
@@ -67,6 +49,6 @@ class ProjectsAnimations extends Animations{
         // $('#portfolio').css('display','none')
         // $('#none').css('display','none')
     }
-}
 
-const animations = new ProjectsAnimations("II")
+}
+const projs = new Projects("II")

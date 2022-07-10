@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import waveVertexShader from '../shaders/test/waveVertex.glsl'
-import waveFragmentShader from '../shaders/test/waveFragment.glsl'
+import waveVertexShader from '../shaders/wave/waveVertex.glsl'
+import waveFragmentShader from '../shaders/wave/waveFragment.glsl'
 import Experience from '../Experience.js'
 
 export default class Wave{

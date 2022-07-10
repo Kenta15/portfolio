@@ -75,16 +75,51 @@ export default class Effects{
 
         this.raycaster = new THREE.Raycaster()
         this.currIntersect = null
+        this.isDragging = false
 
         // Cursor
         this.cursor = {
             x: 0,
             y: 0
         }
+        this.mousedown = {
+            x: 0,
+            y: 0
+        }
+        this.delta = {
+            x: 0,
+            y: 0
+        }
+
+        window.addEventListener('mousedown', (event) => {
+            
+            this.isDragging = true
+
+            this.mousedown.x = event.clientX / this.sizes.width * 2 - 1
+
+            console.log(this.screens.projects.rotation)
+
+        })
+        window.addEventListener('mouseup', () => {
+            
+            this.isDragging = false
+        })
 
         window.addEventListener('mousemove', event =>{
+
             this.cursor.x = event.clientX / this.sizes.width * 2 - 1
             this.cursor.y = - (event.clientY / this.sizes.height) * 2 + 1
+
+            if(this.isDragging == true){
+
+                this.delta.x = this.mousedown.x - this.cursor.x
+                this.mousedown.x = this.cursor.x
+
+                if(this.screens.projects.rotation.z <= 0)
+                    this.screens.projects.rotation.y -= this.delta.x
+                else
+                    this.screens.projects.rotation.y += this.delta.x
+            }
 
             if(this.currIntersect){
                 $('body').css('cursor', 'pointer')
@@ -136,6 +171,10 @@ export default class Effects{
     }
 
     update(){
+
+        if(this.isDragging == false){
+            this.screens.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
+        }
 
         this.glitchPass.enabled = false
 

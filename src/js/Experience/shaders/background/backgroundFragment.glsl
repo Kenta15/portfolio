@@ -1,6 +1,7 @@
 varying vec2 vuv;
 
-// Perlin Noise
+uniform vec2 uSize;
+
 vec2 fade(vec2 t)
 {
     return t*t*t*(t*(t*6.0-15.0)+10.0);
@@ -44,9 +45,13 @@ float cnoise(vec2 P)
     return 2.3 * n_xy;
 }
 
+// #pragma glslify: perlin3d = require('../perlins/perlin3d.glsl')
+
 void main(){
 
-    float strength = sin(cnoise(vuv * 10.0));
+    vec2 backgroundUv = vuv * uSize * 0.01;
+
+    float strength = sin(cnoise(backgroundUv));
 
     gl_FragColor = vec4(strength,strength,strength,1.0);
 }

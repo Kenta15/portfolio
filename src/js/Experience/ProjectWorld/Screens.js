@@ -67,9 +67,6 @@ export default class Screens{
     }
     update(){
 
-        this.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
-        
-        // Screens.js
         if((this.time.elapsed * 0.001) > 6.0 && (this.time.elapsed * 0.001) < 6.01){
             for(let i = 0; i < this.projectsList.length; i++){
                 this.screens.children[i].visible = true

@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import particlesVertexShader from '../shaders/test/particlesVertex.glsl'
-import particlesFragmentShader from '../shaders/test/particlesFragment.glsl'
+import particlesVertexShader from '../shaders/particles/particlesVertex.glsl'
+import particlesFragmentShader from '../shaders/particles/particlesFragment.glsl'
 import Experience from '../Experience.js'
 
 export default class Particles{

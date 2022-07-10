@@ -5,12 +5,11 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Animations from './animationExport.js'
 import Experience from './Experience/Experience.js'
 
-// Debug
-// const gui = new dat.GUI()
+class About extends Animations{
 
-class About{
+    constructor(index){
 
-    constructor(){
+        super(index)
 
         this.experience = new Experience(document.querySelector('canvas.webgl'))
         this.camera = this.experience.camera
@@ -32,19 +31,6 @@ class About{
             this.controls.reset()
         })
     }
-}
-const about = new About()
-
-// HTML Animations
-
-class AboutAnimations extends Animations{
-    
-    constructor(index){
-
-        super(index)
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
-        this.camera = this.experience.camera
-    }
 
     customAnimation(index,key){
         setTimeout(function(){
@@ -57,5 +43,4 @@ class AboutAnimations extends Animations{
         this.camera.instance.position.z = 10 - Math.pow(10,clickTime)
     }
 }
-
-const animations = new AboutAnimations("I")
+const about = new About("I")

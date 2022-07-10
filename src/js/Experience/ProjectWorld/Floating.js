@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import floatingVertexShader from '../shaders/test/floatingVertex.glsl'
-import floatingFragmentShader from '../shaders/test/floatingFragment.glsl'
+import floatingVertexShader from '../shaders/floating/floatingVertex.glsl'
+import floatingFragmentShader from '../shaders/floating/floatingFragment.glsl'
 import * as dat from 'lil-gui'
 
 import Experience from '../Experience.js'
@@ -77,14 +77,14 @@ export default class Floating{
     }
 
     setDebug(){
-        const gui = new dat.GUI()
-        gui.add(this.points.position, 'x').min(- 100).max(100).step(0.001)
-        gui.add(this.points.position, 'y').min(- 100).max(100).step(0.001)
-        gui.add(this.points.position, 'z').min(- 100).max(100).step(0.001)
+        // const gui = new dat.GUI()
+        // gui.add(this.points.position, 'x').min(- 100).max(100).step(0.001)
+        // gui.add(this.points.position, 'y').min(- 100).max(100).step(0.001)
+        // gui.add(this.points.position, 'z').min(- 100).max(100).step(0.001)
 
-        gui.add(this.camera.instance.position, 'x').min(- 100).max(100).step(0.001)
-        gui.add(this.camera.instance.position, 'y').min(- 100).max(100).step(0.001)
-        gui.add(this.camera.instance.position, 'z').min(- 100).max(100).step(0.001)
+        // gui.add(this.camera.instance.position, 'x').min(- 100).max(100).step(0.001)
+        // gui.add(this.camera.instance.position, 'y').min(- 100).max(100).step(0.001)
+        // gui.add(this.camera.instance.position, 'z').min(- 100).max(100).step(0.001)
     }
 
     update(){
@@ -93,7 +93,7 @@ export default class Floating{
 
         if((this.time.elapsed * 0.001) > 6.0){
 
-            if(this.material.uniforms.alpha.value < 0.3){
+            if(this.material.uniforms.alpha.value < 0.2){
                 this.material.uniforms.alpha.value = this.time.elapsed * 0.000002
             }
             

@@ -144,6 +144,7 @@ export default class Texts{
     }
 
     createTexts(){
+
         var count = -1
         for(let i=0;i<this.text_array.length;i++){
 

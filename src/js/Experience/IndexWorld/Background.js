@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import backgroundVertexShader from '../shaders/test/backgroundVertex.glsl'
-import backgroundFragmentShader from '../shaders/test/backgroundFragment.glsl'
+import backgroundFragmentShader from '../shaders/background/backgroundFragment.glsl'
+import backgroundVertexShader from '../shaders/background/backgroundVertex.glsl'
 import Experience from '../Experience.js'
 
 export default class Background{
@@ -10,6 +10,7 @@ export default class Background{
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
+        this.sizes = this.experience.sizes
 
         this.setGeometry()
         this.setMaterial()
@@ -18,7 +19,7 @@ export default class Background{
     }
 
     setGeometry(){
-        this.geometry = new THREE.PlaneGeometry(1,1,32,32)
+        this.geometry = new THREE.PlaneGeometry(1,1,2,2)
     }
     setMaterial(){
         this.material = new THREE.ShaderMaterial({
@@ -28,6 +29,7 @@ export default class Background{
             side:THREE.DoubleSide,
             uniforms:{
                 uTime:{value:0},
+                uSize:{value: new THREE.Vector2(this.sizes.width, this.sizes.height)},
                 random:{value: 0.2},
             },
         })
@@ -38,6 +40,11 @@ export default class Background{
         this.background.scale.set(30,25,0)
         this.scene.add(this.background)
     }
+
+    resize(){
+        this.material.uniforms.uSize.value.set(this.sizes.width, this.sizes.height)
+    }
+
     update(){
         this.background.material.uniforms.uTime.value = this.time.elapsed * 0.001
     }

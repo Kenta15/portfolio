@@ -77,11 +77,11 @@ export default class Smoke{
     }
 
     setDebug(){
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
 
-        gui.add(this.smokes.position, 'x').min(- 100).max(100).step(0.001)
-        gui.add(this.smokes.position, 'y').min(- 100).max(100).step(0.001)
-        gui.add(this.smokes.position, 'z').min(- 100).max(100).step(0.001)
+        // gui.add(this.smokes.position, 'x').min(- 100).max(100).step(0.001)
+        // gui.add(this.smokes.position, 'y').min(- 100).max(100).step(0.001)
+        // gui.add(this.smokes.position, 'z').min(- 100).max(100).step(0.001)
     }
 
     update(){

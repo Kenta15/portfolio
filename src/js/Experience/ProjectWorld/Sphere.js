@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import sphereVertexShader from '../shaders/test/sphereVertex.glsl'
-import sphereFragmentShader from '../shaders/test/sphereFragment.glsl'
+import sphereVertexShader from '../shaders/sphere/sphereVertex.glsl'
+import sphereFragmentShader from '../shaders/sphere/sphereFragment.glsl'
 import Experience from '../Experience.js'
 
 let instance = null
