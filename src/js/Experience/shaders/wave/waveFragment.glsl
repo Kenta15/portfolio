@@ -1,4 +1,4 @@
-varying vec2 vuv;
+varying vec2 vUv;
 
 uniform float alpha;
 

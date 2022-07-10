@@ -1,3 +1,5 @@
+import Experience from '../Experience.js'
+
 import Particles from './Particles.js'
 import Sphere from './Sphere.js'
 import Screens from './Screens.js'
@@ -9,15 +11,21 @@ export default class ProjectWorld{
 
     constructor(){
 
-        this.particles = new Particles()
-        this.sphere = new Sphere()
-        this.screens = new Screens()
-        this.effects = new Effects()
-        this.floating = new Floating()
-        this.smoke = new Smoke()
+        this.experience = new Experience()
+        this.resources = this.experience.resources
+
+        this.resources.on('ready', () => {
+            this.particles = new Particles()
+            this.sphere = new Sphere()
+            this.screens = new Screens()
+            this.effects = new Effects()
+            this.floating = new Floating()
+            this.smoke = new Smoke()
+        })
     }
 
     update(){
+        
         if(this.particles)
             this.particles.update()
         if(this.sphere)

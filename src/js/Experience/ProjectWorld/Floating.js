@@ -1,10 +1,8 @@
 import * as THREE from 'three'
 import floatingVertexShader from '../shaders/floating/floatingVertex.glsl'
 import floatingFragmentShader from '../shaders/floating/floatingFragment.glsl'
-import * as dat from 'lil-gui'
 
 import Experience from '../Experience.js'
-import { AdditiveBlending } from 'three'
 
 export default class Floating{
 
@@ -14,9 +12,9 @@ export default class Floating{
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
-
-        this.textureLoader = new THREE.TextureLoader()
-        this.particleTexture = this.textureLoader.load('/textures/particles/point.png')
+        this.resources = this.experience.resources
+        this.resource = this.resources.items.particleTexture
+        this.debug = this.experience.debug
 
         this.count = 300
 
@@ -57,12 +55,12 @@ export default class Floating{
             vertexShader:floatingVertexShader,
             fragmentShader:floatingFragmentShader,
             transparent:true,
-            blending:AdditiveBlending,
+            blending:THREE.AdditiveBlending,
             depthTest: false,
             uniforms:{
                 uTime:{value:0},
                 uSize:{value:200},
-                uTexture:{value:this.particleTexture},
+                uTexture:{value:this.resource},
                 alpha:{value:0},
             }
         })
@@ -74,6 +72,7 @@ export default class Floating{
         this.points.position.y = -10
         this.points.position.z = -1
         this.scene.add(this.points)
+        // this.debugFolder = this.debug.pane.addInput(this.points.position, 'y', {min:0, max:100, step:1})
     }
 
     setDebug(){

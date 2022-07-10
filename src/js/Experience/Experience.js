@@ -1,8 +1,11 @@
 import * as THREE from 'three'
 import Sizes from './Utils/Sizes.js'
 import Time from './Utils/Time.js'
+import Resources from './Utils/Resources.js'
+import sources from './sources.js'
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
+import Debug from './Utils/Debug.js'
 import IndexWorld from './IndexWorld/IndexWorld'
 import AboutWorld from './AboutWorld/AboutWorld'
 import ProjectWorld from './ProjectWorld/ProjectWorld.js'
@@ -24,9 +27,19 @@ export default class Experience{
         this.canvas = canvas
 
         // Set up
+        this.debug = new Debug()
         this.sizes = new Sizes()
         this.time = new Time()
         this.scene = new THREE.Scene()
+
+        this.targetSources = []
+        for(const source of sources){
+            if(window.location.href == source.location){
+                this.targetSources.push(source)
+            }
+        }
+
+        this.resources = new Resources(this.targetSources)
         this.camera = new Camera()
         this.renderer = new Renderer()
 
@@ -58,9 +71,12 @@ export default class Experience{
 
         if(this.indexWorld)
             this.indexWorld.resize()
+        
+        if(this.camera)
+            this.camera.resize()
 
-       this.camera.resize()
-       this.renderer.resize()
+       if(this.renderer)
+            this.renderer.resize()
 
     }
 
@@ -75,7 +91,8 @@ export default class Experience{
         if(this.skillsWorld)
             this.skillsWorld.update()
         
-        this.renderer.update()
+        if(this.renderer)
+            this.renderer.update()
         
         if(this.projectWorld)
             this.projectWorld.update()

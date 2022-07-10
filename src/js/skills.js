@@ -13,19 +13,21 @@ class Skills extends Animations{
         this.experience = new Experience(document.querySelector('canvas.webgl'))
         this.scene = this.experience.scene
         this.camera = this.experience.camera
+        this.debug = this.experience.debug
 
-        // this.setCamera()
-        // this.setLights()
+        this.setCamera()
+        this.setLights()
         this.animations()
     }
 
     setCamera(){
         this.camera.instance.position.set(0,0,30)
+
     }
 
     setLights(){
         const directionalLight = new THREE.DirectionalLight(0xffffff,1.5)
-        directionalLight.position.set( 5, 5, 3.5 )
+        directionalLight.position.set( 2, 0,  10)
         this.scene.add(directionalLight)
     }
 

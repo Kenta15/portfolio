@@ -1,4 +1,4 @@
-varying vec2 vuv;
+varying vec2 vUv;
 
 uniform float uTime;
 uniform float random;
@@ -9,7 +9,7 @@ uniform float random;
 // }
 
 void main(){
-    vuv = uv;
+    vUv = uv;
 
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 

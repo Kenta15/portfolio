@@ -1,8 +1,6 @@
 import * as THREE from 'three'
-import * as dat from 'lil-gui'
 
 import Experience from '../Experience.js'
-import { AdditiveBlending } from 'three'
 
 export default class Smoke{
 
@@ -19,7 +17,6 @@ export default class Smoke{
         this.setGeometry()
         this.setMaterial()
         this.setSmoke()
-        this.setDebug()
     }
 
     setGeometry(){
@@ -32,7 +29,7 @@ export default class Smoke{
             color:'#90D4EE',
             depthWrite:false,
             transparent: true,
-            blending:AdditiveBlending,
+            blending:THREE.AdditiveBlending,
             side: THREE.DoubleSide,
             opacity:0,
         })
@@ -74,14 +71,6 @@ export default class Smoke{
         this.smokes.rotation.y = - Math.PI / 3
         this.smokes.position.x = -2 // 1.6
         this.smokes.position.z = 1.6 // -3.2 close
-    }
-
-    setDebug(){
-        // const gui = new dat.GUI()
-
-        // gui.add(this.smokes.position, 'x').min(- 100).max(100).step(0.001)
-        // gui.add(this.smokes.position, 'y').min(- 100).max(100).step(0.001)
-        // gui.add(this.smokes.position, 'z').min(- 100).max(100).step(0.001)
     }
 
     update(){
