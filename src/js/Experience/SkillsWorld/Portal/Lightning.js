@@ -6,7 +6,7 @@ export default class Lightning{
 
     constructor(){
 
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
@@ -29,7 +29,7 @@ export default class Lightning{
             transparent: true,
             blending:THREE.AdditiveBlending,
             side: THREE.DoubleSide,
-            opacity:1,
+            opacity:0.1,
         })
     }
 
@@ -37,7 +37,7 @@ export default class Lightning{
 
         this.lightnings = new THREE.Group()
 
-        this.count = 50
+        this.count = 30
 
         this.lightning_array = []
 
@@ -81,7 +81,7 @@ export default class Lightning{
             
             
             this.lightnings.children[i].material.opacity = Math.min((1 - this.lightning_array[i].progress) * 10, this.lightning_array[i].progress * 400)
-            this.lightnings.children[i].material.opacity = Math.min(this.lightnings.children[i].material.opacity, 0.04)
+            this.lightnings.children[i].material.opacity = Math.min(this.lightnings.children[i].material.opacity, 0.06)
 
         }
     }

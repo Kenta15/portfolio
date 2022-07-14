@@ -6,6 +6,7 @@ import Screens from './Screens.js'
 import Effects from './Effects.js'
 import Floating from './Floating.js'
 import Smoke from './Smoke.js'
+import Earth from './Earth/Earth.js'
 
 export default class ProjectWorld{
 
@@ -15,8 +16,9 @@ export default class ProjectWorld{
         this.resources = this.experience.resources
 
         this.resources.on('ready', () => {
-            this.particles = new Particles()
-            this.sphere = new Sphere()
+            // this.particles = new Particles()
+            // this.sphere = new Sphere()
+            this.earth = new Earth()
             this.screens = new Screens()
             this.effects = new Effects()
             this.floating = new Floating()
@@ -26,10 +28,12 @@ export default class ProjectWorld{
 
     update(){
         
-        if(this.particles)
-            this.particles.update()
-        if(this.sphere)
-            this.sphere.update()
+        // if(this.particles)
+        //     this.particles.update()
+        // if(this.sphere)
+        //     this.sphere.update()
+        if(this.earth)
+            this.earth.update()
         if(this.screens)
             this.screens.update()
         if(this.effects)

@@ -9,7 +9,6 @@ module.exports = {
                 about: './src/js/about.js',
                 skills: './src/js/skills.js',
                 projects: './src/js/projects.js',
-                education: './src/js/education.js',
                 contact: './src/js/contact.js',
             },
     output:
@@ -46,11 +45,6 @@ module.exports = {
             template: './src/html/projects.html',
             filename: 'projects.html',
             chunks: ['projects'],
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/html/education.html',
-            filename: 'education.html',
-            chunks: ['education'],
         }),
         new HtmlWebpackPlugin({
             template: './src/html/contact.html',
@@ -102,11 +96,6 @@ module.exports = {
                         outputPath:'imgs'
                     }
                 },
-                type: 'asset/resource',
-                generator:
-                {
-                    filename: 'assets/images/[hash][ext]'
-                }
             },
 
             // Fonts

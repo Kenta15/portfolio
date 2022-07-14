@@ -31,12 +31,16 @@ export default class Hole{
         this.colors.end.value = '#1f67ff'
         this.colors.end.instance = new THREE.Color(this.colors.end.value)
 
-        // for(const color in this.colors){
-        //     const col = this.colors[color]
-        //     this.debug.pane.addInput(col, 'value').on('change', () => {
-        //         col.instance.set(col.value)
-        //     })
-        // }
+        this.debugFolder = this.debug.pane.addFolder({
+            'title': 'holeColors',
+        })
+
+        for(const color in this.colors){
+            const col = this.colors[color]
+            this.debug.pane.addInput(col, 'value').on('change', () => {
+                col.instance.set(col.value)
+            })
+        }
 
     }
 

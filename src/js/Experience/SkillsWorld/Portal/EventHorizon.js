@@ -31,12 +31,16 @@ export default class EventHorizon{
         this.colors.end.value = '#0028ff'
         this.colors.end.instance = new THREE.Color(this.colors.end.value)
 
-        // for(const color in this.colors){
-        //     const col = this.colors[color]
-        //     this.debug.pane.addInput(col, 'value').on('change', () => {
-        //         col.instance.set(col.value)
-        //     })
-        // }
+        this.debugFolder = this.debug.pane.addFolder({
+            'title': 'horizonColors',
+        })
+
+        for(const color in this.colors){
+            const col = this.colors[color]
+            this.debugFolder.addInput(col, 'value').on('change', () => {
+                col.instance.set(col.value)
+            })
+        }
 
     }
 

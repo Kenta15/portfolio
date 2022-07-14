@@ -6,7 +6,7 @@ import Experience from '../Experience.js'
 export default class Particles{
 
     constructor(){
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
@@ -83,9 +83,9 @@ export default class Particles{
         this.points.position.x = (this.time.elapsed * 0.001) * 7 * 0.13
         this.points.position.z = (this.time.elapsed * 0.001) * 10 * 0.13
 
-        if((this.time.elapsed * 0.001) > 6.0 && (this.time.elapsed * 0.001) < 6.01){
-            this.scene.remove(this.points)
-        }
+        // if((this.time.elapsed * 0.001) > 6.0 && (this.time.elapsed * 0.001) < 6.01){
+        //     this.scene.remove(this.points)
+        // }
 
     }
 }

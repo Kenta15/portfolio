@@ -16,7 +16,7 @@ export default class RayCaster{
 
         instance = this
 
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.sizes = this.experience.sizes
         this.camera = this.experience.camera
 

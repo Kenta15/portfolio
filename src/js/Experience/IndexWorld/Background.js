@@ -6,7 +6,7 @@ import Experience from '../Experience.js'
 export default class Background{
 
     constructor(){
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
@@ -38,7 +38,7 @@ export default class Background{
         this.background = new THREE.Mesh(this.geometry, this.material)
         this.background.position.set(2,2,0)
         this.background.scale.set(30,25,0)
-        this.scene.add(this.background)
+        // this.scene.add(this.background)
     }
 
     resize(){

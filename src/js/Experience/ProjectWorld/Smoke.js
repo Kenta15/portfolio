@@ -6,13 +6,12 @@ export default class Smoke{
 
     constructor(){
 
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
-
-        this.textureLoader = new THREE.TextureLoader()
-        this.smokeTexture = this.textureLoader.load('/textures/particles/smoke.png')
+        this.resources = this.experience.resources
+        this.debug = this.experience.debug
 
         this.setGeometry()
         this.setMaterial()
@@ -25,13 +24,13 @@ export default class Smoke{
 
     setMaterial(){
         this.material = new THREE.MeshBasicMaterial({
-            map: this.smokeTexture,
-            color:'#90D4EE',
+            map: this.resources.items.smokeTexture,
+            color:'#ffffff',
             depthWrite:false,
             transparent: true,
             blending:THREE.AdditiveBlending,
             side: THREE.DoubleSide,
-            opacity:0,
+            opacity:0.2,
         })
     }
 
@@ -40,7 +39,7 @@ export default class Smoke{
         this.smokes = new THREE.Group()
         this.scene.add(this.smokes)
 
-        this.count = 150
+        this.count = 200
 
         this.smoke_array = []
         this.y_position_array = []
@@ -53,7 +52,7 @@ export default class Smoke{
             item.rotationSpeed = (Math.random() - 0.5) * 0.0005 * Math.random()
 
             item.mesh = new THREE.Mesh(this.geometry, this.material)
-            item.mesh.position.x = (Math.random() - 0.5) * 25
+            item.mesh.position.x = (Math.random() - 0.5) * 40
 
             item.mesh.position.y = (Math.random() - 0.5) * 25
             this.y_position_array.push(item.mesh.position.y)
@@ -69,8 +68,12 @@ export default class Smoke{
             this.smoke_array.push(item)
         }
         this.smokes.rotation.y = - Math.PI / 3
-        this.smokes.position.x = -2 // 1.6
-        this.smokes.position.z = 1.6 // -3.2 close
+        this.smokes.position.x = -3
+        this.smokes.position.z = 5
+
+        // this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'x', {min:-100, max:100, step:1})
+        // this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'y', {min:-100, max:100, step:1})
+        // this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'z', {min:-100, max:100, step:1})
     }
 
     update(){
@@ -79,8 +82,8 @@ export default class Smoke{
             this.smokes.children[i].rotation.z = this.time.elapsed * this.smoke_array[i].rotationSpeed
             this.smokes.children[i].position.y = this.y_position_array[i] + Math.sin(this.time.elapsed * this.smoke_array[i].floatSpeed)
         }
-        if((this.time.elapsed * 0.001) > 6.0 && (this.time.elapsed * 0.001) < 6.01){
-            this.material.opacity = 0.05 + Math.random() * 0.1
-        }
+        // if((this.time.elapsed * 0.001) > 6.0 && (this.time.elapsed * 0.001) < 6.01){
+        //     this.material.opacity = 0.05 + Math.random() * 0.1
+        // }
     }
 }

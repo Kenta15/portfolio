@@ -9,8 +9,7 @@ export default class Animations{
                         "I": "about",
                         "II": "projects",
                         "III": "skills",
-                        "IV": "education",
-                        "V": "contact",
+                        "IV": "contact",
                     }
 
         this.hoverAnimation(index, dict)
@@ -81,7 +80,7 @@ export default class Animations{
                         $('#' + event.target.id).animate({'opacity': 0},1000)
         
                         if(event.target.id == key){
-                            setTimeout(myURL, 3000)
+                            setTimeout(myURL, 1200)
                             function myURL(){
                                 window.location.href = value + '.html'
                             }

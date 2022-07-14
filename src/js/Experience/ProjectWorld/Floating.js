@@ -8,7 +8,7 @@ export default class Floating{
 
     constructor(){
 
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
@@ -61,6 +61,7 @@ export default class Floating{
                 uTime:{value:0},
                 uSize:{value:200},
                 uTexture:{value:this.resource},
+                uSpeed:{value:0.00003},
                 alpha:{value:0},
             }
         })
@@ -90,12 +91,8 @@ export default class Floating{
 
         this.material.uniforms.uTime.value = this.time.elapsed
 
-        if((this.time.elapsed * 0.001) > 6.0){
-
-            if(this.material.uniforms.alpha.value < 0.2){
-                this.material.uniforms.alpha.value = this.time.elapsed * 0.000002
-            }
-            
+        if(this.material.uniforms.alpha.value < 0.2){
+            this.material.uniforms.alpha.value = this.time.elapsed * 0.0001
         }
     }
 }

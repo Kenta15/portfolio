@@ -14,10 +14,11 @@ export default class Sphere{
         }
         instance = this
 
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
+        this.resources = this.experience.resources
 
         this.projects = new THREE.Group()
         this.scene.add(this.projects)
@@ -38,7 +39,8 @@ export default class Sphere{
             blending:THREE.AdditiveBlending,
             uniforms:{
                 uTime:{value:0},
-                alpha:{value:0},
+                alpha:{value:1},
+                // uTexture:{value: this.resources.items.sphereTexture}
             }
         })
     }
@@ -49,8 +51,8 @@ export default class Sphere{
     update(){
         this.sphere.material.uniforms.uTime.value = this.time.elapsed * 0.001
 
-        if((this.time.elapsed * 0.001) > 5.0 && (this.time.elapsed * 0.001) < 6.0){
-            this.sphere.material.uniforms.alpha.value = (this.time.elapsed * 0.001) / 10
-        }
+        // if((this.time.elapsed * 0.001) > 5.0 && (this.time.elapsed * 0.001) < 6.0){
+        //     this.sphere.material.uniforms.alpha.value = (this.time.elapsed * 0.001) / 10
+        // }
     }
 }

@@ -58,7 +58,7 @@ export default class Particles{
             depthTest: false,
             uniforms:{
                 uTime:{value:0},
-                uSize:{value:600},
+                uSize:{value:800},
                 uTexture:{value:this.resource},
                 alpha:{value:0.8},
             }

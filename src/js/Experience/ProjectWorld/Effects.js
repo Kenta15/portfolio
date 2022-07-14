@@ -2,10 +2,10 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
-import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass.js'
+import { SMAAPass } from 'three/examples/jsm/postprocessing/SMAAPass.js'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js'
 import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader.js'
-import { SMAAPass } from 'three/examples/jsm/postprocessing/SMAAPass.js'
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 
 import Experience from '../Experience.js'
 import Screens from './Screens.js'
@@ -14,17 +14,17 @@ export default class Effects{
 
     constructor(){
 
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
-        this.renderer = this.experience.renderer
         this.sizes = this.experience.sizes
         this.time = this.experience.time
+        this.renderer = this.experience.renderer
         this.camera = this.experience.camera
         this.canvas = this.experience.canvas
+        this.debug = this.experience.debug
 
         this.screens = new Screens()
 
-        this.glitchPass = null
         this.raycaster = null
 
         this.setOrbitControls()
@@ -55,9 +55,9 @@ export default class Effects{
         const renderPass = new RenderPass(this.scene,this.camera.instance)
         this.effectComposer.addPass(renderPass)
         
-        // Gilitch Pass
-        this.glitchPass = new GlitchPass()
-        this.effectComposer.addPass(this.glitchPass)
+        // UnrealBloom Pass
+        this.unrealBloomPass = new UnrealBloomPass()
+        this.effectComposer.addPass(this.unrealBloomPass)
         
         // GammaCorrectionPass
         const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader)
@@ -69,6 +69,15 @@ export default class Effects{
             const smaaPass = new SMAAPass()
             this.effectComposer.addPass(smaaPass)
         }
+
+        this.unrealBloomPass.enabled = true
+        this.unrealBloomPass.strength = 1.3
+        this.unrealBloomPass.radius = 1
+        this.unrealBloomPass.threshold = 1.6
+
+        // this.debug.pane.addInput(this.unrealBloomPass, 'strength', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.unrealBloomPass, 'radius', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.unrealBloomPass, 'threshold', {min:-50, max:50, step:0.1})
     }
 
     setRayCaster(){
@@ -135,25 +144,25 @@ export default class Effects{
                 console.log(this.currIntersect.object.id)
                 console.log(this.currIntersect.object.name)
 
-                if(this.currIntersect.object.id == 188){
+                if(this.currIntersect.object.name == 'ecommerce'){
                     $('#ecommerce').stop().animate({'opacity': 0.8},1000)
                     $('#movie').stop().animate({'opacity': 0},1000)
                     $('#portfolio').stop().animate({'opacity': 0},1000)
                     $('#none').stop().animate({'opacity': 0},1000)
                 }
-                else if(this.currIntersect.object.id == 185){
+                else if(this.currIntersect.object.name == 'movie'){
                     $('#ecommerce').stop().animate({'opacity': 0},1000)
                     $('#movie').stop().animate({'opacity': 0.8},1000)
                     $('#portfolio').stop().animate({'opacity': 0},1000)
                     $('#none').stop().animate({'opacity': 0},1000)
                 }
-                else if(this.currIntersect.object.id == 182){
+                else if(this.currIntersect.object.name == 'portfolio'){
                     $('#ecommerce').stop().animate({'opacity': 0},1000)
                     $('#movie').stop().animate({'opacity': 0},1000)
                     $('#portfolio').stop().animate({'opacity': 0.8},1000)
                     $('#none').stop().animate({'opacity': 0},1000)
                 }
-                else if(this.currIntersect.object.id == 179){
+                else if(this.currIntersect.object.name == 'animated'){
                     $('#ecommerce').stop().animate({'opacity': 0},1000)
                     $('#movie').stop().animate({'opacity': 0},1000)
                     $('#portfolio').stop().animate({'opacity': 0},1000)
@@ -176,42 +185,23 @@ export default class Effects{
             this.screens.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
         }
 
-        this.glitchPass.enabled = false
-
-        if((this.time.elapsed * 0.001) > 2.0 && (this.time.elapsed * 0.001) < 4.8){
-            this.glitchPass.enabled = true
-        }
-        else if((this.time.elapsed * 0.001) > 5.0 && (this.time.elapsed * 0.001) < 6.0){
-            this.glitchPass.enabled = true
-            this.glitchPass.goWild = true
-        }
-
-        if((this.time.elapsed * 0.001) > 6.0 && (this.time.elapsed * 0.001) < 6.01){
-            this.glitchPass.enabled = true
-            this.camera.instance.position.set(8.8,-3,-5)
-        }
-
         // Update controls
         this.controls.enabled = false
         this.controls.update()
 
-        // effectComposer render
-        this.effectComposer.render()
-
-        if((this.time.elapsed * 0.001) > 6.0){
-            this.raycaster.setFromCamera(this.cursor, this.camera.instance)
+        this.raycaster.setFromCamera(this.cursor, this.camera.instance)
         
-            const intersects = this.raycaster.intersectObjects(this.screens.screens.children)
-            
-            if(intersects.length)
-            {
-                this.currIntersect = intersects[0]
-            }
-            else
-            {
-                this.currIntersect = null
-            }
+        const intersects = this.raycaster.intersectObjects(this.screens.screens.children)
+        
+        if(intersects.length)
+        {
+            this.currIntersect = intersects[0]
+        }
+        else
+        {
+            this.currIntersect = null
         }
 
+        // this.effectComposer.render()
     }
 }

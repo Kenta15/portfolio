@@ -3,11 +3,6 @@ varying vec2 vUv;
 uniform float uTime;
 uniform float random;
 
-// void main(){
-//     vuv = uv;
-//     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-// }
-
 void main(){
     vUv = uv;
 

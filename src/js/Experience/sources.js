@@ -1,7 +1,7 @@
 export default [
     // projects
     {
-        location: 'http://10.10.43.59:8080/projects.html',
+        location: 'projects.html',
         name: 'particleTexture',
         type: 'texture',
         path: [
@@ -9,32 +9,15 @@ export default [
         ]
     },
     {
-        location: 'http://10.10.43.59:8080/projects.html',
-        name: 'smokeTexture',
-        type: 'texture',
-        path: [
-            '/textures/particles/smoke.png',
-        ]
-    }, 
-    // skills
-    {
-        location: 'http://10.10.43.59:8080/skills.html',
+        location: 'projects.html',
         name: 'smokeTexture',
         type: 'texture',
         path: [
             '/textures/particles/flame.png',
         ]
-    },
+    }, 
     {
-        location: 'http://10.10.43.59:8080/skills.html',
-        name: 'sparkTexture',
-        type: 'texture',
-        path: [
-            '/textures/particles/spark.png',
-        ]
-    },
-    {
-        location: 'http://10.10.43.59:8080/skills.html',
+        location: 'projects.html',
         name: 'earthColorTexture',
         type: 'texture',
         path: [
@@ -42,7 +25,7 @@ export default [
         ]
     },
     {
-        location: 'http://10.10.43.59:8080/skills.html',
+        location: 'projects.html',
         name: 'earthBumpTexture',
         type: 'texture',
         path: [
@@ -50,19 +33,60 @@ export default [
         ]
     },
     {
-        location: 'http://10.10.43.59:8080/skills.html',
+        location: 'projects.html',
         name: 'cloudTexture',
         type: 'texture',
         path: [
             '/textures/earth/earthCloud.png',
         ]
     },
+    // {
+    //     location: 'projects.html',
+    //     name: 'sphereTexture',
+    //     type: 'texture',
+    //     path: [
+    //         '/textures/matcaps/4.jpeg',
+    //     ]
+    // }, 
+    // skills
     {
-        location: 'http://10.10.43.59:8080/skills.html',
+        location: 'skills.html',
+        name: 'smokeTexture',
+        type: 'texture',
+        path: [
+            '/textures/particles/flame.png',
+        ]
+    },
+    {
+        location: 'skills.html',
+        name: 'sparkTexture',
+        type: 'texture',
+        path: [
+            '/textures/particles/spark.png',
+        ]
+    },
+    {
+        location: 'skills.html',
         name: 'particleTexture',
         type: 'texture',
         path: [
             '/textures/particles/point.png',
+        ]
+    },
+    {
+        location: 'skills.html',
+        name: 'textTexture',
+        type: 'texture',
+        path: [
+            '/textures/matcaps/4.png',
+        ]
+    },
+    {
+        location: 'skills.html',
+        name: 'textFont',
+        type: 'font',
+        path: [
+            '/fonts/helvetiker_regular.typeface.json',
         ]
     },
 ]

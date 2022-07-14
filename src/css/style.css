@@ -10,7 +10,7 @@ body
     overflow: hidden;
 }
 body{
-    background-color: black;
+    background: black;
     opacity:0;
 }
 .webgl
@@ -45,7 +45,7 @@ body{
 }
 .header{
     margin-top:5vh;
-    margin-left: 25vw;
+    margin-left: 30vw;
 }
 .header a,p{
     color:white;
@@ -63,7 +63,7 @@ body{
     margin:0 0 0 -8vw;
     opacity:0;
 }
-.index,.about,.projects,.skills,.education,.contact{
+.index,.about,.projects,.skills,.contact{
     display:inline-block;
 }
 

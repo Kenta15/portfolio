@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
+import {TextureLoader} from 'three'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 import * as CANNON from 'cannon-es'
 import CannonDegugger from 'cannon-es-debugger'
@@ -19,26 +20,27 @@ export default class Texts{
 
         instance = this
 
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
+        this.resources = this.experience.resources
 
         this.texts = new THREE.Group()
+        this.texts.visible = false
         this.scene.add(this.texts)
 
         this.objectsToUpdate = []
 
         this.text_array = ['JavaScript','Python','HTML','CSS','Django','JQuery','Three.js','Cannon.js', 
                             'Vue.js','Node.js','React','AWS','Heroku','Git','GitHub','Webpack','VS Code',
-                            'Kenta', 'Vercel', 'Express.js', 'Next.js', 'MongoDB', 'Mongoose', 'SQL', 'SQLite', 
-                            'Angular.js', 'Rest', 'Atom', 'Anaconda', 'More'
+                            'Blender', 'Vercel', 'Express.js', 'Next.js', 'MongoDB', 'Mongoose', 'SQL', 'SQLite', 
+                            'Angular.js', 'Rest', 'Atom', 'GLSL', 'WebGL'
                             ]
 
         this.rayCaster = new RayCaster()
 
         this.setPhysics()
-        this.loadTexture()
         this.createTexts()
     }
 
@@ -85,14 +87,11 @@ export default class Texts{
         // const cannonDebugger = new CannonDegugger(scene, this.world, {})
     }
 
-    loadTexture(){
-        const textureLoader = new THREE.TextureLoader()
-        this.matcapTexture = textureLoader.load('/textures/matcaps/4.png')
-    }
-
     setTexts(width, height, depth, position, index){
 
         const fontLoader = new FontLoader()
+        const textureLoader = new TextureLoader()
+        const textTexture = textureLoader.load('/textures/matcaps/27.png') // 14
 
         fontLoader.load(
             '/fonts/helvetiker_regular.typeface.json',
@@ -114,8 +113,9 @@ export default class Texts{
                        }
                    )
                    textGeometry.center()
+                   
                    const material = new THREE.MeshMatcapMaterial({
-                                        matcap: this.matcapTexture,
+                                        matcap: textTexture,
                                     })
     
                    const text = new THREE.Mesh(textGeometry,material)
@@ -157,6 +157,10 @@ export default class Texts{
     }
 
     update(){
+
+        if(this.time.elapsed * 0.001 > 2.8){
+            this.texts.visible = true
+        }
 
         this.world.step(1 / 60, this.time.delta, 3)
 

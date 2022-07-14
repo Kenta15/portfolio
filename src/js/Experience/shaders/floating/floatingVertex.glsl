@@ -1,5 +1,6 @@
 uniform float uTime;
 uniform float uSize;
+uniform float uSpeed;
 
 attribute float aProgress;
 attribute float aSize;
@@ -8,7 +9,7 @@ attribute float aSize;
 
 void main(){
 
-    float progress = mod(aProgress + uTime * 0.00003, 1.0);
+    float progress = mod(aProgress + uTime * uSpeed, 1.0);
     
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
     modelPosition.y += progress * 30.0;

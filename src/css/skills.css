@@ -7,7 +7,7 @@ body{
 }
 .container{
     margin-top:-8vh;
-    margin-left:15vh;
+    margin-left:10vw;
     opacity:0;
 }
 #grab{
@@ -73,7 +73,7 @@ body{
 		background-position: 0 0;
 	}
 	50% {
-		background-position: 250% 0;
+		background-position: 100% 0;
 	}
 	100% {
 		background-position: 0 0;
@@ -81,5 +81,5 @@ body{
 }
 
 .block:after {
-	filter: blur(30px);
+	filter: blur(50px);
 }

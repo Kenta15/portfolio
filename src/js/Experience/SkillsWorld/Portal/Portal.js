@@ -12,7 +12,7 @@ export default class Portal{
 
     constructor(){
 
-        this.experience = new Experience(document.querySelector('canvas.webgl'))
+        this.experience = new Experience()
         this.scene = this.experience.scene
         this.renderer = this.experience.renderer
         this.sizes = this.experience.sizes

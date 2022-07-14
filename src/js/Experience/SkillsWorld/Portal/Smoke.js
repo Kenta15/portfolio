@@ -21,18 +21,17 @@ export default class Smoke{
 
     setColor(){
 
-        // this.colors = {}
+        // this.color = {}
+        // this.color.value = '#586d99'
+        // this.color.instance = new THREE.Color(this.color.value)
 
-        // this.colors = {}
-        // this.colors.value = '#586d99'
-        // this.colors.instance = new THREE.Color(this.colors.value)
+        // this.debugFolder = this.debug.pane.addFolder({
+        //     title: 
+        // })
 
-        // for(const color in this.colors){
-        //     const col = this.colors[color]
-        //     this.debug.pane.addInput(col, 'value').on('change', () => {
-        //         col.instance.set(col.value)
-        //     })
-        // }
+        // this.debug.pane.addInput(col, 'value').on('change', () => {
+        //     col.instance.set(col.value)
+        // })
     }
 
     setGeometry(){
@@ -54,7 +53,6 @@ export default class Smoke{
     setSmoke(){
 
         this.smokes = new THREE.Group()
-        // this.scene.add(this.smokes)
 
         this.count = 60
 
@@ -99,11 +97,11 @@ export default class Smoke{
                 this.smoke_array[i].progress = 0
 
             // Scale
-            let scaleProgress = Math.min(this.smoke_array[i].progress * 4, 1)
-            scaleProgress = 1 - Math.pow(1 - scaleProgress, 4)
-            const scale = scaleProgress * this.smoke_array[i].scale
+            // let scaleProgress = Math.min(this.smoke_array[i].progress * 4, 1)
+            // scaleProgress = 1 - Math.pow(1 - scaleProgress, 4)
+            // const scale = scaleProgress * this.smoke_array[i].scale
 
-            this.smokes.children[i].scale.set(scale, scale, scale)
+            // this.smokes.children[i].scale.set(scale, scale, scale)
 
         }
     }

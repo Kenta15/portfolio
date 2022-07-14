@@ -1,0 +1,139 @@
+.webgl{
+	z-index: -5;
+}
+.container{
+	position:relative;
+}
+.boxes{
+	position:relative;
+	opacity: 0.95;
+	z-index:-1;
+	margin-top:10vh;
+	animation:slideIn1 1.2s cubic-bezier(0.1, 0.1, 0.8, 0.1);
+}
+.box1{
+	background: black;
+	width:40vw;
+	height:50vh;
+	margin-top: 0vh;
+	margin-left:48vw;
+	border-radius: 5px;
+}
+.block1{
+	position:relative;
+	width:39vw;
+	height:49vh;
+	margin-top:-49.5vh;
+	margin-left:48.5vw;
+}
+.block1:before, .block1:after{
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(to bottom left, #FA04B3,#E13CF1);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+    z-index:-1;
+}
+.block1:after {
+	filter: blur(10px);
+}
+.box2{
+	background: black;
+	width:40vw;
+	height:50vh;
+	margin-top: -35vh;
+	margin-left:12vw;
+	border-radius: 5px;
+}
+.block2{
+	position:relative;
+	width:39vw;
+	height:49vh;
+	margin-top:-49.5vh;
+	margin-left:12.5vw;
+}
+.block2:before, .block2:after{
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(to top right, #047FFA, #04BFFA);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+    z-index:-1;
+}
+.block2:after {
+	filter: blur(10px);
+}
+.name{
+	position:relative;
+	z-index: -2;
+	font-size:12vw;
+	font-size:12vh;
+	-webkit-text-stroke: 1px white;
+    font-family: 'Brush Script MT', cursive; color:black;
+}
+.first{
+	margin-top:-60vh;
+	margin-left:-25vw;
+	animation:slideInLeft 3.5s cubic-bezier(1.0, 1.0, 0.6, 0.1);
+}
+.last{
+	margin-top:-16vh;
+	margin-left:50vw;
+	animation:slideInRight 3.5s cubic-bezier(1.0, 1.0, 0.6, 0.1);
+}
+.curtainLeft{
+	position:absolute;
+	background: black;
+	width:50vw;
+	height:100vh;
+	top:0;
+	left:-50vw;
+}
+.curtainRight{
+	position:absolute;
+	background: black;
+	width:50vw;
+	height:100vh;
+	top:0;
+	left:100vw;
+}
+
+@keyframes slideIn1{
+	0%{
+		transform:translateY(800px);
+	}
+	55%{
+		transform:scale(1.3);
+	}
+	
+}
+@keyframes slideInLeft{
+	0%{
+		transform:translateX(-1500px);
+	}
+	45%{
+		transform:skew(45deg);
+	}
+	46%{
+		transform:skew(0deg);
+	}
+	
+	
+}
+@keyframes slideInRight{
+	0%{
+		transform:translateX(1500px);
+	}
+	45%{
+		transform:skew(-45deg);
+	}
+	46%{
+		transform:skew(0deg);
+	}
+}

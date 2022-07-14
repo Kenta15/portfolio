@@ -32,27 +32,30 @@ export default class Experience{
         this.time = new Time()
         this.scene = new THREE.Scene()
 
-        this.targetSources = []
+        const str = window.location.href.split("/")
+        const target = str[str.length - 1]
+        const targetSources = []
+        
         for(const source of sources){
-            if(window.location.href == source.location){
-                this.targetSources.push(source)
+            if(target == source.location){
+                targetSources.push(source)
             }
         }
 
-        this.resources = new Resources(this.targetSources)
+        this.resources = new Resources(targetSources)
         this.camera = new Camera()
         this.renderer = new Renderer()
 
-        if(window.location.href == 'http://10.10.43.59:8080/' || window.location.href == 'http://10.10.43.59:8080/index.html'){
+        if(target == '' || target == 'index.html'){
             this.indexWorld = new IndexWorld()
         }
-        if(window.location.href == 'http://10.10.43.59:8080/about.html'){
+        if(target == 'about.html'){
             this.aboutWorld = new AboutWorld()
         }
-        if(window.location.href == 'http://10.10.43.59:8080/projects.html'){
+        if(target == 'projects.html'){
             this.projectWorld = new ProjectWorld()
         }
-        if(window.location.href == 'http://10.10.43.59:8080/skills.html'){
+        if(target == 'skills.html'){
             this.skillsWorld = new SkillsWorld()
         }
         
@@ -88,14 +91,14 @@ export default class Experience{
         if(this.aboutWorld)
             this.aboutWorld.update()
         
-        if(this.skillsWorld)
-            this.skillsWorld.update()
-        
         if(this.renderer)
             this.renderer.update()
-        
+
         if(this.projectWorld)
             this.projectWorld.update()
+        
+        if(this.skillsWorld)
+            this.skillsWorld.update()
 
     }
 }

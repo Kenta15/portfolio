@@ -6,7 +6,7 @@ uniform vec2 uSize;
 
 void main(){
 
-    vec2 backgroundUv = vUv * uSize * 0.05;
+    vec2 backgroundUv = vUv * uSize * 0.012 + 0.0;
 
     float strength = sin(perlin2d(backgroundUv));
 

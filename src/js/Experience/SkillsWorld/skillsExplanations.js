@@ -87,8 +87,8 @@ export default function explain(name){
                          <p></p>
                         `
     } 
-    if(name == 'Kenta'){
-        exp.innerHTML = `<h1 class="title">That's my name</h1>
+    if(name == 'Blender'){
+        exp.innerHTML = `<h1 class="title">Blender</h1>
                          <p></p>
                         `
     }                  

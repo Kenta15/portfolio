@@ -20,7 +20,7 @@ class About extends Animations{
     }
 
     setCamera(){
-        this.camera.instance.position.set(2,3,9)
+        this.camera.instance.position.set(2,0,11)
     }
 
     setOrbitControls(){
@@ -39,8 +39,12 @@ class About extends Animations{
         }, 1);
     }
 
-    threeTransition(clickTime){
-        this.camera.instance.position.z = 10 - Math.pow(10,clickTime)
+    // threeTransition(clickTime){
+    //     this.camera.instance.position.z = 10 - Math.pow(10,clickTime)
+    // }
+    customClickAnimation(){
+        $(".curtainLeft").animate({'left': '0'}, 400);
+        $(".curtainRight").animate({'left': '50vw'}, 400);
     }
 }
 const about = new About("I")

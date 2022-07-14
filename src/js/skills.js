@@ -3,6 +3,7 @@ import '../css/header.css'
 import * as THREE from 'three'
 import Animations from './animationExport.js'
 import Experience from './Experience/Experience.js'
+import Texts from './Experience/SkillsWorld/Texts.js'
 
 class Skills extends Animations{
 
@@ -15,20 +16,25 @@ class Skills extends Animations{
         this.camera = this.experience.camera
         this.debug = this.experience.debug
 
+        this.texts = new Texts()
+
         this.setCamera()
-        this.setLights()
+        // this.setLights()
         this.animations()
     }
 
     setCamera(){
         this.camera.instance.position.set(0,0,30)
-
     }
 
     setLights(){
-        const directionalLight = new THREE.DirectionalLight(0xffffff,1.5)
-        directionalLight.position.set( 2, 0,  10)
-        this.scene.add(directionalLight)
+        this.light = new THREE.DirectionalLight(0xffffff,1.5)
+        this.light.position.set( 2, 0,  10)
+        this.scene.add(this.light)
+
+        this.debugFolder = this.debug.pane.addInput(this.light.position, 'x', {min:-100, max:100, step:1})
+        this.debugFolder = this.debug.pane.addInput(this.light.position, 'y', {min:-100, max:100, step:1})
+        this.debugFolder = this.debug.pane.addInput(this.light.position, 'z', {min:-100, max:100, step:1})
     }
 
     animations(){
@@ -54,7 +60,7 @@ class Skills extends Animations{
     }
 
     threeTransition(clickTime){
-        this.camera.instance.position.y = 0 - clickTime * 150
+        this.texts.texts.position.y = clickTime * 150
     }
 
 }
