@@ -91,7 +91,7 @@ export default class Floating{
 
         this.material.uniforms.uTime.value = this.time.elapsed
 
-        if(this.material.uniforms.alpha.value < 0.2){
+        if(this.material.uniforms.alpha.value < 0.1){
             this.material.uniforms.alpha.value = this.time.elapsed * 0.0001
         }
     }

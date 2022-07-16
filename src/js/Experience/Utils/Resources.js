@@ -44,8 +44,8 @@ export default class Resources extends EventEmitter{
             }
             else if(source.type == 'gltf'){
 
-                this.loaders.dracoLoader.setDecoderPath( '/examples/js/libs/draco/' )
-                this.loaders.gltfLoader.setDRACOLoader( this.loaders.dracoLoader )
+                // this.loaders.dracoLoader.setDecoderPath( '/examples/js/libs/draco/' )
+                // this.loaders.gltfLoader.setDRACOLoader( this.loaders.dracoLoader )
 
                 this.loaders.gltfLoader.load(
                     source.path,

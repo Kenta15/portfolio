@@ -34,7 +34,7 @@ export default class Texts{
 
         this.text_array = ['JavaScript','Python','HTML','CSS','Django','JQuery','Three.js','Cannon.js', 
                             'Vue.js','Node.js','React','AWS','Heroku','Git','GitHub','Webpack','VS Code',
-                            'Blender', 'Vercel', 'Express.js', 'Next.js', 'MongoDB', 'Mongoose', 'SQL', 'SQLite', 
+                            'Blender', 'Vercel', 'Express.js', 'illustrator', 'MongoDB', 'Mongoose', 'SQL', 'SQLite', 
                             'Angular.js', 'Rest', 'Atom', 'GLSL', 'WebGL'
                             ]
 
@@ -91,7 +91,7 @@ export default class Texts{
 
         const fontLoader = new FontLoader()
         const textureLoader = new TextureLoader()
-        const textTexture = textureLoader.load('/textures/matcaps/27.png') // 14
+        const textTexture = textureLoader.load('/textures/matcaps/2.png')
 
         fontLoader.load(
             '/fonts/helvetiker_regular.typeface.json',

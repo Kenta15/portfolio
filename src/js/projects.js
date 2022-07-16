@@ -17,8 +17,6 @@ class Projects extends Animations{
         this.camera = this.experience.camera
         this.debug = this.experience.debug
 
-        this.scene.background = new THREE.Color( '#2D3030' );
-
         this.screens = new Screens()
         this.projects = this.screens.projects
 

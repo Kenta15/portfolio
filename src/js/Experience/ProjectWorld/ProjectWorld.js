@@ -14,6 +14,7 @@ export default class ProjectWorld{
 
         this.experience = new Experience()
         this.resources = this.experience.resources
+        this.scene = this.experience.scene
 
         this.resources.on('ready', () => {
             // this.particles = new Particles()
@@ -22,7 +23,10 @@ export default class ProjectWorld{
             this.screens = new Screens()
             this.effects = new Effects()
             this.floating = new Floating()
-            this.smoke = new Smoke()
+            // this.smoke = new Smoke()
+            
+            this.scene.background = this.resources.items.backgroundTexture
+            console.log(this.resources.items.backgroundTexture)
         })
     }
 
@@ -40,8 +44,8 @@ export default class ProjectWorld{
             this.effects.update()
         if(this.floating)
             this.floating.update() 
-        if(this.smoke)
-            this.smoke.update()
+        // if(this.smoke)
+        //     this.smoke.update()
         
     }
 }

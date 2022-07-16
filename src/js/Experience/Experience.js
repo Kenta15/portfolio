@@ -10,6 +10,7 @@ import IndexWorld from './IndexWorld/IndexWorld'
 import AboutWorld from './AboutWorld/AboutWorld'
 import ProjectWorld from './ProjectWorld/ProjectWorld.js'
 import SkillsWorld from './SkillsWorld/SkillsWorld.js'
+import ContactWorld from './ContactWorld/ContactWorld.js'
 
 let instance = null
 
@@ -58,6 +59,9 @@ export default class Experience{
         if(target == 'skills.html'){
             this.skillsWorld = new SkillsWorld()
         }
+        if(target == 'contact.html'){
+            this.contactWorld = new ContactWorld()
+        }
         
         // Resize Event
         this.sizes.on('resize', () => {
@@ -90,6 +94,9 @@ export default class Experience{
         
         if(this.aboutWorld)
             this.aboutWorld.update()
+
+        if(this.contactWorld)
+            this.contactWorld.update()
         
         if(this.renderer)
             this.renderer.update()

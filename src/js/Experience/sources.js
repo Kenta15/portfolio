@@ -40,14 +40,14 @@ export default [
             '/textures/earth/earthCloud.png',
         ]
     },
-    // {
-    //     location: 'projects.html',
-    //     name: 'sphereTexture',
-    //     type: 'texture',
-    //     path: [
-    //         '/textures/matcaps/4.jpeg',
-    //     ]
-    // }, 
+    {
+        location: 'projects.html',
+        name: 'backgroundTexture',
+        type: 'texture',
+        path: [
+            '/textures/background.jpg',
+        ]
+    },
     // skills
     {
         location: 'skills.html',
@@ -87,6 +87,23 @@ export default [
         type: 'font',
         path: [
             '/fonts/helvetiker_regular.typeface.json',
+        ]
+    },
+    // Contact
+    {
+        location: 'contact.html',
+        name: 'contacts',
+        type: 'gltf',
+        path: [
+            '/models/contacts.glb',
+        ]
+    },
+    {
+        location: 'contact.html',
+        name: 'floor',
+        type: 'gltf',
+        path: [
+            '/models/floor.glb',
         ]
     },
 ]
