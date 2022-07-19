@@ -91,7 +91,7 @@ export default class Texts{
 
         const fontLoader = new FontLoader()
         const textureLoader = new TextureLoader()
-        const textTexture = textureLoader.load('/textures/matcaps/2.png')
+        const textTexture = textureLoader.load('/textures/matcaps/7.png')
 
         fontLoader.load(
             '/fonts/helvetiker_regular.typeface.json',

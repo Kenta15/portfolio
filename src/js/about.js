@@ -1,6 +1,5 @@
 import '../css/about.css'
 import '../css/header.css'
-import * as dat from 'lil-gui'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Animations from './animationExport.js'
 import Experience from './Experience/Experience.js'
@@ -16,7 +15,7 @@ class About extends Animations{
         this.canvas = this.experience.canvas
 
         this.setCamera()
-        this.setOrbitControls()
+        // this.setOrbitControls()
     }
 
     setCamera(){
@@ -25,7 +24,6 @@ class About extends Animations{
 
     setOrbitControls(){
         this.controls = new OrbitControls(this.camera.instance, this.canvas)
-        this.controls.enableDamping = true
 
         window.addEventListener('mouseup',() => {
             this.controls.reset()
@@ -35,13 +33,13 @@ class About extends Animations{
     customAnimation(index,key){
         setTimeout(function(){
             $("#" + index).stop().animate({'opacity': 1}, 3000);
-            $('#' + key).animate({'opacity': 0.5}, 3000);
+            $('#' + key).stop().animate({'opacity': 0.5}, 3000);
         }, 1);
     }
 
     customClickAnimation(){
-        $(".curtainLeft").animate({'left': '0'}, 400);
-        $(".curtainRight").animate({'left': '50vw'}, 400);
+        $(".curtainLeft").stop().animate({'left': '0'}, 400);
+        $(".curtainRight").stop().animate({'left': '50vw'}, 400);
     }
 }
 const about = new About("I")

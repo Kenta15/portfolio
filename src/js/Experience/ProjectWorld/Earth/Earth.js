@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 
 import Globe from './Globe.js'
-import Atmosphere from './Atmosphere.js'
 import Cloud from './Cloud.js'
 
 import Experience from '../../Experience.js'
@@ -24,12 +23,10 @@ export default class Earth{
 
         this.resources.on('ready', () => {
             this.globe = new Globe()
-            this.atmosphere = new Atmosphere()
             this.cloud = new Cloud()
 
             this.earth.add(this.globe.globe)
             this.earth.add(this.cloud.cloud)
-            // this.earth.add(this.atmosphere.atmosphere)
         })
 
         this.earth = new THREE.Group()
@@ -52,9 +49,7 @@ export default class Earth{
 
     update(){
 
-        this.atmosphere.update()
         this.earth.rotateOnAxis(new THREE.Vector3(0,1,0),-0.0003)
 
-        // this.earth.rotateOnAxis(new THREE.Vector3(0,1,0),-0.001)
     }
 }

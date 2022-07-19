@@ -35,6 +35,7 @@ export default class Contacts{
                     child.position.z += 0.8
                 }
                 if(child.name == 'mail' || child.name == 'wall3' || child.name == 'text3' || child.name == 'pointer3'){
+                    console.log(child.name,child.position)
                     child.position.x += 2.1
                     child.position.z += 1.5
                 }
@@ -42,9 +43,7 @@ export default class Contacts{
 
         })
 
-        // this.contacts.rotation.x = - Math.PI / 2 // wake up
-        // this.contacts.rotation.y = Math.PI / 7 // slide
-        this.contacts.position.set(-16,-4.0, 0) // z = 5.5
+        this.contacts.position.set(-16,-4.0, 0)
         this.contacts.scale.set(3,3,3)
 
         this.scene.add(this.contacts)
@@ -66,11 +65,9 @@ export default class Contacts{
 
     update(){
 
-        // if(this.contacts.rotation.x < 0){
-        //     this.contacts.rotateOnAxis(new THREE.Vector3(1,0,0), 0.01)
-        // }
+    if(this.time.elapsed * 0.001 < 2.0){
 
-        if(this.time.elapsed * 0.001 < 1.0){
+        if(this.contacts.children[11].position.x >= 3.5){
 
             this.contacts.traverse((child) => {
 
@@ -84,10 +81,8 @@ export default class Contacts{
                         child.position.z -= 1.5 * this.time.elapsed * 0.000018
                     }
                 }
-    
             })
-
         }
-
+    }
     }
 }

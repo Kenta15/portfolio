@@ -1,3 +1,11 @@
 body{
     opacity:0;
 }
+.thank-you{
+    margin-top:85vh;
+    margin-left:85vw;
+    font-family: Apple Chancery; 
+    font-size: 1vh;
+    font-size: 1vw;
+    opacity:0;
+}

@@ -57,15 +57,16 @@ export default class Raycaster{
         window.addEventListener('mouseup', () => {
 
             if(this.clickedText){
+                
                 this.clickedText.position.z += 0.03
-            }
 
-            if(this.clickedText.name == 'text1')
-                window.setTimeout(() => {window.open('https://github.com/Kenta15')}, 200)
-            else if(this.clickedText.name == 'text2')
-                window.setTimeout(() => {window.open('https://www.linkedin.com/in/kenta-tanaka-0a11a0223/')}, 200)
-            else if(this.clickedText.name == 'text3')
-                window.setTimeout(() => {window.open('mailto:tkenta2929@gmail.com?')}, 200)
+                if(this.clickedText.name == 'text1')
+                    window.setTimeout(() => {window.open('https://github.com/Kenta15')}, 200)
+                else if(this.clickedText.name == 'text2')
+                    window.setTimeout(() => {window.open('https://www.linkedin.com/in/kenta-tanaka-0a11a0223/')}, 200)
+                else if(this.clickedText.name == 'text3')
+                    window.setTimeout(() => {window.open('mailto:tkenta2929@gmail.com?')}, 200)
+            }
                 
             this.clickedText = null
         })

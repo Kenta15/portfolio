@@ -5,5 +5,5 @@ void main()
 {
 
     float strength = texture2D(uTexture, gl_PointCoord).r;
-    gl_FragColor = vec4(0.5, 0.5, 1.0, strength * alpha);
+    gl_FragColor = vec4(0.8, 0.8, 1.0, strength * alpha);
 }

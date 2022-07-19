@@ -27,7 +27,7 @@ export default class Smoke{
             map: this.resources.items.smokeTexture,
             color:'#ffffff',
             depthWrite:false,
-            transparent: true,
+            // transparent: true,
             blending:THREE.AdditiveBlending,
             side: THREE.DoubleSide,
             opacity:0.2,
@@ -68,12 +68,11 @@ export default class Smoke{
             this.smoke_array.push(item)
         }
         this.smokes.rotation.y = - Math.PI / 3
-        this.smokes.position.x = -3
-        this.smokes.position.z = 5
+        this.smokes.position.set(-3,-10,-10)
 
-        // this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'x', {min:-100, max:100, step:1})
-        // this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'y', {min:-100, max:100, step:1})
-        // this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'z', {min:-100, max:100, step:1})
+        this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'x', {min:-100, max:100, step:1})
+        this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'y', {min:-100, max:100, step:1})
+        this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'z', {min:-100, max:100, step:1})
     }
 
     update(){
@@ -82,8 +81,5 @@ export default class Smoke{
             this.smokes.children[i].rotation.z = this.time.elapsed * this.smoke_array[i].rotationSpeed
             this.smokes.children[i].position.y = this.y_position_array[i] + Math.sin(this.time.elapsed * this.smoke_array[i].floatSpeed)
         }
-        // if((this.time.elapsed * 0.001) > 6.0 && (this.time.elapsed * 0.001) < 6.01){
-        //     this.material.opacity = 0.05 + Math.random() * 0.1
-        // }
     }
 }

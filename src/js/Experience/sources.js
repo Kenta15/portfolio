@@ -1,4 +1,22 @@
 export default [
+    //index
+    {
+        location: 'index.html',
+        name: 'gradientTexture',
+        type: 'texture',
+        path: [
+            '/textures/GrainyGradient.png',
+        ]
+    },
+    {
+        location: 'index.html',
+        name: 'flagTexture',
+        type: 'texture',
+        path: [
+            '/textures/JapaneseFlag.png',
+        ]
+    },
+
     // projects
     {
         location: 'projects.html',
@@ -13,7 +31,7 @@ export default [
         name: 'smokeTexture',
         type: 'texture',
         path: [
-            '/textures/particles/flame.png',
+            '/textures/particles/smoke.png',
         ]
     }, 
     {
@@ -45,7 +63,7 @@ export default [
         name: 'backgroundTexture',
         type: 'texture',
         path: [
-            '/textures/background.jpg',
+            '/textures/spotLights.png',
         ]
     },
     // skills
@@ -71,22 +89,6 @@ export default [
         type: 'texture',
         path: [
             '/textures/particles/point.png',
-        ]
-    },
-    {
-        location: 'skills.html',
-        name: 'textTexture',
-        type: 'texture',
-        path: [
-            '/textures/matcaps/4.png',
-        ]
-    },
-    {
-        location: 'skills.html',
-        name: 'textFont',
-        type: 'font',
-        path: [
-            '/fonts/helvetiker_regular.typeface.json',
         ]
     },
     // Contact

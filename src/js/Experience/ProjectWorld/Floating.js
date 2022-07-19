@@ -16,7 +16,7 @@ export default class Floating{
         this.resource = this.resources.items.particleTexture
         this.debug = this.experience.debug
 
-        this.count = 300
+        this.count = 500
 
         this.setGeometry()
         this.setMaterial()
@@ -92,7 +92,10 @@ export default class Floating{
         this.material.uniforms.uTime.value = this.time.elapsed
 
         if(this.material.uniforms.alpha.value < 0.1){
-            this.material.uniforms.alpha.value = this.time.elapsed * 0.0001
+            this.material.uniforms.alpha.value = this.time.elapsed * 0.00001
+        }
+        else{
+            this.material.uniforms.alpha.value = 0.1
         }
     }
 }

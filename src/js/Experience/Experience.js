@@ -33,9 +33,12 @@ export default class Experience{
         this.time = new Time()
         this.scene = new THREE.Scene()
 
-        const str = window.location.href.split("/")
-        const target = str[str.length - 1]
+        const str = window.location.href.split('/')
+        let target = str[str.length - 1]
         const targetSources = []
+
+        if(target == '')
+            target = 'index.html'
         
         for(const source of sources){
             if(target == source.location){
@@ -47,7 +50,7 @@ export default class Experience{
         this.camera = new Camera()
         this.renderer = new Renderer()
 
-        if(target == '' || target == 'index.html'){
+        if(target == 'index.html'){
             this.indexWorld = new IndexWorld()
         }
         if(target == 'about.html'){
@@ -75,9 +78,6 @@ export default class Experience{
     }
 
     resize(){
-
-        if(this.indexWorld)
-            this.indexWorld.resize()
         
         if(this.camera)
             this.camera.resize()

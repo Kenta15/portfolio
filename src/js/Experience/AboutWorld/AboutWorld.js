@@ -9,19 +9,12 @@ export default class AboutWorld{
         this.experience = new Experience()
         this.time = this.experience.time
 
-        this.wave = new Wave()
-    }
-
-    resize(){
-
-        if(this.wave)
-            this.wave.resize()
-
+        // this.wave = new Wave()
     }
 
     update(){
 
-        if(this.wave)
-            this.wave.update()
+        // if(this.wave)
+        //     this.wave.update()
     }
 }

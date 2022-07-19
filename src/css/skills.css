@@ -60,7 +60,7 @@ body{
 	position: absolute;
 	left: -2px;
 	top: -2px;
-	background: linear-gradient(235deg, #8360c3, #2ebf91);
+	background: linear-gradient(235deg, #0028ff, #4495F0);
 	background-size: 400%;
 	width: calc(100% + 4px);
 	height: calc(100% + 4px);

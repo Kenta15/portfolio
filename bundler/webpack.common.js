@@ -28,7 +28,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/html/index.html',
             filename: 'index.html',
-            minify: true,
             chunks: ['index'],
         }),
         new HtmlWebpackPlugin({

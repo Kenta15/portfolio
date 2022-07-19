@@ -33,11 +33,7 @@ class Contact extends Animations{
 
     setOrbitControls(){
         this.controls = new OrbitControls(this.camera.instance, this.canvas)
-        this.controls.enableDamping = true
 
-        window.addEventListener('mouseup',() => {
-            console.log(this.camera.instance)
-        })
     }
 
     setCamera(){
@@ -78,36 +74,35 @@ class Contact extends Animations{
     customAnimation(index, key){
 
         setTimeout(function(){
-            $('body').animate({'opacity': '1'}, 800);
-            $('#' + key).animate({'opacity': 0.5}, 3000);
+            $('body').stop().animate({'opacity': 1}, 800);
+            $('#' + key).stop().animate({'opacity': 0.5}, 3000);
             $("#" + index).stop().animate({'opacity': 1}, 3000);
+            $('.thank-you').stop().animate({'opacity': 1}, 3000);
         }, 1);
 
     }
 
     customClickAnimation(){
-        $('.webgl').animate({'opacity': '0'}, 1200);
+        $('body').stop().animate({'opacity': 0}, 1200);
     }
 
     threeTransition(clickTime){
         
-        if(clickTime < 1.0){
+        if(this.contacts.contacts.children[11].position.x < 5.8){
 
             this.contacts.contacts.traverse((child) => {
 
                 if(child instanceof THREE.Mesh){
                     if(child.name == 'linkedin' || child.name == 'wall2' || child.name == 'text2' || child.name == 'pointer2'){
-                        child.position.x += 1.0 * clickTime * 0.02
-                        child.position.z += 0.8 * clickTime * 0.02
+                        child.position.x += 1.0 * clickTime * 0.018
+                        child.position.z += 0.8 * clickTime * 0.018
                     }
                     if(child.name == 'mail' || child.name == 'wall3' || child.name == 'text3' || child.name == 'pointer3'){
-                        child.position.x += 2.1 * clickTime * 0.02
-                        child.position.z += 1.5 * clickTime * 0.02
+                        child.position.x += 2.1 * clickTime * 0.018
+                        child.position.z += 1.5 * clickTime * 0.018
                     }
                 }
-    
             })
-
         }
     }
 }

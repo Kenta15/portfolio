@@ -70,14 +70,14 @@ export default class Animations{
         
                     Object.entries(dict).forEach(([key,value]) =>{
 
-                        $('.header').animate({'opacity': 0},1000)
+                        $('.header').stop().animate({'opacity': 0},1000)
         
                         setTimeout(function(){
                             $('#' + key).css({"display": "none"})
                             $('#' + value).css({"display": "none"})
                         },1000)
         
-                        $('#' + event.target.id).animate({'opacity': 0},1000)
+                        $('#' + event.target.id).stop().animate({'opacity': 0},1000)
         
                         if(event.target.id == key){
                             setTimeout(myURL, 1200)

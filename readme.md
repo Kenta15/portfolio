@@ -1,4 +1,4 @@
-# Three.js Journey
+# Kenta Tanaka's portfolio
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
