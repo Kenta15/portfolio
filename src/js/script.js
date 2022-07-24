@@ -12,14 +12,14 @@ class Script{
         this.camera = this.experience.camera
         this.canvas = this.experience.canvas
 
-        this.setOrbitControls()
+        // this.setOrbitControls()
         this.animations()
     }
 
     setOrbitControls(){
-        this.controls = new OrbitControls(this.camera.instance, this.canvas)
-        this.controls.enablePan = false
-        this.controls.enableZoom = false
+        // this.controls = new OrbitControls(this.camera.instance, this.canvas)
+        // this.controls.enablePan = false
+        // this.controls.enableZoom = false
     }
 
     animations(){

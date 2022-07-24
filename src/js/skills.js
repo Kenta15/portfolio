@@ -38,7 +38,7 @@ class Skills extends Animations{
     }
 
     animations(){
-        setTimeout(function(){
+        setTimeout(() => {
             $('.container').stop().animate({'opacity':1}, 3000);
             $('.webgl').stop().animate({'opacity':1}, 3000);
         }, 1);
@@ -46,7 +46,7 @@ class Skills extends Animations{
 
     customAnimation(index, key){
 
-        setTimeout(function(){
+        setTimeout(() => {
             $('#' + key).stop().animate({'opacity': 0.5}, 3000);
             $("#" + index).stop().animate({'opacity': 1}, 3000);
         }, 1);
@@ -54,7 +54,7 @@ class Skills extends Animations{
     }
 
     customClickAnimation(){
-        setTimeout(function(){
+        setTimeout(() => {
             $('body').stop().animate({'opacity': 0},1000)
         }, 1);
     }

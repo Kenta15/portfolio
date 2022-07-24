@@ -72,7 +72,7 @@ export default class Animations{
 
                         $('.header').stop().animate({'opacity': 0},1000)
         
-                        setTimeout(function(){
+                        setTimeout(() => {
                             $('#' + key).css({"display": "none"})
                             $('#' + value).css({"display": "none"})
                         },1000)

@@ -1,5 +1,5 @@
 export default [
-    //index
+    // index
     {
         location: 'index.html',
         name: 'gradientTexture',

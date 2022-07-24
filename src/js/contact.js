@@ -73,7 +73,7 @@ class Contact extends Animations{
 
     customAnimation(index, key){
 
-        setTimeout(function(){
+        setTimeout(() => {
             $('body').stop().animate({'opacity': 1}, 800);
             $('#' + key).stop().animate({'opacity': 0.5}, 3000);
             $("#" + index).stop().animate({'opacity': 1}, 3000);

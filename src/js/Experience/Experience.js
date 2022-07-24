@@ -2,10 +2,11 @@ import * as THREE from 'three'
 import Sizes from './Utils/Sizes.js'
 import Time from './Utils/Time.js'
 import Resources from './Utils/Resources.js'
+import Debug from './Utils/Debug.js'
+import Stats from './Utils/Stats.js'
 import sources from './sources.js'
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
-import Debug from './Utils/Debug.js'
 import IndexWorld from './IndexWorld/IndexWorld'
 import AboutWorld from './AboutWorld/AboutWorld'
 import ProjectWorld from './ProjectWorld/ProjectWorld.js'
@@ -28,7 +29,8 @@ export default class Experience{
         this.canvas = canvas
 
         // Set up
-        this.debug = new Debug()
+        this.debug = new Debug(true)
+        this.stats = new Stats(true)
         this.sizes = new Sizes()
         this.time = new Time()
         this.scene = new THREE.Scene()
@@ -97,6 +99,9 @@ export default class Experience{
 
         if(this.contactWorld)
             this.contactWorld.update()
+        
+        if(this.stats)
+            this.stats.update()
         
         if(this.renderer)
             this.renderer.update()

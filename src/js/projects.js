@@ -61,7 +61,7 @@ class Projects extends Animations{
 
     customAnimation(index,key){
 
-        setTimeout(function(){
+        setTimeout(() => {
 
             $(".curtainLeft").stop().animate({'left': '-50vw'}, 400);
             $(".curtainRight").stop().animate({'left': '100vw'}, 400);

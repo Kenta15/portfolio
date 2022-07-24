@@ -11,6 +11,9 @@ body
 }
 body{
     background-color: black;
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none; 
 }
 .webgl
 {
@@ -18,15 +21,6 @@ body{
     top: 0;
     left: 0;
     outline: none;
-}
-::selection {
-    color: none;
-    background: none;
-}
-/* For Mozilla Firefox */
-::-moz-selection {
-    color: none;
-    background: none;
 }
 #main-page{
     position:absolute;

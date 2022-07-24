@@ -24,6 +24,7 @@ export default class Effects{
 
     setOrbitControls(){
         this.controls = new OrbitControls(this.camera.instance, this.canvas)
+        this.controls.enabled = false
     }
 
     setRayCaster(){
@@ -128,9 +129,6 @@ export default class Effects{
         if(this.isDragging == false){
             this.screens.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
         }
-
-        // Update controls
-        this.controls.enabled = false
 
         this.raycaster.setFromCamera(this.cursor, this.camera.instance)
         
