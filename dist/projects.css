@@ -1,11 +1,8 @@
-body{
-    cursor:default;
-}
 .descriptions{
     color:white;
     text-align:center;
-    margin-top:60vh;
-    margin-left:20vw;
+    margin-top:55vh;
+    margin-left:30vw;
     opacity:0.8;
 }
 .title{
@@ -14,23 +11,58 @@ body{
 .description{
     font-size: 18px;
 }
+.explore{
+    display:inline-block;
+    padding:0.8vh 1.5vw 0.8vh 1.5vw;
+    margin-top:1.5vh;
+    color:grey;
+    text-decoration: none;
+    border:2px solid grey;
+    border-radius:3px;
+    box-shadow:3px 3px #888888;
+}
+.explore:active{
+    margin-top:1.8vh;
+    margin-left:0.5vw;
+    box-shadow:none;
+}
 #ecommerce,#movie,#portfolio, #none{
     position:absolute;
+    display:none;
+    opacity:0;
+    width:50%;
+}
+.container{
+    margin-top:-8vh;
+    margin-left:10vw;
     opacity:0;
 }
-#ecommerce{
-    margin-left:8.7vw;
+.icons{
+    margin-bottom:-2vh;
 }
-#movie{
-    margin-left:20vw;
+#pointer{
+    height:60px;
 }
-#portfolio{
-    margin-left:20vw;
+.texts{
+    display:inline-block;
+    margin-left:-1vw;
 }
-#none{
-    margin-left:20vw;
+.curtainLeft{
+	position:absolute;
+	background: black;
+	width:50vw;
+	height:100vh;
+	top:0;
+	left:0;
 }
-
+.curtainRight{
+	position:absolute;
+	background: black;
+	width:50vw;
+	height:100vh;
+	top:0;
+	left:50vw;
+}
 *
 {
     margin: 0;
@@ -44,6 +76,9 @@ body
 }
 body{
     background-color: black;
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none; 
 }
 .webgl
 {
@@ -57,7 +92,7 @@ body{
 }
 .header{
     margin-top:5vh;
-    margin-left: 25vw;
+    margin-left: 30vw;
 }
 .header a,p{
     color:white;
@@ -75,7 +110,7 @@ body{
     margin:0 0 0 -8vw;
     opacity:0;
 }
-.index,.about,.projects,.skills,.education,.contact{
+.index,.about,.projects,.skills,.contact{
     display:inline-block;
 }
 

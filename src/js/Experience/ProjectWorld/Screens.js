@@ -19,6 +19,7 @@ export default class Screens{
         this.scene = this.experience.scene
         this.time = this.experience.time
         this.camera = this.experience.camera
+        this.renderer = this.experience.renderer
 
         this.earth = new Earth()
         this.projects = this.earth.projects
@@ -26,7 +27,7 @@ export default class Screens{
         // Adding Screen to the Screens
         this.screens = new THREE.Group()
 
-        this.projectsList = ['ecommerce', 'movie', 'portfolio', 'animated']
+        this.projectsList = ['ecommerce', 'movie', 'portfolio', 'none']
 
         this.setScreens()
         

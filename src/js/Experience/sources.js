@@ -63,7 +63,7 @@ export default [
         name: 'backgroundTexture',
         type: 'texture',
         path: [
-            '/textures/spotLights.png',
+            '/textures/spotLight.jpeg',
         ]
     },
     // skills

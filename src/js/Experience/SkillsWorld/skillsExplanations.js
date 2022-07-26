@@ -4,90 +4,104 @@ export default function explain(name){
 
     if(name == 'JavaScript'){
         exp.innerHTML = `<h1 class="title">JavaScript</h1>
-                         <p>This is JavaScript.fadsfasdf asdfasdfasdfasdfasdf asdfasdfasdfa sdfasfas dsdfasd</p>
+                         <p>JavaScript is a programming language for the Web. 
+                         Most of websites use JavaScript on the client side for the web page behavior along with HTML and CSS.
+                         It has a lot of libraries and frameworks to make nearly anything possible.
+                         </p>
                         `
     }
-    if(name == 'Python'){
+    else if(name == 'Python'){
         exp.innerHTML = `<h1 class="title">Python</h1>
-                         <p>This is Python</p>
+                         <p>Python is one of the most popular backend languages in the world.
+                         It is known for the simple beginner friendly syntax and widely used for ML, AI, and many more.
+                         </p>
                         `
     }
-    if(name == 'HTML'){
+    else if(name == 'HTML'){
         exp.innerHTML = `<h1 class="title">HTML</h1>
-                         <p></p>
+                         <p>HTML is a markup language to display contents on web pages.
+                         It is usually used with CSS to style contents properly.
+                         One of the essential languages for web development.
+                         </p>
                         `
     }
-    if(name == 'CSS'){
+    else if(name == 'CSS'){
         exp.innerHTML = `<h1 class="title">CSS</h1>
-                         <p></p>
+                         <p>CSS is a style sheet language used for styling of a document written in a markup language.
+                         It can be used to add colors, align things, and change the font of texts.
+                         Not only static representaion of a document, it can also be used to animate things such as slide and fade animations.
+                         </p>
                         `
     }
-    if(name == 'Django'){
+    else if(name == 'Django'){
         exp.innerHTML = `<h1 class="title">Django</h1>
-                         <p></p>
+                         <p>Django is one of the main python web frameworks.
+                         Django takes care of the difficulities, so you can focus on building website without doing unnessesary things.
+
+                         </p>
                         `
     }
-    if(name == 'JQuery'){
+    else if(name == 'JQuery'){
         exp.innerHTML = `<h1 class="title">JQuery</h1>
                          <p></p>
                         `
     }
-    if(name == 'Three.js'){
+    else if(name == 'Three.js'){
         exp.innerHTML = `<h1 class="title">Three.js</h1>
                          <p></p>
                         `
     }
-    if(name == 'Cannon.js'){
+    else if(name == 'Cannon.js'){
         exp.innerHTML = `<h1 class="title">Cannon.js</h1>
                          <p></p>
                         `
     }
-    if(name == 'Vue.js'){
+    else if(name == 'Vue.js'){
         exp.innerHTML = `<h1 class="title">Vue.js</h1>
                          <p></p>
                         `
     }
-    if(name == 'Node.js'){
+    else if(name == 'Node.js'){
         exp.innerHTML = `<h1 class="title">Node.js</h1>
                          <p></p>
                         `
     }
-    if(name == 'React'){
+    else if(name == 'React'){
         exp.innerHTML = `<h1 class="title">React</h1>
                          <p></p>
                         `
     }
-    if(name == 'AWS'){
+    else if(name == 'AWS'){
         exp.innerHTML = `<h1 class="title">AWS</h1>
                          <p></p>
                         `
     }
-    if(name == 'Heroku'){
+    else if(name == 'Heroku'){
         exp.innerHTML = `<h1 class="title">Heroku</h1>
                          <p></p>
                         `
     }
-    if(name == 'Git'){
+    else if(name == 'Git'){
         exp.innerHTML = `<h1 class="title">Git</h1>
                          <p></p>
                         `
     }
-    if(name == 'Github'){
+    else if(name == 'Github'){
         exp.innerHTML = `<h1 class="title">GitHub</h1>
                          <p></p>
                         `
     }
-    if(name == 'Webpack'){
+    else if(name == 'Webpack'){
         exp.innerHTML = `<h1 class="title">Webpack</h1>
                          <p></p>
                         `
     }
-    if(name == 'VS Code'){
+    else if(name == 'VS Code'){
         exp.innerHTML = `<h1 class="title">VS Code</h1>
                          <p></p>
                         `
     } 
-    if(name == 'Blender'){
+    else if(name == 'Blender'){
         exp.innerHTML = `<h1 class="title">Blender</h1>
                          <p></p>
                         `

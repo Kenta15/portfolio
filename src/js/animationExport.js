@@ -49,9 +49,9 @@ export default class Animations{
     transition(index, dict){
 
         const clickClock = new THREE.Clock()
-        const icons = document.querySelectorAll('a')
+        const icons = document.querySelectorAll('div.header a')
 
-        icons.forEach(icon =>{ 
+        icons.forEach(icon => { 
             icon.addEventListener('click', (event) => {
         
                 if(event.target.id != index){

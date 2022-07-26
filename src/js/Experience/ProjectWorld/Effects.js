@@ -17,6 +17,7 @@ export default class Effects{
         this.debug = this.experience.debug
 
         this.screens = new Screens()
+        this.projectsList = this.screens.projectsList
 
         this.setOrbitControls()
         this.setRayCaster()
@@ -38,24 +39,16 @@ export default class Effects{
             x: 0,
             y: 0
         }
-        this.mousedown = {
-            x: 0,
-            y: 0
-        }
-        this.delta = {
-            x: 0,
-            y: 0
-        }
-
+        
         window.addEventListener('mousedown', (event) => {
             
-            this.isDragging = true
-
-            this.mousedown.x = event.clientX / this.sizes.width * 2 - 1
-
-            console.log(this.screens.projects.rotation)
+            if(this.currIntersect || event.target.tagName == 'A')
+                this.isDragging = false
+            else
+                this.isDragging = true
 
         })
+        
         window.addEventListener('mouseup', () => {
             
             this.isDragging = false
@@ -66,17 +59,6 @@ export default class Effects{
             this.cursor.x = event.clientX / this.sizes.width * 2 - 1
             this.cursor.y = - (event.clientY / this.sizes.height) * 2 + 1
 
-            if(this.isDragging == true){
-
-                this.delta.x = this.mousedown.x - this.cursor.x
-                this.mousedown.x = this.cursor.x
-
-                if(this.screens.projects.rotation.z <= 0)
-                    this.screens.projects.rotation.y -= this.delta.x
-                else
-                    this.screens.projects.rotation.y += this.delta.x
-            }
-
             if(this.currIntersect){
                 $('body').css('cursor', 'pointer')
             }
@@ -85,33 +67,58 @@ export default class Effects{
         window.addEventListener('click', () => {
             
             if(this.currIntersect){
-                console.log(this.currIntersect.object)
-                console.log(this.currIntersect.object.id)
-                console.log(this.currIntersect.object.name)
 
                 if(this.currIntersect.object.name == 'ecommerce'){
-                    $('#ecommerce').stop().animate({'opacity': 0.8},1000)
-                    $('#movie').stop().animate({'opacity': 0},1000)
-                    $('#portfolio').stop().animate({'opacity': 0},1000)
-                    $('#none').stop().animate({'opacity': 0},1000)
+
+                    for(let i = 0; i < this.projectsList.length; i++){
+                        if(this.projectsList[i] == 'ecommerce'){
+                            $('#' + this.projectsList[i]).css('display', 'block')
+                            $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
+                        }
+                        else{
+                            $('#' + this.projectsList[i]).css('display', 'none')
+                            $('#' + this.projectsList[i]).stop().animate({'opacity': 0},1000)
+                        }
+                    }
                 }
                 else if(this.currIntersect.object.name == 'movie'){
-                    $('#ecommerce').stop().animate({'opacity': 0},1000)
-                    $('#movie').stop().animate({'opacity': 0.8},1000)
-                    $('#portfolio').stop().animate({'opacity': 0},1000)
-                    $('#none').stop().animate({'opacity': 0},1000)
+
+                    for(let i = 0; i < this.projectsList.length; i++){
+                        if(this.projectsList[i] == 'movie'){
+                            $('#' + this.projectsList[i]).css('display', 'block')
+                            $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
+                        }
+                        else{
+                            $('#' + this.projectsList[i]).css('display', 'none')
+                            $('#' + this.projectsList[i]).stop().animate({'opacity': 0},1000)
+                        }
+                    }
                 }
                 else if(this.currIntersect.object.name == 'portfolio'){
-                    $('#ecommerce').stop().animate({'opacity': 0},1000)
-                    $('#movie').stop().animate({'opacity': 0},1000)
-                    $('#portfolio').stop().animate({'opacity': 0.8},1000)
-                    $('#none').stop().animate({'opacity': 0},1000)
+
+                    for(let i = 0; i < this.projectsList.length; i++){
+                        if(this.projectsList[i] == 'portfolio'){
+                            $('#' + this.projectsList[i]).css('display', 'block')
+                            $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
+                        }
+                        else{
+                            $('#' + this.projectsList[i]).css('display', 'none')
+                            $('#' + this.projectsList[i]).stop().animate({'opacity': 0},1000)
+                        }
+                    }
                 }
-                else if(this.currIntersect.object.name == 'animated'){
-                    $('#ecommerce').stop().animate({'opacity': 0},1000)
-                    $('#movie').stop().animate({'opacity': 0},1000)
-                    $('#portfolio').stop().animate({'opacity': 0},1000)
-                    $('#none').stop().animate({'opacity': 0.8},1000)
+                else if(this.currIntersect.object.name == 'none'){
+
+                    for(let i = 0; i < this.projectsList.length; i++){
+                        if(this.projectsList[i] == 'none'){
+                            $('#' + this.projectsList[i]).css('display', 'block')
+                            $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
+                        }
+                        else{
+                            $('#' + this.projectsList[i]).css('display', 'none')
+                            $('#' + this.projectsList[i]).stop().animate({'opacity': 0},1000)
+                        }
+                    }
                 }
             }
         })
@@ -126,9 +133,10 @@ export default class Effects{
 
     update(){
 
-        if(this.isDragging == false){
+        if(this.isDragging == true)
+            this.screens.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.01)
+        else
             this.screens.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
-        }
 
         this.raycaster.setFromCamera(this.cursor, this.camera.instance)
         

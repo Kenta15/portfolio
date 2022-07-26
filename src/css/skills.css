@@ -28,10 +28,11 @@ body{
     position:relative;
     background: linear-gradient(0deg, #000, #272727);
     width:40vw;
-    height:60vh;
-    margin-top:10vh;
+    height:40vh;
+    margin-top:20vh;
     margin-left:30vw;
     opacity:0;
+    overflow-y:auto;
     z-index:5;
 }
 #explanations h1, p{
@@ -42,6 +43,8 @@ body{
     padding-bottom:1vh;
 }
 #explanations p{
+    margin-left:5vw;
+    margin-right:5vw;
     font-size:25px;
     opacity:0.8;
 }
@@ -49,8 +52,8 @@ body{
 .block {
 	position: relative;
 	width:40vw;
-    height:60vh;
-    margin-top:-60vh;
+    height:40vh;
+    margin-top:-40vh;
     margin-left:30vw;
     opacity:0;
 }

@@ -16,7 +16,7 @@ export default class Floating{
         this.resource = this.resources.items.particleTexture
         this.debug = this.experience.debug
 
-        this.count = 500
+        this.count = 300
 
         this.setGeometry()
         this.setMaterial()

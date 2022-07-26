@@ -32,15 +32,23 @@ class About extends Animations{
 
     customAnimation(index,key){
         setTimeout(() => {
-            $('body').stop().animate({'opacity': 1}, 800);
-            $("#" + index).stop().animate({'opacity': 1}, 3000);
-            $('#' + key).stop().animate({'opacity': 0.5}, 3000);
+            $('.webgl').stop().animate({'opacity': 1}, 500)
+
+            $("#" + index).stop().animate({'opacity': 1}, 3000)
+            $('#' + key).stop().animate({'opacity': 0.5}, 3000)
         }, 1);
+        setTimeout(() => {
+            $('#terminal').css('opacity', 1)
+        }, 2000)
     }
 
     customClickAnimation(){
-        // $(".curtainLeft").stop().animate({'left': '0'}, 400);
-        // $(".curtainRight").stop().animate({'left': '50vw'}, 400);
+        
+        $('#terminal').css('opacity', 0)
+        setTimeout(() => {
+            $(".curtainLeft").stop().animate({'left': '0'}, 400)
+            $(".curtainRight").stop().animate({'left': '50vw'}, 400)
+        },500)
     }
 }
 const about = new About("I")

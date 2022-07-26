@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "webpack --config ./bundler/webpack.prod.js",
-    "dev": "webpack serve --config ./bundler/webpack.dev.js"
+    "dev": "webpack serve --config ./bundler/webpack.dev.js",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "babel-loader": "^8.2.5",
@@ -29,6 +30,7 @@
     "three": "^0.140.0",
     "tweakpane": "^3.1.0",
     "twgl.js": "^4.24.0",
+    "vercel": "^27.2.0",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1",

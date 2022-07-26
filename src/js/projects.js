@@ -1,7 +1,6 @@
 import '../css/projects.css'
 import '../css/header.css'
 import * as THREE from 'three'
-import * as dat from 'lil-gui'
 import Animations from './animationExport.js'
 import Experience from './Experience/Experience.js'
 import Screens from './Experience/ProjectWorld/Screens.js'
@@ -44,19 +43,19 @@ class Projects extends Animations{
         this.lights.c.position.set( 1.1, 2.2, 0 )
         this.scene.add(this.lights.c)
 
-        this.debug.pane.addInput(this.lights.a.position, 'x', {min:-50, max:50, step:0.1})
-        this.debug.pane.addInput(this.lights.a.position, 'y', {min:-50, max:50, step:0.1})
-        this.debug.pane.addInput(this.lights.a.position, 'z', {min:-50, max:50, step:0.1})
-        this.debug.pane.addInput(this.lights.a, 'intensity', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.a.position, 'x', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.a.position, 'y', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.a.position, 'z', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.a, 'intensity', {min:-50, max:50, step:0.1})
 
-        this.debug.pane.addInput(this.lights.b.position, 'x', {min:-50, max:50, step:0.1})
-        this.debug.pane.addInput(this.lights.b.position, 'y', {min:-50, max:50, step:0.1})
-        this.debug.pane.addInput(this.lights.b.position, 'z', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.b.position, 'x', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.b.position, 'y', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.b.position, 'z', {min:-50, max:50, step:0.1})
 
-        this.debug.pane.addInput(this.lights.c.position, 'x', {min:-50, max:50, step:0.1})
-        this.debug.pane.addInput(this.lights.c.position, 'y', {min:-50, max:50, step:0.1})
-        this.debug.pane.addInput(this.lights.c.position, 'z', {min:-50, max:50, step:0.1})
-        this.debug.pane.addInput(this.lights.c, 'intensity', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.c.position, 'x', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.c.position, 'y', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.c.position, 'z', {min:-50, max:50, step:0.1})
+        // this.debug.pane.addInput(this.lights.c, 'intensity', {min:-50, max:50, step:0.1})
     }
 
     customAnimation(index,key){

@@ -1,3 +1,121 @@
+.webgl{
+	opacity:0;
+}
+.curtainLeft{
+	position:absolute;
+	background: black;
+	width:50vw;
+	height:100vh;
+	top:0;
+	left:-50vw;
+}
+.curtainRight{
+	position:absolute;
+	background: black;
+	width:50vw;
+	height:100vh;
+	top:0;
+	left:100vw;
+}
+#terminal{
+	position:absolute;
+	top:15vh;
+	left:20vw;
+	opacity:0;
+}
+#menu{
+	background:#F3F3F8;
+	width:60vw;
+	height:28px;
+	border:0.1px solid #E4EAE2;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+}
+.buttons{
+	display:inline-block;
+	width:12px;
+	height:12px;
+	margin-top:8.26px;
+	margin-left:0.5vw;
+	border-radius:50%;
+}
+.close{
+	margin-left:1vw;
+	background: #F45761;
+}
+.minimize{
+	background: #FFBD00;
+}
+.maximize{
+	background: #33CB09;
+}
+#screen{
+	background: white;
+	width:60vw;
+	height:70vh;
+	border:0.01px solid #DBE0DA;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	overflow: auto;
+
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	user-select: text;  
+}
+#screen:hover{
+	cursor:text;
+}
+.texts{
+	margin:0.3vh 0 0 0.3vw;
+	text-align:left;
+	color:black;
+	font-family:Menlo;
+	font-size:12px;
+}
+#aboutMe{
+	font-size:20px;
+}
+.page-texts{
+	font-family:Menlo;
+}
+#input{
+	display:inline-block;
+    margin: 0;
+    font-family: Menlo;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.emoji{
+	margin-top:-0.4vh;
+	margin-left:-0.15vw;
+	opacity:0;
+}
+.blink{
+	display:inline;
+	color:black;
+	font-family:Menlo;
+	font-size:12px;
+	animation:blinker 1.5s linear infinite;
+}
+
+@keyframes blinker{
+	0% {
+		opacity: 1;
+	  }
+	  40% {
+		opacity: 1;
+	  }
+	  50% {
+		opacity: 0;
+	  }
+	  90% {
+		opacity: 0;
+	  }
+	  100% {
+		opacity: 1;
+	  }
+}
 
 *
 {
@@ -12,6 +130,9 @@ body
 }
 body{
     background-color: black;
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none; 
 }
 .webgl
 {
@@ -25,7 +146,7 @@ body{
 }
 .header{
     margin-top:5vh;
-    margin-left: 25vw;
+    margin-left: 30vw;
 }
 .header a,p{
     color:white;
@@ -43,7 +164,7 @@ body{
     margin:0 0 0 -8vw;
     opacity:0;
 }
-.index,.about,.projects,.skills,.education,.contact{
+.index,.about,.projects,.skills,.contact{
     display:inline-block;
 }
 

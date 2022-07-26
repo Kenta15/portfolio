@@ -1,7 +1,7 @@
 .descriptions{
     color:white;
     text-align:center;
-    margin-top:60vh;
+    margin-top:55vh;
     margin-left:30vw;
     opacity:0.8;
 }
@@ -11,8 +11,24 @@
 .description{
     font-size: 18px;
 }
+.explore{
+    display:inline-block;
+    padding:0.8vh 1.5vw 0.8vh 1.5vw;
+    margin-top:1.5vh;
+    color:grey;
+    text-decoration: none;
+    border:2px solid grey;
+    border-radius:3px;
+    box-shadow:3px 3px #888888;
+}
+.explore:active{
+    margin-top:1.8vh;
+    margin-left:0.5vw;
+    box-shadow:none;
+}
 #ecommerce,#movie,#portfolio, #none{
     position:absolute;
+    display:none;
     opacity:0;
     width:50%;
 }
@@ -30,7 +46,6 @@
 .texts{
     display:inline-block;
     margin-left:-1vw;
-    margin-top:-5vh;
 }
 .curtainLeft{
 	position:absolute;

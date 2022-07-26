@@ -5,6 +5,7 @@ import Effects from './Effects.js'
 import Floating from './Floating.js'
 import Smoke from './Smoke.js'
 import Earth from './Earth/Earth.js'
+import Bloom from './Bloom.js'
 
 export default class ProjectWorld{
 
@@ -21,6 +22,7 @@ export default class ProjectWorld{
             this.effects = new Effects()
             this.floating = new Floating()
             this.smoke = new Smoke()
+            this.bloom = new Bloom()
             
             this.scene.background = this.resources.items.backgroundTexture
         })
@@ -38,6 +40,8 @@ export default class ProjectWorld{
             this.floating.update() 
         if(this.smoke)
             this.smoke.update()
+        if(this.bloom)
+            this.bloom.update()
         
     }
 }

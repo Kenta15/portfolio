@@ -10,7 +10,7 @@ body
     overflow: hidden;
 }
 body{
-    background-color: black;
+    background: black;
     opacity:0;
 }
 .webgl
@@ -20,42 +20,72 @@ body{
     left: 0;
     outline: none;
 }
-.message{
-    display:inline-block;
-    margin-left: 30vw;
-    margin-top:10vh;
+::selection {
+    color: none;
+    background: none;
 }
-.text{
-    font-size:9.8vw;
-    color:white;
-    text-align: center;
-    opacity:0;
+/* For Mozilla Firefox */
+::-moz-selection {
+    color: none;
+    background: none;
 }
 #main-page{
     position:absolute;
 }
-.header{
-    margin-top:5vh;
-    margin-left: 25vw;
-}
-.header a,p{
+#start{
     color:white;
-    text-align:center;
-    text-decoration: none;
-}
-.header a{
-    font-size:18px;
-    margin-right:8vw;
+    font-family: Bradley Hand;
+    font-size:5vw;
+    font-size:5vh;
+    margin-left:46vw;
+    margin-top:48vh;
     opacity:0;
+}
+#start:hover{
     cursor:pointer;
+    
 }
-.header p{
-    font-size:16px;
-    margin:0 0 0 -8vw;
-    opacity:0;
+
+#start{
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+  }
+  
+#start::before,
+#start::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
 }
-.index,.about,.projects,.skills,.education,.contact{
-    display:inline-block;
+#start::after{
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    left:2vw;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: white;
 }
+
+#start:hover::before{
+    transform-origin: 0% 50%;
+    /* transform: scaleX(1); */
+}
+#start:hover::after{
+    transform: translate3d(0, 0, 0);
+}
+
+#start span{
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#start:hover span{
+    transform: translate3d(-200%, 0, 0);
+}
+
 
 /*# sourceMappingURL=index.css.map*/

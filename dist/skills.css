@@ -1,6 +1,90 @@
-.webgl{
+body{
     cursor: grab;
+}
+.webgl{
     opacity:0;
+    z-index:-3;
+}
+.container{
+    margin-top:-8vh;
+    margin-left:10vw;
+    opacity:0;
+}
+#grab{
+    height:60px;
+    margin-bottom:0.8vh;
+}
+#grabbing{
+    margin-left: -1vw;
+}
+.texts{
+    margin-top:-2vh;
+    margin-left:0.8vw;
+}
+.texts p{
+    display: inline;
+}
+#explanations{
+    position:relative;
+    background: linear-gradient(0deg, #000, #272727);
+    width:40vw;
+    height:40vh;
+    margin-top:20vh;
+    margin-left:30vw;
+    opacity:0;
+    overflow-y:auto;
+    z-index:5;
+}
+#explanations h1, p{
+    text-align:center;
+}
+#explanations h1{
+    padding-top:2vh;
+    padding-bottom:1vh;
+}
+#explanations p{
+    margin-left:5vw;
+    margin-right:5vw;
+    font-size:25px;
+    opacity:0.8;
+}
+
+.block {
+	position: relative;
+	width:40vw;
+    height:40vh;
+    margin-top:-40vh;
+    margin-left:30vw;
+    opacity:0;
+}
+
+.block:before, .block:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(235deg, #0028ff, #4495F0);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: steam 50s linear infinite;
+    z-index:-2;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 100% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(50px);
 }
 *
 {
@@ -15,6 +99,9 @@ body
 }
 body{
     background-color: black;
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none; 
 }
 .webgl
 {
@@ -28,7 +115,7 @@ body{
 }
 .header{
     margin-top:5vh;
-    margin-left: 25vw;
+    margin-left: 30vw;
 }
 .header a,p{
     color:white;
@@ -46,7 +133,7 @@ body{
     margin:0 0 0 -8vw;
     opacity:0;
 }
-.index,.about,.projects,.skills,.education,.contact{
+.index,.about,.projects,.skills,.contact{
     display:inline-block;
 }
 

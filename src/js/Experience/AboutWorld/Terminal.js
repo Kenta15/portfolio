@@ -24,12 +24,7 @@ export default class Terminal{
 
         this.menu.addEventListener('mousedown', (event) => {
 
-            if(window.getComputedStyle(document.body).getPropertyValue('cursor') == 'default'){
-                this.isDraggingPosition = true
-            }
-            else{
-                this.isDraggingResize = true
-            }
+            this.isDraggingPosition = true
 
             this.pivot.x = event.clientX
             this.pivot.y = event.clientY
@@ -43,8 +38,6 @@ export default class Terminal{
         })
 
         window.addEventListener('mousemove', (event) => {
-
-            this.setResize(event.clientX, event.clientY)
 
             if(this.isDraggingPosition == true){
                 let left = ((this.terminalPosition.left + (event.clientX - this.pivot.x)) * 100) / window.innerWidth
@@ -60,10 +53,10 @@ export default class Terminal{
     firstPage(){
 
         setTimeout(() => {
-            document.getElementById('screen').innerHTML += `<br> <p class='texts'>The default interacitive shell is now zsh. <br>
+            document.getElementById('screen').innerHTML += `<br> <p class='texts'>The default interactive shell is now zsh. <br>
                                                             For more details about my projects, please visit <a href="https://github.com/Kenta15" target="_blank">https://github.com/Kenta15</a>.<br>
                                                             <br></p>
-                                                            <p class="texts" id="response"> (base) Welcome to about, please type your name$ <input id="input"> </p>
+                                                            <p class="texts" id="response"> (base) Welcome to about, please type your name$ <input id="input"></p>
                                                             <p class="texts" id="loading"></p>
                                                             `
         },1000)
@@ -110,21 +103,40 @@ export default class Terminal{
 
               return
             }
-
             else if(event.key == 'Enter' && this.enterCount == 1) {
                 if(this.input.value == 'Y' || this.input.value == 'y'){
 
                     this.disable = true
+                    this.input.remove()
+                    this.response.innerHTML += this.input.value
 
                     for(let i = 0; i < 101; i++){
                         setTimeout(() => {
-                            document.getElementById('loading').innerHTML = `<br> Loading... ` + i + `%`
-                        }, i * Math.exp(3,i))
+                            document.getElementById('loading').innerHTML = `<br> Writing Objects: ` + i + `%, done.`
+                        }, i * Math.exp(3))
                     }
 
                     setTimeout(() => {
+                        document.getElementById('loading').innerHTML += `<br><br>installed 110675 node_modules/jquery/src/var/isRandom.js
+                        <br>installed 110675 node_modules/jquery/src/var/stack.js
+                        <br>installed 110675 node_modules/jquery/src/var/toString.js
+                        <br>installed 110675 node_modules/jquery/src/var/support.js
+                        <br>installed 110675 node_modules/jquery/src/var/isAnything.js
+                        <br>installed 110675 src/js/about.js<br>installed 110675 src/js/projects.js<br>installed 110675 src/js/skills.js<br>installed 110675 src/js/contacts.js<br>
+                        <br>found <p style="display:inline; color:#13A312;">0</p> vulnerabilities.
+                        `
+                    },100 * Math.exp(3.2))
+
+                    setTimeout(() => {
+                        document.getElementById('loading').innerHTML += `<br><br>-------------------------------------------<br>
+                        Project running at: <br>
+                        <p style="display:inline; color:#0A4BBC; margin-left:10px;"> - http://10.10.43.59:8080</p>
+                        <br> compiled <p style="display:inline; color:#13A312;">successfully.</p>`
+                    },100 * Math.exp(3.4))
+
+                    setTimeout(() => {
                         this.secondPage(this.enterCount)
-                    }, 100 * Math.exp(3.3,100))
+                    }, 100 * Math.exp(3.8))
                 }
                 else if(this.input.value == 'N' || this.input.value == 'n'){
                     window.location.href = 'index.html'
@@ -133,14 +145,28 @@ export default class Terminal{
                     this.input.remove()
                     this.response.innerHTML += this.input.value
                     this.response.innerHTML += `<br> -bash:` + this.input.value + `: command not found <br>
-                                                                    Do you want to continue [Y/n]? <input type="text" id="input">
-                                                                    `
+                                                Do you want to continue [Y/n]? <input type="text" id="input">
+                                                `
                 }
                 return
             }
             else if(event.key == 'Enter' && this.enterCount == 2) {
                 this.secondPage(this.enterCount)
+                this.enterCount = 3
+                if(this.isFinished == true)
+                    this.disable = false
                 return
+            }
+            else if(event.key == 'Enter' && this.enterCount == 3){
+
+                $('#terminal').css('opacity', 0)
+                setTimeout(() => {
+                    $(".curtainLeft").stop().animate({'left': '0'}, 400)
+                    $(".curtainRight").stop().animate({'left': '50vw'}, 400)
+                },500)
+                setTimeout(() => {
+                    window.location.href = 'projects.html'
+                }, 1200)
             }
         })
     }
@@ -154,65 +180,59 @@ export default class Terminal{
 
             setTimeout(() => {
                 document.getElementById('response').innerHTML += `<br><p style="display:inline; color:#58CE31;">[Name]</p> Kenta Tanaka
+                                                                  <br><br><p style="display:inline; color:#58CE31;">[Where From]</p> Japan
                                                                   <br><br><p style="display:inline; color:#58CE31;">[Title]</p> Web Developer
                                                                   <br><br><p style="display:inline; color:#58CE31;">[School]</p> University of California - Davis
-                                                                  <br><br><br> Press Enter to see my messages
+                                                                  <br><br><p class="texts" id="message0" style="display:inline;"></p>
                                                                  `
+                document.getElementById('message0').innerHTML = `Press "<p class="blink">Enter</p>"`
+
                 this.enterCount = 2
                 this.disable = false
             }, 300)
         }
         else if(enterCount == 2){
-            console.log('enter2')
-        }
-    }
 
-    setResize(clientX, clientY){
+            this.disable = true
+            
+            var messageArray = ["Hi, I'm Kenta.", "I am a Japansese Web Developer in the U.S.", "Currently commuting to UC Davis as a CS student.",
+                                "I like to build anything unique and stylish.", "Looking forward to exploring more Web Development and Design.",
+                                "Nice to meet you!"
+                               ]
+            var textPosition = 0
+            var speed = 100
+            var index = 0
+            var isFinished = false
 
-        this.terminalPositionResize = this.terminal.getBoundingClientRect()
+            const typewriter = () => {
 
-        this.deltaN = Math.abs(this.terminalPositionResize.top - clientY)
-        this.deltaE = Math.abs(this.terminalPositionResize.right - clientX)
-        this.deltaS = Math.abs(this.terminalPositionResize.bottom - clientY)
-        this.deltaW = Math.abs(this.terminalPositionResize.left - clientX)
+                document.getElementById('message' + index).innerHTML = messageArray[index].substring(0,textPosition) + `<span id="bar">|</span>`
 
-        this.menu = document.getElementById('menu')
-        this.menuPositionResize = this.menu.getBoundingClientRect()
-        this.screen = document.getElementById('screen')
-        this.screenPositionResize = this.screen.getBoundingClientRect()
+                if(textPosition++ != messageArray[index].length){
+                    setTimeout(typewriter, speed)
+                }
+                else{
+                    document.getElementById('bar').remove()
+                    textPosition = 0
+                    index++
+                    this.response.innerHTML += `<p class="texts" id="message` + index + `"></p>` 
 
-        if(this.deltaN + this.deltaW < 5){
-            $('body').css('cursor', 'nw-resize')
-            if(this.isDraggingResize == true){
-                this.menu.style.width = ((this.menuPositionResize.width + (this.pivot.x - clientX)) * 100) / window.innerWidth + 'vw'
+                    if(index < messageArray.length)
+                        setTimeout(typewriter, 500)
+                    else
+                        isFinished = true
+                }
 
-                this.screen.style.height = ((this.screenPositionResize.height + (this.pivot.y - clientY)) * 100) / window.innerHeight + 'vh'
-                this.screen.style.width = ((this.screenPositionResize.width + (this.pivot.x - clientX)) * 100) / window.innerWidth + 'vw'
+                if(isFinished == true){
+                    setTimeout(() =>{
+                        this.response.innerHTML += `<br>Press "<p class="blink">Enter</p>" to go to the projects page
+                                                    <br>(or use the menu on the top)
+                                                    `
+                        this.disable = false
+                    },500)
+                }
             }
-        }
-        else if(this.deltaN + this.deltaE < 5){
-            $('body').css('cursor', 'ne-resize')
-        }
-        else if(this.deltaS + this.deltaW < 5){
-            $('body').css('cursor', 'sw-resize')
-        }
-        else if(this.deltaS + this.deltaE < 5){
-            $('body').css('cursor', 'se-resize')
-        }
-        else if(this.deltaN < 5){
-            $('body').css('cursor', 'n-resize')
-        }
-        else if(this.deltaE < 5){
-            $('body').css('cursor', 'e-resize')
-        }
-        else if(this.deltaS < 5){
-            $('body').css('cursor', 's-resize')
-        }
-        else if(this.deltaW < 5){
-            $('body').css('cursor', 'w-resize')
-        }
-        else{
-            $('body').css('cursor', 'default')
+            typewriter()
         }
     }
 
