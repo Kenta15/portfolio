@@ -23,12 +23,8 @@ export default class Smoke{
     }
 
     setMaterial(){
-
-        this.textureLoader = new THREE.TextureLoader()
-        this.smokeTexture = this.textureLoader.load('/textures/particles/smoke.png')
-
         this.material = new THREE.MeshBasicMaterial({
-            map: this.smokeTexture,
+            map: this.resources.items.smokeTexture,
             color:'#ffffff',
             depthWrite:false,
             // transparent: true,
