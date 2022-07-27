@@ -26,14 +26,14 @@ export default [
             '/textures/particles/point.png',
         ]
     },
-    {
-        location: 'projects.html',
-        name: 'smokeTexture',
-        type: 'texture',
-        path: [
-            '/textures/particles/smoke.png',
-        ]
-    }, 
+    // {
+    //     location: 'projects.html',
+    //     name: 'smokeTexture',
+    //     type: 'texture',
+    //     path: [
+    //         '/textures/particles/smoke.png',
+    //     ]
+    // }, 
     {
         location: 'projects.html',
         name: 'earthColorTexture',

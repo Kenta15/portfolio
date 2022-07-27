@@ -23,14 +23,18 @@ export default class Smoke{
     }
 
     setMaterial(){
+
+        this.textureLoader = new THREE.TextureLoader()
+        this.smokeTexture = this.textureLoader.load('/textures/particles/smoke.png')
+
         this.material = new THREE.MeshBasicMaterial({
-            map: this.resources.items.smokeTexture,
+            map: this.smokeTexture,
             color:'#ffffff',
             depthWrite:false,
             // transparent: true,
             blending:THREE.AdditiveBlending,
             side: THREE.DoubleSide,
-            opacity:0.2,
+            opacity:0.3,
         })
     }
 
@@ -39,7 +43,7 @@ export default class Smoke{
         this.smokes = new THREE.Group()
         this.scene.add(this.smokes)
 
-        this.count = 300
+        this.count = 200
 
         this.smoke_array = []
         this.y_position_array = []
