@@ -39,6 +39,15 @@ export default class Effects{
             x: 0,
             y: 0
         }
+
+        this.mousedown = {
+            x: 0,
+            y: 0
+        }
+        this.delta = {
+            x: 0,
+            y: 0
+        }
         
         window.addEventListener('mousedown', (event) => {
             
@@ -46,7 +55,10 @@ export default class Effects{
                 this.isDragging = false
             else
                 this.isDragging = true
+            
+            // this.isDragging = true
 
+            this.mousedown.x = event.clientX / this.sizes.width * 2 - 1
         })
         
         window.addEventListener('mouseup', () => {
@@ -58,6 +70,20 @@ export default class Effects{
 
             this.cursor.x = event.clientX / this.sizes.width * 2 - 1
             this.cursor.y = - (event.clientY / this.sizes.height) * 2 + 1
+
+            // if(this.isDragging == true){
+
+            //     this.delta.x = this.cursor.x - this.mousedown.x
+            //     this.mousedown.x = this.cursor.x
+
+            //     if(this.screens.projects.rotation.z == 0)
+            //         this.screens.projects.rotation.y += this.delta.x
+            //     else
+            //         this.screens.projects.rotation.y -= this.delta.x
+            //     console.log(this.screens.projects.rotation.x, this.screens.projects.rotation.y, this.screens.projects.rotation.z)
+
+                
+            // }
 
             if(this.currIntersect){
                 $('body').css('cursor', 'pointer')

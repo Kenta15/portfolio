@@ -30,7 +30,7 @@ export default class Smoke{
             // transparent: true,
             blending:THREE.AdditiveBlending,
             side: THREE.DoubleSide,
-            opacity:0.15,
+            opacity:0.2,
         })
     }
 
@@ -39,7 +39,7 @@ export default class Smoke{
         this.smokes = new THREE.Group()
         this.scene.add(this.smokes)
 
-        this.count = 200
+        this.count = 300
 
         this.smoke_array = []
         this.y_position_array = []
