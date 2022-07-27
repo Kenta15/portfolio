@@ -62,14 +62,14 @@ class Projects extends Animations{
 
         setTimeout(() => {
 
-            $(".curtainLeft").stop().animate({'left': '-50vw'}, 400);
-            $(".curtainRight").stop().animate({'left': '100vw'}, 400);
+            $(".curtainLeft").stop().animate({'left': '-50vw'}, 400)
+            $(".curtainRight").stop().animate({'left': '100vw'}, 400)
 
-            $("#" + index).stop().animate({'opacity': 1}, 3000);
-            $('#' + key).stop().animate({'opacity': 0.5}, 3000);
-            $('.container').stop().animate({'opacity': 1},3000);
+            $("#" + index).stop().animate({'opacity': 1}, 3000)
+            $('#' + key).stop().animate({'opacity': 0.5}, 3000)
+            $('.container').stop().animate({'opacity': 1},3000)
 
-        }, 1000);
+        }, 1200)
     }
 
     customClickAnimation(){

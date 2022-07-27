@@ -74,16 +74,16 @@ class Contact extends Animations{
     customAnimation(index, key){
 
         setTimeout(() => {
-            $('body').stop().animate({'opacity': 1}, 800);
-            $('#' + key).stop().animate({'opacity': 0.5}, 3000);
-            $("#" + index).stop().animate({'opacity': 1}, 3000);
-            $('.thank-you').stop().animate({'opacity': 1}, 3000);
-        }, 1);
+            $('body').stop().animate({'opacity': 1}, 800)
+            $('#' + key).stop().animate({'opacity': 0.5}, 3000)
+            $("#" + index).stop().animate({'opacity': 1}, 3000)
+            $('.thank-you').stop().animate({'opacity': 1}, 3000)
+        }, 1)
 
     }
 
     customClickAnimation(){
-        $('body').stop().animate({'opacity': 0}, 1200);
+        $('body').stop().animate({'opacity': 0}, 1200)
     }
 
     threeTransition(clickTime){

@@ -17,8 +17,8 @@ export default class ProjectWorld{
 
         this.resources.on('ready', () => {
 
-            this.earth = new Earth()
-            this.screens = new Screens()
+            // this.earth = new Earth()
+            // this.screens = new Screens()
             this.effects = new Effects()
             this.floating = new Floating()
             this.smoke = new Smoke()

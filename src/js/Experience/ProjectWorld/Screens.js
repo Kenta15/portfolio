@@ -30,10 +30,7 @@ export default class Screens{
 
         this.projectsList = ['ecommerce', 'movie', 'portfolio', 'none']
 
-        this.resources.on('ready', ()=>{
-            this.setScreens()
-        })
-        
+        this.setScreens()
     }
 
     setScreens(){

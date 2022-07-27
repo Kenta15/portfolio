@@ -39,24 +39,24 @@ class Skills extends Animations{
 
     animations(){
         setTimeout(() => {
-            $('.container').stop().animate({'opacity':1}, 3000);
-            $('.webgl').stop().animate({'opacity':1}, 3000);
-        }, 1);
+            $('.container').stop().animate({'opacity':1}, 3000)
+            $('.webgl').stop().animate({'opacity':1}, 3000)
+        }, 1)
     }
 
     customAnimation(index, key){
 
         setTimeout(() => {
-            $('#' + key).stop().animate({'opacity': 0.5}, 3000);
-            $("#" + index).stop().animate({'opacity': 1}, 3000);
-        }, 1);
+            $('#' + key).stop().animate({'opacity': 0.5}, 3000)
+            $("#" + index).stop().animate({'opacity': 1}, 3000)
+        }, 1)
 
     }
 
     customClickAnimation(){
         setTimeout(() => {
             $('body').stop().animate({'opacity': 0},1000)
-        }, 1);
+        }, 1)
     }
 
     threeTransition(clickTime){

@@ -25,19 +25,19 @@ export default class Animations{
     
             if(key == index){
                 $("#" + key).hover(function(){
-                    $("#" + value).stop().animate({'opacity': 1}, 600);
+                    $("#" + value).stop().animate({'opacity': 1}, 600)
                 }, function() {
-                    $("#" + value).stop().animate({'opacity': 0}, 600);
-                });
+                    $("#" + value).stop().animate({'opacity': 0}, 600)
+                })
             }
             else{
                 $("#" + key).hover(function(){
-                    $("#" + key).stop().animate({'opacity': 1}, 500);
-                    $("#" + value).stop().animate({'opacity': 1}, 600);
+                    $("#" + key).stop().animate({'opacity': 1}, 500)
+                    $("#" + value).stop().animate({'opacity': 1}, 600)
                 }, function() {
-                    $("#" + key).stop().animate({'opacity': 0.5}, 500);
-                    $("#" + value).stop().animate({'opacity': 0}, 600);
-                });
+                    $("#" + key).stop().animate({'opacity': 0.5}, 500)
+                    $("#" + value).stop().animate({'opacity': 0}, 600)
+                })
             }
         })
     }
