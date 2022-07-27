@@ -20,6 +20,7 @@ export default class Screens{
         this.time = this.experience.time
         this.camera = this.experience.camera
         this.renderer = this.experience.renderer
+        this.resources = this.experience.resources
 
         this.earth = new Earth()
         this.projects = this.earth.projects
@@ -29,7 +30,9 @@ export default class Screens{
 
         this.projectsList = ['ecommerce', 'movie', 'portfolio', 'none']
 
-        this.setScreens()
+        this.resources.on('ready', ()=>{
+            this.setScreens()
+        })
         
     }
 
