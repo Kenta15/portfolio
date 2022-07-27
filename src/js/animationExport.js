@@ -86,7 +86,6 @@ export default class Animations{
                                     window.location.href = value + '.html'
                                 }
                                 window.location.href = value + '.html'
-                                console.log('1')
                             }
                         }
                     })

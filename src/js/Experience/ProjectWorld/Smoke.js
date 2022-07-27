@@ -30,7 +30,7 @@ export default class Smoke{
             // transparent: true,
             blending:THREE.AdditiveBlending,
             side: THREE.DoubleSide,
-            opacity:0.3,
+            opacity:0.15,
         })
     }
 
