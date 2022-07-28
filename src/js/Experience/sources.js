@@ -66,6 +66,38 @@ export default [
             '/textures/spotLight.jpeg',
         ]
     },
+    // {
+    //     location: 'projects.html',
+    //     name: 'ecommerce',
+    //     type: 'gltf',
+    //     path: [
+    //         '/models/ecommerce.glb',
+    //     ]
+    // },
+    // {
+    //     location: 'projects.html',
+    //     name: 'movie',
+    //     type: 'gltf',
+    //     path: [
+    //         '/models/movie.glb',
+    //     ]
+    // },
+    // {
+    //     location: 'projects.html',
+    //     name: 'portfolio',
+    //     type: 'gltf',
+    //     path: [
+    //         '/models/portfolio.glb',
+    //     ]
+    // },
+    // {
+    //     location: 'projects.html',
+    //     name: 'none',
+    //     type: 'gltf',
+    //     path: [
+    //         '/models/none.glb',
+    //     ]
+    // },
     // skills
     {
         location: 'skills.html',
