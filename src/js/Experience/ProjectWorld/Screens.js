@@ -2,18 +2,10 @@ import * as THREE from 'three'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 import Experience from '../Experience.js'
-import Earth from './Earth/Earth.js'
-
-let instance = null
 
 export default class Screens{
 
     constructor(){
-
-        if(instance){
-            return instance
-        }
-        instance = this
         
         this.experience = new Experience()
         this.scene = this.experience.scene

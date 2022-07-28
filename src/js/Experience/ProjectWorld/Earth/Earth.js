@@ -5,16 +5,9 @@ import Cloud from './Cloud.js'
 
 import Experience from '../../Experience.js'
 
-let instance = null
-
 export default class Earth{
 
     constructor(){
-
-        if(instance){
-            return instance
-        }
-        instance = this
 
         this.experience = new Experience()
         this.scene = this.experience.scene

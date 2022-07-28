@@ -2,7 +2,6 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 import Experience from '../Experience.js'
-import Screens from './Screens.js'
 
 export default class Effects{
 
@@ -16,7 +15,6 @@ export default class Effects{
         this.canvas = this.experience.canvas
         this.debug = this.experience.debug
 
-        // this.screens = new Screens()
         this.screens = this.experience.projectWorld.screens
         this.projectsList = this.screens.projectsList
         this.projects = this.experience.projectWorld.projects
@@ -53,12 +51,12 @@ export default class Effects{
         
         window.addEventListener('mousedown', (event) => {
             
-            if(this.currIntersect || event.target.tagName == 'A')
-                this.isDragging = false
-            else
-                this.isDragging = true
+            // if(this.currIntersect || event.target.tagName == 'A')
+            //     this.isDragging = false
+            // else
+            //     this.isDragging = true
             
-            // this.isDragging = true
+            this.isDragging = true
 
             this.mousedown.x = event.clientX / this.sizes.width * 2 - 1
         })
@@ -73,19 +71,18 @@ export default class Effects{
             this.cursor.x = event.clientX / this.sizes.width * 2 - 1
             this.cursor.y = - (event.clientY / this.sizes.height) * 2 + 1
 
-            // if(this.isDragging == true){
+            if(this.isDragging == true){
 
-            //     this.delta.x = this.cursor.x - this.mousedown.x
-            //     this.mousedown.x = this.cursor.x
+                this.delta.x = this.cursor.x - this.mousedown.x
+                this.mousedown.x = this.cursor.x
 
-            //     if(this.screens.projects.rotation.z == 0)
-            //         this.screens.projects.rotation.y += this.delta.x
-            //     else
-            //         this.screens.projects.rotation.y -= this.delta.x
-            //     console.log(this.screens.projects.rotation.x, this.screens.projects.rotation.y, this.screens.projects.rotation.z)
+                if(Math.abs(this.projects.rotation.z) == Math.PI)
+                    this.projects.rotation.y -= this.delta.x
+                else
+                    this.projects.rotation.y += this.delta.x
 
-                
-            // }
+                console.log(this.projects.rotation.y, this.projects.rotation.z)
+            }
 
             if(this.currIntersect){
                 $('body').css('cursor', 'pointer')
@@ -161,10 +158,10 @@ export default class Effects{
 
     update(){
 
-        if(this.isDragging == true)
-            this.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.01)
-        else
-            this.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
+        // if(this.isDragging == true)
+        // this.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.01)
+        // else
+        this.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
 
         this.raycaster.setFromCamera(this.cursor, this.camera.instance)
         

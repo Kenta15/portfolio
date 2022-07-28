@@ -3,7 +3,6 @@ import '../css/header.css'
 import * as THREE from 'three'
 import Animations from './animationExport.js'
 import Experience from './Experience/Experience.js'
-import Screens from './Experience/ProjectWorld/Screens.js'
 
 class Projects extends Animations{
 
