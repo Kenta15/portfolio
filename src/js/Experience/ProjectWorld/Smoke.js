@@ -68,7 +68,7 @@ export default class Smoke{
             this.smoke_array.push(item)
         }
         this.smokes.rotation.y = - Math.PI / 3
-        this.smokes.position.set(0,2,0)
+        this.smokes.position.set(2,-5,-5) // -3 -10 -10
 
         this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'x', {min:-100, max:100, step:1})
         this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'y', {min:-100, max:100, step:1})

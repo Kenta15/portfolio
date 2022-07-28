@@ -29,7 +29,7 @@ class Skills extends Animations{
 
     setLights(){
         this.light = new THREE.DirectionalLight(0xffffff,1.5)
-        this.light.position.set( 2, 0,  10)
+        this.light.position.set(2,0,10)
         this.scene.add(this.light)
 
         this.debugFolder = this.debug.pane.addInput(this.light.position, 'x', {min:-100, max:100, step:1})
