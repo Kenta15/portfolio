@@ -16,9 +16,6 @@ class Projects extends Animations{
         this.camera = this.experience.camera
         this.debug = this.experience.debug
 
-        this.screens = new Screens()
-        this.projects = this.screens.projects
-
         this.setCamera()
         this.setLights()
     }
@@ -80,6 +77,8 @@ class Projects extends Animations{
     }
 
     threeTransition(clickTime){
+
+        this.projects = this.experience.projectWorld.projects
 
         this.projects.position.y = 0.03 + clickTime * 10
         this.projects.rotateOnAxis(new THREE.Vector3(0,1,0), clickTime * 0.02)

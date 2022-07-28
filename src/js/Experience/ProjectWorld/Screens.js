@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
-import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js'
+
 import Experience from '../Experience.js'
 import Earth from './Earth/Earth.js'
 
@@ -22,9 +22,6 @@ export default class Screens{
         this.renderer = this.experience.renderer
         this.resources = this.experience.resources
 
-        this.earth = new Earth()
-        this.projects = this.earth.projects
-
         // Adding Screen to the Screens
         this.screens = new THREE.Group()
 
@@ -38,9 +35,6 @@ export default class Screens{
         for(let i = 0;i < this.projectsList.length; i++){
 
         const gltfLoader = new GLTFLoader()
-        const dracoLoader = new DRACOLoader()
-        dracoLoader.setDecoderPath( '/examples/js/libs/draco/' )
-        gltfLoader.setDRACOLoader( dracoLoader )
 
         gltfLoader.load(
             '/models/' + this.projectsList[i] + '.glb',
@@ -62,8 +56,6 @@ export default class Screens{
     }
 
     this.screens.scale.set(1.3,1.3,1.3)
-    this.projects.scale.set(1.5,1.5,1.5)
-    this.projects.add(this.screens)
     }
     
     update(){

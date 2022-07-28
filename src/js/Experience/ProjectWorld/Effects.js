@@ -16,8 +16,10 @@ export default class Effects{
         this.canvas = this.experience.canvas
         this.debug = this.experience.debug
 
-        this.screens = new Screens()
+        // this.screens = new Screens()
+        this.screens = this.experience.projectWorld.screens
         this.projectsList = this.screens.projectsList
+        this.projects = this.experience.projectWorld.projects
 
         this.setOrbitControls()
         this.setRayCaster()
@@ -160,9 +162,9 @@ export default class Effects{
     update(){
 
         if(this.isDragging == true)
-            this.screens.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.01)
+            this.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.01)
         else
-            this.screens.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
+            this.projects.rotateOnAxis(new THREE.Vector3(0,1,0), -0.001)
 
         this.raycaster.setFromCamera(this.cursor, this.camera.instance)
         
