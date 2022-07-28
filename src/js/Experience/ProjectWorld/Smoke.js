@@ -30,7 +30,7 @@ export default class Smoke{
             // transparent: true,
             blending:THREE.AdditiveBlending,
             side: THREE.DoubleSide,
-            opacity:0.2,
+            opacity:0.1,
         })
     }
 
@@ -39,7 +39,7 @@ export default class Smoke{
         this.smokes = new THREE.Group()
         this.scene.add(this.smokes)
 
-        this.count = 300
+        this.count = 200
 
         this.smoke_array = []
         this.y_position_array = []
@@ -68,7 +68,7 @@ export default class Smoke{
             this.smoke_array.push(item)
         }
         this.smokes.rotation.y = - Math.PI / 3
-        this.smokes.position.set(2,-5,-5) // -3 -10 -10
+        this.smokes.position.set(0,2,0)
 
         this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'x', {min:-100, max:100, step:1})
         this.debugFolder = this.debug.pane.addInput(this.smokes.position, 'y', {min:-100, max:100, step:1})

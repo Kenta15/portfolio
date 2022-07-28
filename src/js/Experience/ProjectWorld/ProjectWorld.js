@@ -14,6 +14,7 @@ export default class ProjectWorld{
         this.experience = new Experience()
         this.resources = this.experience.resources
         this.scene = this.experience.scene
+        this.sizes = this.experience.sizes
 
         this.resources.on('ready', () => {
 
@@ -42,6 +43,11 @@ export default class ProjectWorld{
             this.smoke.update()
         if(this.bloom)
             this.bloom.update()
+
+        if(this.sizes.height < 750)
+            $('#descriptions').css('margin-top','48vh')
+        else
+            $('#descriptions').css('margin-top','55vh')
         
     }
 }

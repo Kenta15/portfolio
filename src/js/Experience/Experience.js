@@ -13,6 +13,8 @@ import ProjectWorld from './ProjectWorld/ProjectWorld.js'
 import SkillsWorld from './SkillsWorld/SkillsWorld.js'
 import ContactWorld from './ContactWorld/ContactWorld.js'
 
+import DeviceDetector from "device-detector-js"
+
 let instance = null
 
 export default class Experience{
@@ -25,6 +27,16 @@ export default class Experience{
         }
 
         instance = this
+
+        // const deviceDetector = new DeviceDetector()
+        // const userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+        // const device = deviceDetector.parse(userAgent)
+
+        // if(device.device.type != 'desktop'){
+        //     window.location.href = 'index.html'
+        // }
+
+        // console.log(device)
 
         this.canvas = canvas
 
