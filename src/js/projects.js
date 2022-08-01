@@ -65,7 +65,7 @@ class Projects extends Animations{
             $('#' + key).stop().animate({'opacity': 0.5}, 3000)
             $('.container').stop().animate({'opacity': 1},3000)
 
-        }, 1000)
+        }, 1500)
     }
 
     customClickAnimation(){
@@ -76,6 +76,8 @@ class Projects extends Animations{
     }
 
     threeTransition(clickTime){
+
+        $('#descriptions').css('opacity', 0)
 
         this.projects = this.experience.projectWorld.projects
 

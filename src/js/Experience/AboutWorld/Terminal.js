@@ -200,7 +200,7 @@ export default class Terminal{
                                 "Nice to meet you!"
                                ]
             var textPosition = 0
-            var speed = 100
+            var speed = 80
             var index = 0
             var isFinished = false
 

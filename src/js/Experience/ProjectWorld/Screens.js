@@ -48,7 +48,7 @@ export default class Screens{
         const gltfLoader = new GLTFLoader()
 
         gltfLoader.load(
-            '/models/' + 'movie' + '.glb', // this.projectsList[i]
+            '/models/' + this.projectsList[i] + '.glb',
             (gltf) =>
             {
                 this.screen = gltf.scene.children[0].children[1]

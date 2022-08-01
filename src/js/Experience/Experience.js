@@ -41,8 +41,8 @@ export default class Experience{
         this.canvas = canvas
 
         // Set up
-        this.debug = new Debug(true)
-        this.stats = new Stats(true)
+        this.debug = new Debug(false)
+        this.stats = new Stats(false)
         this.sizes = new Sizes()
         this.time = new Time()
         this.scene = new THREE.Scene()

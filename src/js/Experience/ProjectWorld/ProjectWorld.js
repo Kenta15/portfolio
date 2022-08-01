@@ -39,6 +39,7 @@ export default class ProjectWorld{
         this.projects.add(this.earth.earth)
 
         this.projects.scale.set(1.5,1.5,1.5)
+        this.projects.rotation.y = Math.PI / 1.3
         this.projects.add(this.screens.screens)
     }
 
