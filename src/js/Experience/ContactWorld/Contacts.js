@@ -65,7 +65,7 @@ export default class Contacts{
 
     update(){
 
-        if(this.contacts.children[11].position.x >= 3.5){
+        if(this.time.elapsed * 0.001 < 2.0 && this.contacts.children[11].position.x >= 3.5){
 
             this.contacts.traverse((child) => {
 
