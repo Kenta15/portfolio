@@ -39,15 +39,12 @@ class Projects extends Animations{
     customAnimation(index,key){
 
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                $(".curtainLeft").stop().animate({'left': '-50vw'}, 400)
-                $(".curtainRight").stop().animate({'left': '100vw'}, 400)
-    
-                $("#" + index).stop().animate({'opacity': 1}, 3000)
-                $('#' + key).stop().animate({'opacity': 0.5}, 3000)
-                $('.container').stop().animate({'opacity': 1},3000)
-    
-            }, 1200)
+            $(".curtainLeft").stop().animate({'left': '-50vw'}, 400)
+            $(".curtainRight").stop().animate({'left': '100vw'}, 400)
+
+            $("#" + index).stop().animate({'opacity': 1}, 3000)
+            $('#' + key).stop().animate({'opacity': 0.5}, 3000)
+            $('.container').stop().animate({'opacity': 1},3000)
         })
     }
 

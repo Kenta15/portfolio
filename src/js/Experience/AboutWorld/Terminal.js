@@ -164,9 +164,7 @@ export default class Terminal{
                     $(".curtainLeft").stop().animate({'left': '0'}, 400)
                     $(".curtainRight").stop().animate({'left': '50vw'}, 400)
                 },500)
-                setTimeout(() => {
-                    window.location.href = 'projects.html'
-                }, 1200)
+                window.location.href = 'projects.html'
             }
         })
     }
