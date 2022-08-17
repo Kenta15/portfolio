@@ -41,7 +41,7 @@ export default function explain(name){
                          </p>
                         `
     }
-    else if(name == 'JQuery'){
+    else if(name == 'jQuery'){
         exp.innerHTML = `<h1 class="title">JQuery</h1>
                          <p></p>
                         `
@@ -56,11 +56,6 @@ export default function explain(name){
                          <p></p>
                         `
     }
-    else if(name == 'Vue.js'){
-        exp.innerHTML = `<h1 class="title">Vue.js</h1>
-                         <p></p>
-                        `
-    }
     else if(name == 'Node.js'){
         exp.innerHTML = `<h1 class="title">Node.js</h1>
                          <p></p>
@@ -71,13 +66,13 @@ export default function explain(name){
                          <p></p>
                         `
     }
-    else if(name == 'AWS'){
-        exp.innerHTML = `<h1 class="title">AWS</h1>
+    else if(name == 'Heroku'){
+        exp.innerHTML = `<h1 class="title">Heroku</h1>
                          <p></p>
                         `
     }
-    else if(name == 'Heroku'){
-        exp.innerHTML = `<h1 class="title">Heroku</h1>
+    else if(name == 'Vercel'){
+        exp.innerHTML = `<h1 class="title">Vercel</h1>
                          <p></p>
                         `
     }
@@ -96,7 +91,7 @@ export default function explain(name){
                          <p></p>
                         `
     }
-    else if(name == 'VS Code'){
+    else if(name == 'VSCode'){
         exp.innerHTML = `<h1 class="title">VS Code</h1>
                          <p></p>
                         `
@@ -105,5 +100,10 @@ export default function explain(name){
         exp.innerHTML = `<h1 class="title">Blender</h1>
                          <p></p>
                         `
-    }                  
+    }
+    else if(name == 'AWS'){
+        exp.innerHTML = `<h1 class="title">AWS</h1>
+                         <p></p>
+                        `
+    }               
 }

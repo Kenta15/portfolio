@@ -32,10 +32,10 @@ export default class Texts{
 
         this.objectsToUpdate = []
 
-        this.text_array = ['JavaScript','Python','HTML','CSS','Django','JQuery','Three.js','Cannon.js', 
-                            'Vue.js','Node.js','React','AWS','Heroku','Git','GitHub','Webpack','VS Code',
-                            'Blender', 'Vercel', 'Express.js', 'illustrator', 'MongoDB', 'Mongoose', 'SQL', 'SQLite', 
-                            'Angular.js', 'Rest', 'Atom', 'GLSL', 'WebGL'
+        this.text_array = ['JavaScript','Python','HTML','CSS','Django','jQuery','Three.js','Cannon.js', 
+                            'Bootstrap','Node.js','React','Heroku','Vercel', 'Git','GitHub','Webpack','VSCode',
+                            'Blender', 'Express.js', 'illustrator', 'MongoDB', 'Mongoose', 'SQL', 'SQLite', 
+                            'Rest', 'GLSL', 'WebGL', 'AWS', '', ''
                             ]
 
         this.rayCaster = new RayCaster()

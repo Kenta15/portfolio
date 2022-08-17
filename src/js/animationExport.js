@@ -82,9 +82,6 @@ export default class Animations{
                         if(event.target.id == key){
                             setTimeout(myURL, 1200)
                             function myURL(){
-                                if(value == 'projects'){
-                                    window.location.href = value + '.html'
-                                }
                                 window.location.href = value + '.html'
                             }
                         }
