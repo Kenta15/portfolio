@@ -78,6 +78,7 @@ class Contact extends Animations{
             $('#' + key).stop().animate({'opacity': 0.5}, 3000)
             $("#" + index).stop().animate({'opacity': 1}, 3000)
             $('.thank-you').stop().animate({'opacity': 1}, 3000)
+            $('.attributions h3').stop().animate({'opacity': 0.5}, 3000)
         }, 1)
 
     }

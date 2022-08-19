@@ -47,4 +47,5 @@ Use this link to visit the website: [Portfolio](https://my-portfolio-kenta15.ver
 
 ## References
 Learned Three.js here: [three.js Journey](https://threejs-journey.com/)
+
 Three.js Documentation: [three.js documentation](https://threejs.org/docs/)

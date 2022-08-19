@@ -33,9 +33,9 @@ export default class Texts{
         this.objectsToUpdate = []
 
         this.text_array = ['JavaScript','Python','HTML','CSS','Django','jQuery','Three.js','Cannon.js', 
-                            'Bootstrap','Node.js','React','Heroku','Vercel', 'Git','GitHub','Webpack','VSCode',
-                            'Blender', 'Express.js', 'illustrator', 'MongoDB', 'Mongoose', 'SQL', 'SQLite', 
-                            'Rest', 'GLSL', 'WebGL', 'AWS', '', ''
+                            'Bootstrap','Heroku','Vercel', 'Git','GitHub','VSCode','Blender',
+                            'GLSL','SQLite','illustrator',
+                            'MongoDB', 'Mongoose', 'SQL', 'React', 'Node.js','Express.js','Rest'
                             ]
 
         this.rayCaster = new RayCaster()
@@ -91,7 +91,7 @@ export default class Texts{
 
         const fontLoader = new FontLoader()
         const textureLoader = new TextureLoader()
-        const textTexture = textureLoader.load('/textures/matcaps/silver.png')
+        const textTexture = textureLoader.load('/textures/matcaps/matcap.png')
 
         fontLoader.load(
             '/fonts/helvetiker_regular.typeface.json',

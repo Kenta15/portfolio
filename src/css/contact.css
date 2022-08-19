@@ -9,3 +9,14 @@ body{
     font-size: 1vw;
     opacity:0;
 }
+.attributions{
+    margin-top:-5vh;
+    margin-left:2vw;
+}
+.attributions h3{
+    width:10%;
+    opacity:0;
+}
+.attributions a, .attributions p{
+    display:none;
+}

@@ -17,7 +17,7 @@ export default class IndexWorld{
             this.scene.background = this.resources.items.gradientTexture
             this.raycaster = new Raycaster()
             this.sphere = new Sphere()
-            this.flag = new Flag()
+            // this.flag = new Flag()
         })
     }
 
@@ -29,7 +29,7 @@ export default class IndexWorld{
         if(this.sphere)
             this.sphere.update()
         
-        if(this.flag)
-            this.flag.update()
+        // if(this.flag)
+        //     this.flag.update()
     }
 }

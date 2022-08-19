@@ -74,6 +74,20 @@
         </div>
         <div class="curtainLeft"></div>
         <div class="curtainRight"></div>
+        <div class="attributions">
+        <h3 style="color:white;">Attribution</h3>
+        <a target="_blank" href="https://mac-cursors.netlify.app/">Pointer Icon</a>
+        </div>
     </div>
+    <script>
+        $('.attributions h3').hover(() => {
+                    $('.attributions h3').stop().animate({'opacity': 1}, 500)
+                }, () => {
+                    $('.attributions h3').stop().animate({'opacity': 0.5}, 500)
+                })
+        $('.attributions h3').click(() => {
+            $('.attributions a').css('display', 'inline')
+        })
+    </script>
 </body>
 </html>

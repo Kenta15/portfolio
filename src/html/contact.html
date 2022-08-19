@@ -32,6 +32,24 @@
             </div>
         </div>
         <p class="thank-you">~ Thank you for visiting ~</p>
+        <div class="attributions">
+        <h3 style="color:white;">Attributions</h3>
+        <a target="_blank" href="https://icons8.com/icon/YRRhCXfA0Vd0/mail">Mail</a> <p>icon by </p><a target="_blank" href="https://icons8.com">Icons8</a>
+        <a target="_blank" href="https://iconscout.com/icon/linkedin-1851694">LinkedIn</a> <p>icon by </p> <a target="_blank" href="https://iconscout.com/">Silviu Ojog</a>
+        <a target="_blank" href="https://icons8.com/icon/YRRhCXfA0Vd0/mail">Github</a> <p>icon by </p> <a target="_blank" href="https://icons8.com">Icons8</a>
+        <a target="_blank" href="https://www.svgrepo.com/svg/314123/hand-pointer">Pointer</a> <p>icon by </p> <a target="_blank" href="https://www.svgrepo.com/">svgrepo</a>
+        </div>
     </div>
+    <script>
+        $('.attributions h3').hover(() => {
+                    $('.attributions h3').stop().animate({'opacity': 1}, 500)
+                }, () => {
+                    $('.attributions h3').stop().animate({'opacity': 0.5}, 500)
+                })
+        $('.attributions h3').click(() => {
+            $('.attributions a').css('display', 'inline')
+            $('.attributions p').css('display', 'inline')
+        })
+    </script>
 </body>
 </html>

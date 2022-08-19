@@ -63,3 +63,15 @@
 	top:0;
 	left:50vw;
 }
+.attributions{
+    position:absolute;
+    margin-top:30vh;
+    margin-left:2vw;
+}
+.attributions h3{
+    width:10%;
+    opacity:0;
+}
+.attributions a{
+    display:none;
+}
