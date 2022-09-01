@@ -1,7 +1,6 @@
 #descriptions{
     color:white;
     text-align:center;
-    margin-top:55vh;
     margin-left:27vw;
     opacity:0.8;
 }
@@ -26,9 +25,10 @@
     margin-left:0.5vw;
     box-shadow:none;
 }
-#ecommerce,#movie,#portfolio, #none{
+#ecommerce,#movie,#AI, #none{
     position:absolute;
     display:none;
+    margin-top:1vh;
     opacity:0;
     width:60%;
 }

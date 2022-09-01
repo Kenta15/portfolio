@@ -179,7 +179,7 @@ export default class Terminal{
             setTimeout(() => {
                 document.getElementById('response').innerHTML += `<br><p style="display:inline; color:#58CE31;">[Name]</p> Kenta Tanaka
                                                                   <br><br><p style="display:inline; color:#58CE31;">[Where From]</p> Japan
-                                                                  <br><br><p style="display:inline; color:#58CE31;">[Title]</p> Web Developer
+                                                                  <br><br><p style="display:inline; color:#58CE31;">[Title]</p> Software Engineer
                                                                   <br><br><p style="display:inline; color:#58CE31;">[School]</p> University of California - Davis
                                                                   <br><br><p class="texts" id="message0" style="display:inline;"></p>
                                                                  `
@@ -193,8 +193,8 @@ export default class Terminal{
 
             this.disable = true
             
-            var messageArray = ["Hi, I'm Kenta.", "I am a Japansese Web Developer in the U.S.", "Currently commuting to UC Davis as a CS student.",
-                                "I like to build anything unique and stylish.", "Looking forward to exploring more Web Development and Design.",
+            var messageArray = ["Hi, I'm Kenta.", "I am a Japansese Software Engineer in the U.S.", "Currently commuting to UC Davis as a CS student.",
+                                "I like to build anything unique and stylish.", "Looking forward to learn more to build advanced projects",
                                 "Nice to meet you!"
                                ]
             var textPosition = 0
