@@ -119,10 +119,10 @@ export default class Effects{
                         }
                     }
                 }
-                else if(this.currIntersect.object.name == 'AI'){
+                else if(this.currIntersect.object.name == 'chatbot'){
 
                     for(let i = 0; i < this.projectsList.length; i++){
-                        if(this.projectsList[i] == 'AI'){
+                        if(this.projectsList[i] == 'chatbot'){
                             $('#' + this.projectsList[i]).css('display', 'block')
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
                         }

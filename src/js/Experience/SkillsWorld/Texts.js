@@ -34,7 +34,7 @@ export default class Texts{
 
         this.text_array = ['JavaScript','Python','HTML','CSS','Django','jQuery','Three.js','Cannon.js', 
                             'Bootstrap','Heroku','Vercel', 'Git','GitHub','VSCode','Blender',
-                            'GLSL','SQLite','illustrator', '', '',
+                            'GLSL','SQLite','illustrator', 'Pytorch', '',
                             'More', 'Will', 'Be', 'Added', 'Soon'
                             // 'MongoDB', 'Mongoose', 'SQL', 'React', 'Node.js','Express.js','Rest'
                             ]

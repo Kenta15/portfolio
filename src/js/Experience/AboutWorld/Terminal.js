@@ -194,7 +194,7 @@ export default class Terminal{
             this.disable = true
             
             var messageArray = ["Hi, I'm Kenta.", "I am a Japansese Software Engineer in the U.S.", "Currently commuting to UC Davis as a CS student.",
-                                "I like to build anything unique and stylish.", "Looking forward to learn more to build advanced projects",
+                                "I like to build anything unique and stylish.", "Looking forward to learn more to build advanced projects.",
                                 "Nice to meet you!"
                                ]
             var textPosition = 0

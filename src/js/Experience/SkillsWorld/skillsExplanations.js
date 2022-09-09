@@ -170,6 +170,14 @@ export default function explain(name){
                          </p>
                         `
     }
+    else if(name == 'Pytorch'){
+        exp.innerHTML = `<h1 class="title">Pytorch</h1>
+                         <p> Pytorch is a open source machine learning framework.
+                         <br> I used Pytorch for a chatbot to train our mmodel with a neural network.
+                         <br> Proficiency: ★★☆☆☆
+                         </p>
+                        `
+    }
     else if(name == 'AWS'){
         exp.innerHTML = `<h1 class="title">AWS</h1>
                          <p>
