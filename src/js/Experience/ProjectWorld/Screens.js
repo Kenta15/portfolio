@@ -17,7 +17,7 @@ export default class Screens{
         // Adding Screen to the Screens
         this.screens = new THREE.Group()
 
-        this.projectsList = ['ecommerce', 'movie', 'chatbot', 'none']
+        this.projectsList = ['ecommerce', 'movie', 'chatbot', 'Todo']
 
         this.setScreens()
     }

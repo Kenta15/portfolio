@@ -177,59 +177,38 @@ export default function explain(name){
                          <br> Proficiency: ★★☆☆☆
                          </p>
                         `
-    }
-    else if(name == 'AWS'){
-        exp.innerHTML = `<h1 class="title">AWS</h1>
-                         <p>
-                         <br>
-                         </p>
-                         `
-    }       
+    }   
     else if(name == 'Node.js'){
         exp.innerHTML = `<h1 class="title">Node.js</h1>
-                         <p>
+                         <p> Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications.
                          <br>
                          </p>
                         `
     }
     else if(name == 'React'){
         exp.innerHTML = `<h1 class="title">React</h1>
-                         <p>
-                         <br>
-                         </p>
-                        `
-    }
-    else if(name == 'MongoDB'){
-        exp.innerHTML = `<h1 class="title">MongoDB</h1>
-                         <p>
+                         <p> React is a JavaScript framework and library for front-end.
                          <br>
                          </p>
                         `
     }
     else if(name == 'Mongoose'){
         exp.innerHTML = `<h1 class="title">Mongoose</h1>
-                         <p>
-                         <br>
-                         </p>
-                        `
-    }
-    else if(name == 'SQL'){
-        exp.innerHTML = `<h1 class="title">SQL</h1>
-                         <p>
+                         <p> Mongoose is an Object Data Modeling library for MongoDB and Node.js.
                          <br>
                          </p>
                         `
     }
     else if(name == 'Express.js'){
         exp.innerHTML = `<h1 class="title">Express.js</h1>
-                         <p>
+                         <p> Express is a Node.js web application framework for building web and mobile applications.
                          <br>
                          </p>
                         `
     }
     else if(name == 'Rest'){
         exp.innerHTML = `<h1 class="title">Rest</h1>
-                         <p>
+                         <p> RESTful API is an application programming interface that conforms to the constraints of REST architectual style and allows for interaction with RESTful web Services.
                          <br>
                          </p>
                         `

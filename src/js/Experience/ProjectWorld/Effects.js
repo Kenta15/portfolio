@@ -101,7 +101,7 @@ export default class Effects{
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
                         }
                         else{
-                            $('#' + this.projectsList[i]).css('display', 'none')
+                            $('#' + this.projectsList[i]).css('display', 'Todo')
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0},1000)
                         }
                     }
@@ -114,7 +114,7 @@ export default class Effects{
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
                         }
                         else{
-                            $('#' + this.projectsList[i]).css('display', 'none')
+                            $('#' + this.projectsList[i]).css('display', 'Todo')
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0},1000)
                         }
                     }
@@ -127,20 +127,20 @@ export default class Effects{
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
                         }
                         else{
-                            $('#' + this.projectsList[i]).css('display', 'none')
+                            $('#' + this.projectsList[i]).css('display', 'Todo')
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0},1000)
                         }
                     }
                 }
-                else if(this.currIntersect.object.name == 'none'){
+                else if(this.currIntersect.object.name == 'Todo'){
 
                     for(let i = 0; i < this.projectsList.length; i++){
-                        if(this.projectsList[i] == 'none'){
+                        if(this.projectsList[i] == 'Todo'){
                             $('#' + this.projectsList[i]).css('display', 'block')
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0.8},1000)
                         }
                         else{
-                            $('#' + this.projectsList[i]).css('display', 'none')
+                            $('#' + this.projectsList[i]).css('display', 'Todo')
                             $('#' + this.projectsList[i]).stop().animate({'opacity': 0},1000)
                         }
                     }
